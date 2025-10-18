@@ -192,19 +192,19 @@ const trustedPeople = [
   },
   {
     id: 5,
-    name: "Sarah Khan",
+    name: "Sarah ",
     designation: "UI/UX Designer",
     image: "https://randomuser.me/api/portraits/women/2.jpg",
   },
   {
     id: 6,
-    name: "Ahmed Raza",
+    name: "Ahmed ",
     designation: "Backend Engineer",
     image: "https://randomuser.me/api/portraits/men/3.jpg",
   },
   {
     id: 7,
-    name: "Ayesha Malik",
+    name: "Ayesha ",
     designation: "Project Manager",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
@@ -231,7 +231,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-visible bg-gradient-to-br from-white via-white to-gray-50 py-20 lg:py-32">
+    <section className="relative overflow-visible bg-[#f8f8f8] py-20 lg:py-32">
       {/* Background decorative blobs */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/3 rounded-full blur-3xl animate-float-reverse" />
