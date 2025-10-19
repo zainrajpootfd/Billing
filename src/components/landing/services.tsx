@@ -262,7 +262,7 @@ const cardVariants: Variants = {
 
 export default function Services() {
   return (
-    <section className="py-20 px-6 md:px-20 bg-background" id="services">
+    <section className="py-20 px-6 md:px-20 bg-background">
       {/* Section Header */}
       <div className="text-center mb-12">
         <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
