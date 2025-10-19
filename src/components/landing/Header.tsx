@@ -93,13 +93,14 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
-    { label: "Services", href: "#services" },
+    { label: "Services", href: "/services" },
     { label: "Specialities", href: "/specialities" },
     { label: "Testimonials", href: "#testimonials" },
     { label: "About Us", href: "/about" },
@@ -129,12 +130,16 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={menuRef}>
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">M</span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-foreground">
+          <Link href="/" className=" flex items-center justify-center ">
+            <Image
+              src="/logo.jpeg"
+              alt="Encore Billing Group Logo"
+              width={80}
+              height={80}
+              className="object-fit-fill bg-primary"
+            />
+            <div className="hidden sm:block leading-tight">
+              <h1 className="text-xl font-bold  text-primary">
                 Encore Billing Group
               </h1>
               <p className="text-xs text-muted-foreground">
@@ -185,9 +190,14 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <button className="w-full mt-4 px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
-              Request Demo
-            </button>
+            <Link href="/contact">
+              <Button
+                variant="default"
+                className="w-full mt-4 bg-primary text-white hover:bg-primary/90"
+              >
+                Request Demo
+              </Button>
+            </Link>
           </nav>
         )}
       </div>
