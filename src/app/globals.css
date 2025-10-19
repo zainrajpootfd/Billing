@@ -5,6 +5,54 @@ html {
   scroll-behavior: smooth;
 }
 @custom-variant dark (&:is(.dark *));
+/* @keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+} */
+/* make sure this is placed after Tailwind's utilities so it isn't overridden */
+
+@keyframes ticker-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* viewport is overflow-hidden (already from markup). animate the inner track */
+.ticker__track {
+  display: inline-flex;
+  gap: 2rem; /* adjust spacing between items */
+  align-items: center;
+  animation: ticker-slide 18s linear infinite;
+}
+
+/* improve performance hint */
+.ticker__track {
+  will-change: transform;
+}
+
+/* pause on hover */
+.ticker__track:hover {
+  animation-play-state: paused;
+}
+
+/* reduce motion for prefers-reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  .ticker__track {
+    animation: none;
+  }
+}
+
+.animate-slide {
+  display: inline-block;
+  animation: slide 15s linear infinite;
+}
 
 :root {
   --background: oklch(0.9824 0.0013 286.3757);

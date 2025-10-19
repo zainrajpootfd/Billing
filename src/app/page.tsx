@@ -5,17 +5,23 @@ import KPI from "@/components/landing/Kpi";
 import Specialities from "@/components/landing/Specialities";
 import Testimonials from "@/components/landing/testimonials";
 import Associated from "@/components/landing/associated";
+import Contact from "@/components/landing/Contact";
+import TopBar from "@/components/landing/TopBar";
+import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
     <div className="min-h-screen mx-auto">
-      <Header />
+      {/* <TopBar />
+      <Header /> */}
       <Hero />
       <Services />
       <KPI />
       <Specialities />
       <Testimonials />
       <Associated />
+      <Contact />
+      {/* <Footer /> */}
     </div>
   );
 }
