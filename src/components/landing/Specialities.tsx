@@ -115,7 +115,7 @@ const specialities = [
 
 export default function Specialities() {
   return (
-    <section className="py-20 lg:py-32 bg-white">
+    <section className="py-20 lg:py-32 bg-gradient-to-br from-emerald-50 via-white to-purple-100 dark:from-emerald-950 dark:via-zinc-900 dark:to-purple-950">
       {/* Heading */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
         <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
@@ -126,41 +126,20 @@ export default function Specialities() {
         </p>
       </div>
 
-      {/* 3D Cards */}
-      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <CardContainer containerClassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {specialities.map((spec) => {
-            const Icon = spec.icon;
-            return (
-              <CardItem
-                key={spec.name}
-                className="p-8 bg-gray-50 rounded-xl transition-all duration-300 cursor-pointer group"
-                translateZ={20} // pop out effect
-              >
-                <div className="mb-4 p-4 bg-primary/10 rounded-lg w-fit group-hover:bg-primary/20 transition-colors">
-                  <Icon className="text-primary" size={32} />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
-                  {spec.name}
-                </h3>
-                <p className="text-muted-foreground">{spec.description}</p>
-              </CardItem>
-            );
-          })}
-        </CardContainer>
-      </div> */}
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {specialities.map((spec) => {
           const Icon = spec.icon;
           return (
             <CardContainer key={spec.name} containerClassName="">
               <CardItem
-                className="p-8 bg-white/5 backdrop-blur-md border-2 border-b-lime-700  rounded-xl transition-all duration-300 cursor-pointer group"
+                className="p-8 bg-white/10 dark:bg-zinc-900/50 backdrop-blur-md border-2 border-primary/10 rounded-xl transition-all duration-300 cursor-pointer group hover:border-primary/40 hover:shadow-lg hover:shadow-emerald-100/30 dark:hover:shadow-purple-900/30"
                 translateZ={20}
               >
-                <div className="mb-4 p-4 bg-primary/10 rounded-lg w-fit group-hover:bg-primary/20 transition-colors">
-                  <Icon className="text-secondary" size={32} />
+                <div className="mb-4 p-4 bg-gradient-to-br from-emerald-100 to-purple-100 dark:from-emerald-900/30 dark:to-purple-900/30 rounded-lg w-fit group-hover:from-emerald-200 group-hover:to-purple-200 transition-colors">
+                  <Icon
+                    className="text-emerald-600 dark:text-purple-400"
+                    size={32}
+                  />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">
                   {spec.name}
