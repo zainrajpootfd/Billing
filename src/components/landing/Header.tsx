@@ -102,7 +102,7 @@ export default function Header() {
   const navItems = [
     { label: "Services", href: "/services" },
     { label: "Specialities", href: "/specialities" },
-    { label: "Testimonials", href: "#testimonials" },
+    { label: "Testimonials", href: "/testimonials" },
     { label: "About Us", href: "/about" },
     { label: "Insights", href: "/insights" },
     { label: "Contact", href: "/contact" },
@@ -126,7 +126,7 @@ export default function Header() {
   }, [isOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#ffffff] border-b border-gray-100">
+    <header className="sticky top-0 z-50 bg-[#f0f1e3]  shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={menuRef}>
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
