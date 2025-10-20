@@ -159,7 +159,10 @@ export default function KPI() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 lg:py-32 bg-gradient-to-br from-cyan-200 via-white to-green-500"
+      className="py-20 lg:py-32  bg-gradient-to-r from-lime-100 via-green-100 to-emerald-200
+
+
+"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in-up">
@@ -178,10 +181,10 @@ export default function KPI() {
           {kpis.map((kpi, idx) => (
             <div
               key={kpi.label}
-              className="text-center p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow animate-scale-in"
+              className="text-center p-8 bg-transparent backdrop-blur-2xl rounded-xl shadow-sm hover:shadow-md transition-shadow animate-scale-in"
               style={{ animationDelay: `${idx * 0.1}s` }}
             >
-              <div className="text-4xl lg:text-5xl font-bold text-primary mb-2">
+              <div className="text-4xl lg:text-5xl font-bold text-foreground mb-2">
                 <Counter
                   target={kpi.value}
                   suffix={kpi.suffix}
