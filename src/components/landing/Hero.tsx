@@ -163,6 +163,7 @@ import Image from "next/image";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { Button } from "../ui/button";
 
 // 👥 People You Can Trust (for Animated Tooltip)
 const trustedPeople = [
@@ -231,7 +232,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-visible bg-[#f8f8f8] py-20 lg:py-32">
+    <section className="relative overflow-visible bg-[#f0f1e3] py-20 lg:py-32">
       {/* Background decorative blobs */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/3 rounded-full blur-3xl animate-float-reverse" />
@@ -239,7 +240,17 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="animate-fade-in-left">
+          <div className="animate-fade-in-left ">
+            <div className="flex items-center mb-2 gap-2 border-2 border-primary px-2 py-1 rounded-full w-fit">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              <span className="font-light text-sm font-mono ">
+                Active Monitoring 24/7
+              </span>
+            </div>
+
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight animate-fade-in-up">
               HIPAA Compliance Medical Billing Company
             </h1>
@@ -256,12 +267,12 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <button className="px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors hover:scale-105 active:scale-95">
+              <Button className="px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors hover:scale-105 active:scale-95">
                 Request Demo
-              </button>
-              <button className="px-8 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition-colors hover:scale-105 active:scale-95">
+              </Button>
+              <Button className="px-8 py-3 border-2 bg-primary-foreground border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition-colors hover:scale-105 active:scale-95">
                 Learn More
-              </button>
+              </Button>
             </div>
 
             {/* Trusted by Professionals (AnimatedTooltip) */}
@@ -272,8 +283,45 @@ export default function Hero() {
               <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
                 Trusted by Professionals
               </p>
-              <div className="flex items-center justify-start">
-                <AnimatedTooltip items={trustedPeople} />
+
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-start gap-3">
+                {/* 👥 Tooltip avatars */}
+                <div className="flex flex-row items-center justify-start">
+                  <AnimatedTooltip items={trustedPeople} />
+                </div>
+
+                {/* ⭐ Stars + Rating text */}
+                <div className="flex flex-col items-center sm:items-start sm:ml-5">
+                  <div className="flex items-center gap-0.5 pb-1">
+                    {[...Array(4)].map((_, i) => (
+                      <svg
+                        key={i}
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        className="w-4 h-4 text-yellow-500"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.956c.3.922-.755 1.688-1.54 1.118l-3.371-2.449a1 1 0 00-1.176 0l-3.371 2.45c-.784.569-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.075 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.274-3.957z" />
+                      </svg>
+                    ))}
+                    {/* gray star */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="w-4 h-4 text-gray-300"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.956c.3.922-.755 1.688-1.54 1.118l-3.371-2.449a1 1 0 00-1.176 0l-3.371 2.45c-.784.569-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.075 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.274-3.957z" />
+                    </svg>
+                  </div>
+
+                  {/* 🏷️ Rating text below stars */}
+                  <span className="text-xs text-muted-foreground mt-1">
+                    Rated{" "}
+                    <span className="font-medium text-foreground">4.8/5</span>{" "}
+                    by 500+ clients
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -281,15 +329,21 @@ export default function Hero() {
           {/* Right Doctor Image Carousel */}
           <div
             className="relative animate-fade-in-right"
-            style={{ animationDelay: "0.1s" }}
+            style={{ animationDelay: "0.5s" }}
           >
             <div className="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src={doctors[doctorIndex]}
-                alt={`Doctor ${doctorIndex + 1}`}
-                fill
-                className="object-cover transition-opacity duration-700"
-              />
+              {doctors.map((doctor, index) => (
+                <Image
+                  key={index}
+                  src={doctor}
+                  alt={`Doctor ${index + 1}`}
+                  fill
+                  className={`object-cover absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                    index === doctorIndex ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
+
               {/* Navigation */}
               <button
                 onClick={prevDoctor}
