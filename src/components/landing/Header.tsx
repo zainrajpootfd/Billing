@@ -145,7 +145,7 @@ export default function Header() {
               <h1 className=" lg:text-lg xl:text-xl font-bold text-primary-blue ">
                 Encore Billing Group
               </h1>
-              <p className="text-xs text-accent-green">
+              <p className="text-xs text-[#005c0f] font-medium">
                 your growth, our promise
               </p>
             </div>
