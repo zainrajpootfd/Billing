@@ -126,35 +126,38 @@ export default function Header() {
   }, [isOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#f0f1e3]  shadow-md">
+    <header className="sticky top-0 z-50 bg-[#ffffff]  ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={menuRef}>
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className=" flex items-center justify-center ">
+          <Link
+            href="/"
+            className=" flex items-center justify-center bg-white "
+          >
             <Image
-              src="/logo.jpeg"
+              src="/enlogo.png"
               alt="Encore Billing Group Logo"
-              width={80}
-              height={80}
-              className="object-fit-fill bg-primary"
+              width={46}
+              height={46}
+              className="object-fit-fill bg-white rounded-md "
             />
-            <div className="hidden sm:block leading-tight">
-              <h1 className="text-xl font-bold  text-primary">
+            <div className="hidden sm:block leading-tight ml-2">
+              <h1 className=" lg:text-lg xl:text-xl font-bold text-primary-blue ">
                 Encore Billing Group
               </h1>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-accent-green">
                 your growth, our promise
               </p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-4 lg:gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                className="text-sm font-medium text-gray-700 hover:text-accent-green transition-colors"
               >
                 {item.label}
               </Link>
@@ -163,7 +166,7 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <button className="px-6 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
+            <button className="md:px-4 lg:px-5 py-2 bg-accent-green text-white rounded-lg font-medium bg-accent-green-hover transition-colors">
               Request Demo
             </button>
           </div>
@@ -184,7 +187,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="block px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-50 rounded-lg transition-colors"
+                className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
                 onClick={() => setIsOpen(false)} // close on link click too
               >
                 {item.label}
@@ -193,7 +196,7 @@ export default function Header() {
             <Link href="/contact">
               <Button
                 variant="default"
-                className="w-full mt-4 bg-primary text-white hover:bg-primary/90"
+                className="w-full mt-4 bg-accent-green text-white hover-bg-accent-foreground"
               >
                 Request Demo
               </Button>

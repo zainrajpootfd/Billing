@@ -262,18 +262,18 @@ const cardVariants: Variants = {
 
 export default function Services() {
   return (
-    <section className="py-20 px-6 md:px-20 bg-background">
+    <section className="py-20 px-6 md:px-20 bg-[#f3f3f3]">
+      {" "}
       {/* Section Header */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+        <h2 className="text-3xl lg:text-4xl font-bold text-primary-blue mb-4">
           Our Services
         </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
           Encore Billing Group offers efficient solutions tailored to your
           practice's unique needs.
         </p>
       </div>
-
       {/* Cards */}
       <motion.div
         variants={containerVariants}
@@ -295,9 +295,9 @@ export default function Services() {
             >
               <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
                 <CardHeader className="flex flex-col items-start">
-                  <div className="mb-3 p-3 bg-primary/10 rounded-lg w-fit group transition-all">
+                  <div className="mb-3 p-3 bg-accent-green/10 rounded-lg w-fit group transition-all">
                     <Icon
-                      className="text-primary group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300"
+                      className="text-accent-green group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300"
                       size={28}
                     />
                   </div>
@@ -306,12 +306,12 @@ export default function Services() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-sm text-gray-700 mb-4">
                     {service.description}
                   </p>
                   <a
                     href="#"
-                    className="text-primary font-semibold text-sm hover:underline inline-flex items-center gap-1 transition-transform hover:translate-x-1"
+                    className="text-accent-green font-semibold text-sm hover:underline inline-flex items-center gap-1 transition-transform hover:translate-x-1"
                   >
                     Learn More →
                   </a>

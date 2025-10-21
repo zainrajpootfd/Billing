@@ -115,13 +115,13 @@ const specialities = [
 
 export default function Specialities() {
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-emerald-50 via-white to-purple-100 dark:from-emerald-950 dark:via-zinc-900 dark:to-purple-950">
+    <section className="py-20 lg:py-32 bg-[#ebedf0] dark:from-emerald-950 dark:via-zinc-900 dark:to-purple-950">
       {/* Heading */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-        <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+        <h2 className="text-4xl lg:text-5xl font-bold text-primary-blue mb-6">
           Medical Specialities We Serve
         </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
           Expert billing solutions for every medical specialty
         </p>
       </div>
@@ -132,19 +132,16 @@ export default function Specialities() {
           return (
             <CardContainer key={spec.name} containerClassName="">
               <CardItem
-                className="p-8 bg-white/10 dark:bg-zinc-900/50 backdrop-blur-md border-2 border-primary/10 rounded-xl transition-all duration-300 cursor-pointer group hover:border-primary/40 hover:shadow-lg hover:shadow-emerald-100/30 dark:hover:shadow-purple-900/30"
+                className="p-8 bg-white border border-emerald-200/50 rounded-xl transition-all duration-300 cursor-pointer group hover:border-emerald-400 hover:shadow-lg hover:shadow-emerald-100/40 dark:bg-zinc-900/50 dark:hover:shadow-purple-900/30"
                 translateZ={20}
               >
-                <div className="mb-4 p-4 bg-gradient-to-br from-emerald-100 to-purple-100 dark:from-emerald-900/30 dark:to-purple-900/30 rounded-lg w-fit group-hover:from-emerald-200 group-hover:to-purple-200 transition-colors">
-                  <Icon
-                    className="text-emerald-600 dark:text-purple-400"
-                    size={32}
-                  />
+                <div className="mb-4 p-4 bg-accent-green/10 rounded-lg w-fit group-hover:bg-accent-green/20 transition-colors">
+                  <Icon className="text-accent-green" size={32} />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
+                <h3 className="text-xl font-semibold text-primary-blue mb-2">
                   {spec.name}
                 </h3>
-                <p className="text-muted-foreground">{spec.description}</p>
+                <p className="text-gray-700">{spec.description}</p>
               </CardItem>
             </CardContainer>
           );

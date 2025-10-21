@@ -159,17 +159,31 @@ export default function KPI() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 lg:py-32  bg-gradient-to-r from-lime-100 via-green-100 to-emerald-200
+      className="py-20 lg:py-32  bg-gradient-to-r from-[#daf2fe] to-blue-100
+      overflow-hidden relative
 
 
 "
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hexagon Background */}
+      <div
+        className="absolute inset-0 bg-center opacity-40 pointer-events-none"
+        style={{
+          backgroundColor: "#daf2fe",
+          backgroundImage:
+            "url('https://www.toptal.com/designers/subtlepatterns/uploads/hexellence.png')",
+          backgroundSize: "300px 300px",
+          backgroundRepeat: "repeat",
+          mixBlendMode: "normal",
+        }}
+      ></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary-blue mb-4">
             Why Choose Encore?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Our comprehensive medical billing KPIs are clear, trackable, and
             tailored to support your practice’s financial objectives. The
             outcome? Precise claim submissions, improved patient experience, and
@@ -181,17 +195,17 @@ export default function KPI() {
           {kpis.map((kpi, idx) => (
             <div
               key={kpi.label}
-              className="text-center p-8 bg-transparent backdrop-blur-2xl rounded-xl shadow-sm hover:shadow-md transition-shadow animate-scale-in"
+              className="text-center p-8 bg-gray-100 backdrop-blur-xl rounded-xl shadow-sm hover:shadow-md transition-shadow animate-scale-in"
               style={{ animationDelay: `${idx * 0.1}s` }}
             >
-              <div className="text-4xl lg:text-5xl font-bold text-foreground mb-2">
+              <div className="text-4xl lg:text-5xl font-bold text-primary-blue mb-2">
                 <Counter
                   target={kpi.value}
                   suffix={kpi.suffix}
                   start={visible}
                 />
               </div>
-              <p className="text-muted-foreground font-medium">{kpi.label}</p>
+              <p className="text-gray-700 font-medium">{kpi.label}</p>
             </div>
           ))}
         </div>

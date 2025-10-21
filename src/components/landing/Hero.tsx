@@ -164,6 +164,7 @@ import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 // 👥 People You Can Trust (for Animated Tooltip)
 const trustedPeople = [
@@ -232,7 +233,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-visible bg-[#f0f1e3] py-20 lg:py-32">
+    <section className="relative overflow-visible bg-[#f8f8f8] py-20 lg:py-32 border-b-1 border-gray-200">
       {/* Background decorative blobs */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/3 rounded-full blur-3xl animate-float-reverse" />
@@ -241,17 +242,17 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="animate-fade-in-left ">
-            <div className="flex items-center mb-2 gap-2 border-2 border-primary px-2 py-1 rounded-full w-fit">
+            <div className="flex items-center mb-2 gap-2 border-2 border-accent-green px-2 py-1 rounded-full w-fit">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-green opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-green"></span>
               </span>
               <span className="font-light text-sm font-mono ">
                 Active Monitoring 24/7
               </span>
             </div>
 
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight animate-fade-in-up">
+            <h1 className="text-4xl lg:text-5xl font-bold text-primary-blue mb-6 leading-tight animate-fade-in-up">
               HIPAA Compliance Medical Billing Company
             </h1>
             <p
@@ -267,12 +268,11 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <Button className="px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors hover:scale-105 active:scale-95">
-                Request Demo
-              </Button>
-              <Button className="px-8 py-3 border-2 bg-primary-foreground border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition-colors hover:scale-105 active:scale-95">
-                Learn More
-              </Button>
+              <Link href="/contact">
+                <Button className="px-8 py-3 bg-accent-green text-white rounded-lg font-semibold hover-bg-accent-foreground transition-colors hover:scale-105 active:scale-95">
+                  Request Demo
+                </Button>
+              </Link>
             </div>
 
             {/* Trusted by Professionals (AnimatedTooltip) */}
@@ -280,7 +280,7 @@ export default function Hero() {
               className="space-y-4 animate-fade-in-up"
               style={{ animationDelay: "0.3s" }}
             >
-              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+              <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
                 Trusted by Professionals
               </p>
 
@@ -316,9 +316,9 @@ export default function Hero() {
                   </div>
 
                   {/* 🏷️ Rating text below stars */}
-                  <span className="text-xs text-muted-foreground mt-1">
+                  <span className="text-xs text-gray-700 mt-1">
                     Rated{" "}
-                    <span className="font-medium text-foreground">4.8/5</span>{" "}
+                    <span className="font-medium text-primary-blue">4.8/5</span>{" "}
                     by 500+ clients
                   </span>
                 </div>

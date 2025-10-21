@@ -43,7 +43,7 @@ export default function ContactSection({
   const contactInfo = (
     <div className="space-y-8 animate-fade-in-left">
       <div>
-        <h3 className="text-2xl font-bold text-foreground mb-8">
+        <h3 className="text-2xl font-bold text-primary-blue mb-8">
           Contact Information
         </h3>
       </div>
@@ -51,17 +51,17 @@ export default function ContactSection({
       {/* Phone */}
       <a
         href={`tel:${phoneNumber}`}
-        className="flex gap-4 items-center group hover:translate-x-1 transition-all hover:shadow-lg hover:shadow-primary/20 rounded-lg p-2"
+        className="flex gap-4 items-center group hover:translate-x-1 transition-all hover:shadow-lg hover:shadow-accent-green/20 rounded-lg p-2"
       >
-        <div className="p-4 bg-primary/10 rounded-lg transition-all group-hover:bg-primary/20">
+        <div className="p-4 bg-accent-green/10 rounded-lg transition-all group-hover:bg-accent-green/20">
           <Phone
-            className="text-primary group-hover:scale-110 transition-transform"
+            className="text-accent-green group-hover:scale-110 transition-transform"
             size={24}
           />
         </div>
         <div>
-          <h4 className="font-semibold text-foreground mb-1">Phone</h4>
-          <p className="text-muted-foreground group-hover:text-primary">
+          <h4 className="font-semibold text-primary-blue mb-1">Phone</h4>
+          <p className="text-gray-700 group-hover:text-accent-green">
             {phoneNumber}
           </p>
         </div>
@@ -70,17 +70,17 @@ export default function ContactSection({
       {/* Email */}
       <a
         href={`mailto:${emailAddress}`}
-        className="flex gap-4 items-center group hover:translate-x-1 transition-all hover:shadow-lg hover:shadow-primary/20 rounded-lg p-2"
+        className="flex gap-4 items-center group hover:translate-x-1 transition-all hover:shadow-lg hover:shadow-accent-green/20 rounded-lg p-2"
       >
-        <div className="p-4 bg-primary/10 rounded-lg transition-all group-hover:bg-primary/20">
+        <div className="p-4 bg-accent-green/10 rounded-lg transition-all group-hover:bg-accent-green/20">
           <Mail
-            className="text-primary group-hover:scale-110 transition-transform"
+            className="text-accent-green group-hover:scale-110 transition-transform"
             size={24}
           />
         </div>
         <div>
-          <h4 className="font-semibold text-foreground mb-1">Email</h4>
-          <p className="text-muted-foreground group-hover:text-primary">
+          <h4 className="font-semibold text-primary-blue mb-1">Email</h4>
+          <p className="text-gray-700 group-hover:text-accent-green">
             {emailAddress}
           </p>
         </div>
@@ -93,17 +93,17 @@ export default function ContactSection({
         )}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex gap-4 items-center group hover:translate-x-1 transition-all hover:shadow-lg hover:shadow-primary/20 rounded-lg p-2"
+        className="flex gap-4 items-center group hover:translate-x-1 transition-all hover:shadow-lg hover:shadow-accent-green/20 rounded-lg p-2"
       >
-        <div className="p-4 bg-primary/10 rounded-lg transition-all group-hover:bg-primary/20">
+        <div className="p-4 bg-accent-green/10 rounded-lg transition-all group-hover:bg-accent-green/20">
           <MapPin
-            className="text-primary group-hover:scale-110 transition-transform"
+            className="text-accent-green group-hover:scale-110 transition-transform"
             size={24}
           />
         </div>
         <div>
-          <h4 className="font-semibold text-foreground mb-1">Address</h4>
-          <p className="text-muted-foreground group-hover:text-primary">
+          <h4 className="font-semibold text-primary-blue mb-1">Address</h4>
+          <p className="text-gray-700 group-hover:text-accent-green">
             {mapAddress}
           </p>
         </div>
@@ -115,10 +115,10 @@ export default function ContactSection({
   const contactForm = (
     <form
       onSubmit={handleSubmit}
-      className="space-y-6 animate-fade-in-right bg-white/90 backdrop-blur-md shadow-lg rounded-2xl p-8 border border-primary/10"
+      className="space-y-6 animate-fade-in-right bg-white/90 backdrop-blur-md shadow-lg rounded-2xl p-8 border border-accent-green/10"
     >
       <div>
-        <label className="block text-sm font-medium text-foreground mb-2">
+        <label className="block text-sm font-medium text-primary-blue mb-2">
           Name
         </label>
         <input
@@ -127,13 +127,13 @@ export default function ContactSection({
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors"
+          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-accent-green transition-colors"
           placeholder="Your name"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-foreground mb-2">
+        <label className="block text-sm font-medium text-primary-blue mb-2">
           Email
         </label>
         <input
@@ -142,13 +142,13 @@ export default function ContactSection({
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors"
+          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-accent-green transition-colors"
           placeholder="your@email.com"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-foreground mb-2">
+        <label className="block text-sm font-medium text-primary-blue mb-2">
           Phone
         </label>
         <input
@@ -156,13 +156,13 @@ export default function ContactSection({
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors"
+          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-accent-green transition-colors"
           placeholder="(555) 000-0000"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-foreground mb-2">
+        <label className="block text-sm font-medium text-primary-blue mb-2">
           Message
         </label>
         <textarea
@@ -171,14 +171,14 @@ export default function ContactSection({
           onChange={handleChange}
           required
           rows={5}
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors resize-none"
+          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-accent-green transition-colors resize-none"
           placeholder="Your message..."
         />
       </div>
 
       <button
         type="submit"
-        className="w-full px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-transform hover:scale-105 active:scale-95"
+        className="w-full px-6 py-3 bg-accent-green text-white rounded-lg font-semibold bg-accent-green-hover transition-transform hover:scale-105 active:scale-95"
       >
         Send Message
       </button>
@@ -221,8 +221,8 @@ export default function ContactSection({
               : ""
           }`}
         >
-          <h2 className="text-4xl font-bold text-foreground mb-4">{title}</h2>
-          <p className="text-lg text-muted-foreground">{subtitle}</p>
+          <h2 className="text-4xl font-bold text-primary-blue mb-4">{title}</h2>
+          <p className="text-lg text-gray-700">{subtitle}</p>
         </div>
 
         {/* Grid */}

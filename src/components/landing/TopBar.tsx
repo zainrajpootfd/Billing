@@ -22,7 +22,7 @@ export default function TopBar() {
   );
 
   return (
-    <div className="w-full bg-primary text-white">
+    <div className="w-full bg-secondary text-white">
       {/* ticker viewport */}
       <div className="overflow-hidden">
         {/* the list that scrolls; content duplicated for seamless loop */}
