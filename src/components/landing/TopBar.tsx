@@ -1,37 +1,29 @@
 "use client";
 
 import { Mail, Phone } from "lucide-react";
+import Link from "next/link";
 
 export default function TopBar() {
-  const items = (
-    <>
-      <div className="flex items-center gap-2">
-        <Phone size={16} className="text-white" />
-        <span>1-800-ENCORE BILLING GROUP</span>
-      </div>
-
-      <div className="flex items-center gap-2">
-        <span className="mx-2">|</span>
-      </div>
-
-      <div className="flex items-center gap-2">
-        <Mail size={16} className="text-white" />
-        <span>info@encorebillinggroup.com</span>
-      </div>
-    </>
-  );
-
   return (
-    <div className="w-full bg-secondary text-white">
-      {/* ticker viewport */}
-      <div className="overflow-hidden">
-        {/* the list that scrolls; content duplicated for seamless loop */}
-        <div className="ticker inline-block whitespace-nowrap will-change-transform">
-          <div className="ticker__track inline-flex items-center gap-8">
-            {items}
-            {items} {/* duplicate */}
-          </div>
-        </div>
+    <div className="w-full bg-secondary text-white py-2">
+      <div className="flex items-center justify-center gap-2 lg:gap-6 text-sm flex-wrap">
+        <Link
+          href="tel:1-800-ENCORE"
+          className="flex items-center gap-2 hover:underline hover:text-gray-200 transition-colors"
+        >
+          <Phone size={16} className="text-white" />
+          <span>1-800-ENCORE BILLING GROUP</span>
+        </Link>
+
+        <span className="text-white hidden sm:inline">|</span>
+
+        <Link
+          href="mailto:info@encorebillinggroup.com"
+          className="flex items-center gap-2 hover:underline hover:text-gray-200 transition-colors"
+        >
+          <Mail size={16} className="text-white" />
+          <span>info@encorebillinggroup.com</span>
+        </Link>
       </div>
     </div>
   );
