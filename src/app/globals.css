@@ -14,7 +14,7 @@ html {
   }
 } */
 /* make sure this is placed after Tailwind's utilities so it isn't overridden */
-
+/* 
 @keyframes ticker-slide {
   0% {
     transform: translateX(0);
@@ -22,7 +22,7 @@ html {
   100% {
     transform: translateX(100%);
   }
-}
+} */
 
 @keyframes fade-in {
   from {
