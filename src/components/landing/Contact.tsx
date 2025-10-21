@@ -41,7 +41,7 @@ export default function ContactSection({
 
   // --- Contact Info JSX ---
   const contactInfo = (
-    <div className="space-y-8 animate-fade-in-left">
+    <div className="space-y-6 animate-fade-in-left text-center">
       <div>
         <h3 className="text-2xl font-bold text-primary-blue mb-8">
           Contact Information
@@ -51,17 +51,19 @@ export default function ContactSection({
       {/* Phone */}
       <a
         href={`tel:${phoneNumber}`}
-        className="flex gap-4 items-center group hover:translate-x-1 transition-all hover:shadow-lg hover:shadow-accent-green/20 rounded-lg p-2"
+        className="flex flex-col items-center justify-center gap-3 group hover:scale-105 transition-all hover:shadow-lg hover:shadow-accent-green/20 rounded-xl p-6"
       >
-        <div className="p-4 bg-accent-green/10 rounded-lg transition-all group-hover:bg-accent-green/20">
+        <div className="p-6  bg-accent-green/10 rounded-full transition-all group-hover:bg-accent-green/20 flex items-center justify-center">
           <Phone
-            className="text-accent-green group-hover:scale-110 transition-transform"
-            size={24}
+            className="text-accent-green  group-hover:scale-110 transition-transform"
+            size={40} // Bigger icon
           />
         </div>
         <div>
-          <h4 className="font-semibold text-primary-blue mb-1">Phone</h4>
-          <p className="text-gray-700 group-hover:text-accent-green">
+          <h4 className="font-semibold text-primary-blue mb-1 lg:text-3xl">
+            Contact Us
+          </h4>
+          <p className="text-gray-700 lg:text-2xl group-hover:text-accent-green">
             {phoneNumber}
           </p>
         </div>
@@ -70,17 +72,19 @@ export default function ContactSection({
       {/* Email */}
       <a
         href={`mailto:${emailAddress}`}
-        className="flex gap-4 items-center group hover:translate-x-1 transition-all hover:shadow-lg hover:shadow-accent-green/20 rounded-lg p-2"
+        className="flex flex-col items-center justify-center gap-3 group hover:scale-105 transition-all hover:shadow-lg hover:shadow-accent-green/20 rounded-xl p-6"
       >
-        <div className="p-4 bg-accent-green/10 rounded-lg transition-all group-hover:bg-accent-green/20">
+        <div className="p-6 bg-accent-green/10 rounded-full transition-all group-hover:bg-accent-green/20 flex items-center justify-center">
           <Mail
             className="text-accent-green group-hover:scale-110 transition-transform"
-            size={24}
+            size={40}
           />
         </div>
         <div>
-          <h4 className="font-semibold text-primary-blue mb-1">Email</h4>
-          <p className="text-gray-700 group-hover:text-accent-green">
+          <h4 className="font-semibold text-primary-blue mb-1 lg:text-3xl">
+            Email
+          </h4>
+          <p className="text-gray-700 lg:text-2xl group-hover:text-accent-green">
             {emailAddress}
           </p>
         </div>
@@ -93,17 +97,19 @@ export default function ContactSection({
         )}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex gap-4 items-center group hover:translate-x-1 transition-all hover:shadow-lg hover:shadow-accent-green/20 rounded-lg p-2"
+        className="flex flex-col items-center justify-center gap-3 group hover:scale-105 transition-all hover:shadow-lg hover:shadow-accent-green/20 rounded-xl p-6"
       >
-        <div className="p-4 bg-accent-green/10 rounded-lg transition-all group-hover:bg-accent-green/20">
+        <div className="p-6 bg-accent-green/10 rounded-full transition-all group-hover:bg-accent-green/20 flex items-center justify-center">
           <MapPin
             className="text-accent-green group-hover:scale-110 transition-transform"
-            size={24}
+            size={40}
           />
         </div>
         <div>
-          <h4 className="font-semibold text-primary-blue mb-1">Address</h4>
-          <p className="text-gray-700 group-hover:text-accent-green">
+          <h4 className="font-semibold text-primary-blue mb-1 lg:text-3xl">
+            Address
+          </h4>
+          <p className="text-gray-700 group-hover:text-accent-green lg:text-2xl">
             {mapAddress}
           </p>
         </div>
@@ -118,6 +124,15 @@ export default function ContactSection({
       className="space-y-6 animate-fade-in-right bg-white/90 backdrop-blur-md shadow-lg rounded-2xl p-8 border border-accent-green/10"
     >
       <div>
+        <div>
+          <h3 className="text-2xl font-bold text-primary-blue mb-4">
+            Send Us a Message
+          </h3>
+          <p className=" text-gray-700 mb-6">
+            We would like to hear from you. Please send us a message by filling
+            out the form below and we will get back with you shortly.
+          </p>
+        </div>
         <label className="block text-sm font-medium text-primary-blue mb-2">
           Name
         </label>
@@ -200,7 +215,7 @@ export default function ContactSection({
 
   return (
     <section
-      className={`relative py-20 lg:py-32 ${
+      className={`relative py-20 lg:py-24 ${
         variant === "default"
           ? "bg-gradient-to-br from-primary/5 to-white"
           : "bg-white"
@@ -226,22 +241,31 @@ export default function ContactSection({
         </div>
 
         {/* Grid */}
+        {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {variant === "default" ? (
             <>
-              {/* Landing page: Form left, Map right */}
-              <div className="order-2">{contactForm}</div> {/* Form left */}
-              <div className="order-1">{map}</div> {/* Map right */}
+              {/* Landing page layout (unchanged) */}
+              <div className="order-2">{contactForm}</div>
+              <div className="order-1">{map}</div>
             </>
           ) : (
             <>
-              {/* Default page: Info left, Form right */}
-              {!showInfo && <div className="order-1">{contactInfo}</div>}{" "}
-              {/* Info left */}
-              <div className="order-2">{contactForm}</div> {/* Form right */}
+              {/* Contact page layout (no map inside grid) */}
+              {!showInfo && <div className="order-1">{contactInfo}</div>}
+              <div className="order-2">{contactForm}</div>
             </>
           )}
         </div>
+
+        {/* Full-width map shown only on contact page */}
+        {variant === "landing" && (
+          <div className="mt-16 w-full">
+            <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-lg h-[520px]">
+              {map}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
