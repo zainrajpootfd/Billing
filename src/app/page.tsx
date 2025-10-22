@@ -8,6 +8,7 @@ import Associated from "@/components/landing/associated";
 import Contact from "@/components/landing/Contact";
 import TopBar from "@/components/landing/TopBar";
 import Footer from "@/components/landing/Footer";
+import AuditSection from "@/components/landing/AuditSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       {/* <TopBar />
       <Header /> */}
       <Hero />
+      <AuditSection />
       <Services />
       <KPI />
       <Specialities />
