@@ -1,4 +1,10 @@
-"use client";
+// "use client";
+
+export const metadata = {
+  title: "About Us - Encore Billing Group",
+  description:
+    "Learn more about Encore Billing Group, our mission, vision, and core values. Discover why healthcare practices trust us for their medical billing needs.",
+};
 
 import Image from "next/image";
 import {
