@@ -166,18 +166,20 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <button className="md:px-4 lg:px-5 py-2 bg-accent-green text-white rounded-lg font-medium bg-accent-green-hover transition-colors">
-              Request Demo
-            </button>
+            <Link href="/contact">
+              <Button className="md:px-4 lg:px-5 py-2 bg-accent-green text-white rounded-lg font-medium hover:bg-secondary transition-colors">
+                Request Demo
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <Button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          </Button>
         </div>
 
         {/* Mobile Navigation */}

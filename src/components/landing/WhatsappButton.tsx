@@ -3,7 +3,7 @@
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 
 export default function WhatsAppButton() {
-  const phoneNumber = "923001234567"; // 👈 replace with your number (no + or 0)
+  const phoneNumber = "15129884965"; // 👈 replace with your number (no + or 0)
   const message = "Hello! I would like to learn more about your services.";
 
   return (

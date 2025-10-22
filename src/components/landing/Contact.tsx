@@ -35,9 +35,9 @@ export default function ContactSection({
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
-  const phoneNumber = "+18006332273";
-  const emailAddress = "info@encorebillinggroup.com";
-  const mapAddress = "123 Healthcare Ave, Medical City, ST 12345";
+  const phoneNumber = "+1 (512) 988-4965";
+  const emailAddress = "Support@encorebillinggroup.com";
+  const mapAddress = "718 Kingston Pl, Cedar Park, TX 78613";
 
   // --- Contact Info JSX ---
   const contactInfo = (
@@ -204,7 +204,7 @@ export default function ContactSection({
   const map = (
     <div className="animate-fade-in-right h-full w-full rounded-2xl overflow-hidden shadow-lg">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3714.438546437023!2d73.1164625!3d31.4128912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x392269a799fd93d9%3A0x1ff7f42c5aa97bb9!2sMedcare%20MSO!5e0!3m2!1sen!2s!4v1699999999999!5m2!1sen!2s"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.651822764253!2d-97.7789554848836!3d30.513444781722315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644d2cfcc44fab9%3A0xa78b20b63947980b!2s718%20Kingston%20Pl%2C%20Cedar%20Park%2C%20TX%2078613%2C%20USA!5e0!3m2!1sen!2s!4v1699999999999!5m2!1sen!2s"
         className="w-full h-full border-0"
         allowFullScreen
         loading="lazy"

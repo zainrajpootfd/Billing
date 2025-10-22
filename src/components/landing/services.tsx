@@ -297,7 +297,7 @@ export default function Services() {
                 <CardHeader className="flex flex-col items-start">
                   <div className="mb-3 p-3 bg-accent-green/10 rounded-lg w-fit group transition-all">
                     <Icon
-                      className="text-accent-green group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300"
+                      className="text-accent-green group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300  "
                       size={28}
                     />
                   </div>

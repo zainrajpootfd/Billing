@@ -160,9 +160,9 @@
 
 "use client";
 import Image from "next/image";
-import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+import dynamic from "next/dynamic";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 
@@ -218,8 +218,31 @@ const doctors = [
   "/healthcare-professional-doctor.3.jpg",
 ];
 
+// ✅ Lazy load AnimatedTooltip dynamically
+const AnimatedTooltipLazy = dynamic(
+  () =>
+    import("@/components/ui/animated-tooltip").then(
+      (mod) => mod.AnimatedTooltip
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex gap-2">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div
+            key={i}
+            className="w-8 h-8 bg-gray-200 rounded-full animate-pulse"
+          ></div>
+        ))}
+      </div>
+    ),
+  }
+);
+
 export default function Hero() {
   const [doctorIndex, setDoctorIndex] = useState(0);
+  const [tooltipVisible, setTooltipVisible] = useState(false);
+  const tooltipRef = useRef(null);
 
   const nextDoctor = () =>
     setDoctorIndex((prev) => (prev + 1) % doctors.length);
@@ -232,8 +255,23 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  // Lazy load tooltip when it enters viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setTooltipVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (tooltipRef.current) observer.observe(tooltipRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="relative overflow-visible bg-[#f8f8f8] py-20 lg:py-32 border-b-1 border-gray-200">
+    <section className="relative overflow-visible bg-[#f8f8f8] py-10 lg:py-20 border-b-1 border-gray-200">
       {/* Background decorative blobs */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/3 rounded-full blur-3xl animate-float-reverse" />
@@ -286,8 +324,19 @@ export default function Hero() {
 
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-start gap-3">
                 {/* 👥 Tooltip avatars */}
-                <div className="flex flex-row items-center justify-start">
-                  <AnimatedTooltip items={trustedPeople} />
+                <div
+                  className="flex flex-row items-center justify-start"
+                  ref={tooltipRef}
+                >
+                  <Suspense
+                    fallback={
+                      <div className="w-32 h-8 bg-gray-200 rounded animate-pulse" />
+                    }
+                  >
+                    {tooltipVisible && (
+                      <AnimatedTooltipLazy items={trustedPeople} />
+                    )}
+                  </Suspense>
                 </div>
 
                 {/* ⭐ Stars + Rating text */}
@@ -319,7 +368,7 @@ export default function Hero() {
                   <span className="text-xs text-gray-700 mt-1">
                     Rated{" "}
                     <span className="font-medium text-primary-blue">4.8/5</span>{" "}
-                    by 500+ clients
+                    by 7+ clients
                   </span>
                 </div>
               </div>
@@ -327,36 +376,46 @@ export default function Hero() {
           </div>
 
           {/* Right Doctor Image Carousel */}
+          {/* Right Side — Single Nurse Image */}
+          {/* Right Doctor Image Carousel */}
           <div
-            className="relative animate-fade-in-right"
+            className="relative animate-fade-in-right flex justify-center"
             style={{ animationDelay: "0.5s" }}
           >
-            <div className="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              {doctors.map((doctor, index) => (
+            <div className="relative w-full max-auto h-[500px] lg:h-[700px] rounded-2xl overflow-hidden">
+              <Image
+                src="/hero-banner.png"
+                alt="Professional Nurse"
+                fill
+                loading="lazy"
+                className="object-cover rounded-2xl transition-transform duration-700 hover:scale-105"
+              />
+            </div>
+
+            {/* Multiple floating medical signs behind image */}
+            <div className="absolute -z-20 inset-0 flex justify-center items-center pointer-events-none">
+              {[...Array(6)].map((_, i) => (
                 <Image
-                  key={index}
-                  src={doctor}
-                  alt={`Doctor ${index + 1}`}
-                  fill
-                  className={`object-cover absolute inset-0 transition-opacity duration-700 ease-in-out ${
-                    index === doctorIndex ? "opacity-100" : "opacity-0"
-                  }`}
+                  key={i}
+                  src="/plus.png" // Replace with your transparent PNG/SVG
+                  alt="Medical Sign"
+                  width={100 + Math.random() * 100} // random size 100-200px
+                  height={100 + Math.random() * 100}
+                  className={`absolute opacity-15 animate-float-slow`}
+                  style={{
+                    top: `${Math.random() * 80}%`,
+                    left: `${Math.random() * 80}%`,
+                    transform: `translate(-50%, -50%) rotate(${
+                      Math.random() * 360
+                    }deg)`,
+                  }}
                 />
               ))}
+            </div>
 
-              {/* Navigation */}
-              <button
-                onClick={prevDoctor}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 bg-white/80 rounded-full hover:bg-white/100 transition"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <button
-                onClick={nextDoctor}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 bg-white/80 rounded-full hover:bg-white/100 transition"
-              >
-                <ChevronRight size={20} />
-              </button>
+            {/* Soft gradient glow behind image */}
+            <div className="absolute -z-10 inset-0 flex justify-center">
+              <div className="w-[80%] h-[80%] bg-blue-100/60 blur-3xl rounded-full"></div>
             </div>
           </div>
         </div>
