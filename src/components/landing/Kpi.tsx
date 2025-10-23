@@ -144,9 +144,9 @@ function Counter({
       }`}
       style={{
         color: "#2ba24c", // brand red
-        textShadow: animating
-          ? "0 0 12px rgba(200, 16, 16, 0.6)"
-          : "0 0 0 rgba(0,0,0,0)",
+        // textShadow: animating
+        //   ? "0 0 12px rgba(200, 16, 16, 0.6)"
+        //   : "0 0 0 rgba(0,0,0,0)",
       }}
     >
       {count}

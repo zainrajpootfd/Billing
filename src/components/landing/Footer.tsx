@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#004b87] text-gray-200 py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 m-8">
           {/* Company Info */}
           <div>
             <Link
@@ -207,7 +207,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-4 text-center text-gray-300 text-sm">
+        <div className="border-t border-white pt-4 text-center text-gray-300 text-sm">
           <p>
             &copy; 2025 Encore Billing Group. All rights reserved. | HIPAA
             Compliant | ISO Certified

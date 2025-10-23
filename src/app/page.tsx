@@ -17,8 +17,8 @@ export default function Home() {
       <Header /> */}
       <Hero />
       <AuditSection />
-      <Services />
       <KPI />
+      <Services />
       <Specialities />
       <Testimonials />
       <Associated />
