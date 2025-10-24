@@ -2,6 +2,7 @@
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { toast } from "sonner"; // ✅ Added Sonner toast
 
 interface ContactSectionProps {
   title?: string;
@@ -29,10 +30,34 @@ export default function ContactSection({
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  // ✅ Updated to use Formspree + Sonner
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    // toast.loading("Sending message...");
+
+    try {
+      const response = await fetch("https://formspree.io/f/myznrvvj", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(e.currentTarget),
+      });
+
+      if (response.ok) {
+        toast.success("✅ Message Sent!", {
+          description:
+            "We’ve received your message and will get back with you soon.",
+        });
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        toast.error("⚠️ Something went wrong!", {
+          description: "Please try again later.",
+        });
+      }
+    } catch (error) {
+      toast.error("⚠️ Network error!", {
+        description: "Please check your internet connection.",
+      });
+    }
   };
 
   const phoneNumber = "+1 (512) 988-4965";
@@ -56,7 +81,7 @@ export default function ContactSection({
         <div className="p-6  bg-accent-green/10 rounded-full transition-all group-hover:bg-accent-green/20 flex items-center justify-center">
           <Phone
             className="text-accent-green  group-hover:scale-110 transition-transform"
-            size={40} // Bigger icon
+            size={40}
           />
         </div>
         <div>
@@ -191,6 +216,10 @@ export default function ContactSection({
         />
       </div>
 
+      {/* ✅ Hidden inputs for Formspree */}
+      <input type="hidden" name="_subject" value="New Contact Form Message" />
+      <input type="hidden" name="formType" value="contact" />
+
       <button
         type="submit"
         className="w-full px-6 py-3 bg-accent-green text-white rounded-lg font-semibold bg-accent-green-hover transition-transform hover:scale-105 active:scale-95"
@@ -241,24 +270,20 @@ export default function ContactSection({
         </div>
 
         {/* Grid */}
-        {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {variant === "default" ? (
             <>
-              {/* Landing page layout (unchanged) */}
               <div className="order-2">{contactForm}</div>
               <div className="order-1">{map}</div>
             </>
           ) : (
             <>
-              {/* Contact page layout (no map inside grid) */}
               {!showInfo && <div className="order-1">{contactInfo}</div>}
               <div className="order-2">{contactForm}</div>
             </>
           )}
         </div>
 
-        {/* Full-width map shown only on contact page */}
         {variant === "landing" && (
           <div className="mt-16 w-full">
             <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-lg h-[520px]">

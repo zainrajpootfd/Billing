@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Mail, Phone, X } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import FormspreeForm from "@/components/landing/FormspreeForm"; // ✅ import your form component
 
 export default function TopBar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,7 +27,7 @@ export default function TopBar() {
           {/* ✨ Flashing text */}
           <button
             onClick={() => setIsModalOpen(true)}
-            className="relative text-white font-semibold animate-bounce "
+            className="relative text-white font-semibold animate-bounce"
           >
             Medical Billing Starts @2.49$
           </button>
@@ -43,7 +44,7 @@ export default function TopBar() {
         </div>
       </div>
 
-      {/* 🔹 Contact Modal */}
+      {/* 🔹 Quote Modal */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
@@ -64,34 +65,12 @@ export default function TopBar() {
               >
                 <X size={20} />
               </button>
-
-              <h2 className="text-xl font-semibold text-center mb-4 text-primary">
-                Get a Free Quote
-              </h2>
-
-              <form className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-accent-green outline-none"
-                />
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-accent-green outline-none"
-                />
-                <textarea
-                  rows={3}
-                  placeholder="Your Message"
-                  className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-accent-green outline-none"
-                ></textarea>
-                <button
-                  type="submit"
-                  className="w-full bg-accent-green text-white py-2 rounded-md font-medium hover:bg-secondary transition-colors"
-                >
-                  Send Message
-                </button>
-              </form>
+              {/* ✅ Reused Formspree Form */}
+              <FormspreeForm
+                formType="quote"
+                title="Get a Free Quote"
+                onSuccess={() => setIsModalOpen(false)}
+              />
             </motion.div>
           </motion.div>
         )}

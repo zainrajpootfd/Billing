@@ -91,22 +91,37 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import TopBar from "./TopBar";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
     { label: "Services", href: "/services" },
-    // { label: "Specialities", href: "/specialities" },
     { label: "Testimonials", href: "/testimonials" },
     { label: "About Us", href: "/about" },
     { label: "Insights", href: "/insights" },
     { label: "Contact", href: "/contact" },
+  ];
+
+  const servicesList = [
+    { name: "Medical Billing & Coding", slug: "medical-billing-and-coding" },
+    { name: "End-to-End RCM", slug: "end-to-end-rcm" },
+    { name: "Old AR Recovery", slug: "old-ar-recovery" },
+    {
+      name: "Credentialing & Enrollment",
+      slug: "credentialing-and-enrollment",
+    },
+    {
+      name: "Detailed Performance Reporting",
+      slug: "detailed-performance-reporting",
+    },
+    { name: "Webinars & SOP Updates", slug: "webinars-and-sop-updates" },
   ];
 
   // Close menu when clicking outside
@@ -114,6 +129,7 @@ export default function Header() {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsOpen(false);
+        setIsServicesOpen(false);
       }
     };
 
@@ -127,24 +143,21 @@ export default function Header() {
   }, [isOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#ffffff]   ">
+    <header className="sticky top-0 z-50 bg-[#ffffff]">
       <TopBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={menuRef}>
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link
-            href="/"
-            className=" flex items-center justify-center bg-white "
-          >
+          <Link href="/" className="flex items-center justify-center bg-white">
             <Image
               src="/enlogo.png"
               alt="Encore Billing Group Logo"
               width={46}
               height={46}
-              className="object-fit-fill bg-white rounded-md "
+              className="object-fit-fill bg-white rounded-md"
             />
             <div className="hidden sm:block leading-tight ml-2">
-              <h1 className=" lg:text-lg xl:text-xl font-bold text-primary-blue ">
+              <h1 className="lg:text-lg xl:text-xl font-bold text-primary-blue">
                 Encore Billing Group
               </h1>
               <p className="text-xs text-[#005c0f] font-medium">
@@ -154,16 +167,41 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-4 lg:gap-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-sm font-medium text-gray-700 hover:text-accent-green transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <nav className="hidden lg:flex items-center gap-4 lg:gap-6 relative">
+            {navItems.map((item) =>
+              item.label === "Services" ? (
+                <div key={item.label} className="group relative">
+                  <Link
+                    href={item.href}
+                    className="text-sm font-medium text-gray-700 hover:text-accent-green transition-colors flex items-center gap-1"
+                  >
+                    {item.label}
+                    <ChevronDown size={16} />
+                  </Link>
+
+                  {/* Dropdown Menu */}
+                  <div className="absolute left-0 top-full mt-1 group-hover:opacity-100 group-hover:visible opacity-0 invisible transition-all duration-200 bg-white shadow-lg rounded-lg w-56 border border-gray-100 z-50">
+                    {servicesList.map((service) => (
+                      <Link
+                        key={service.slug}
+                        href={`/services/${service.slug}`}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-accent-green"
+                      >
+                        {service.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-sm font-medium text-gray-700 hover:text-accent-green transition-colors"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
           </nav>
 
           {/* CTA Button */}
@@ -177,7 +215,10 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <Button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              setIsOpen(!isOpen);
+              setIsServicesOpen(false);
+            }}
             className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -187,16 +228,50 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isOpen && (
           <nav className="lg:hidden pb-4 space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
-                onClick={() => setIsOpen(false)} // close on link click too
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) =>
+              item.label === "Services" ? (
+                <div key={item.label} className="space-y-2">
+                  <button
+                    onClick={() => setIsServicesOpen(!isServicesOpen)}
+                    className="w-full text-left px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition-colors flex justify-between items-center"
+                  >
+                    {item.label}
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform ${
+                        isServicesOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {/* Mobile Dropdown List */}
+                  {isServicesOpen && (
+                    <div className="ml-4 space-y-1">
+                      {servicesList.map((service) => (
+                        <Link
+                          key={service.slug}
+                          href={`/services/${service.slug}`}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {service.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
+
             <Link href="/contact">
               <Button
                 variant="default"

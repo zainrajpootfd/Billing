@@ -271,9 +271,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-visible bg-[#f8f8f8] py-10 lg:py-20 border-b-1 border-gray-200">
+    <section className="relative overflow-hidden bg-[#f8f8f8] py-10 lg:py-20 border-b-1 border-gray-200">
       {/* Background decorative blobs */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
+      <div className="absolute top-0 right-0 w-56 h-56 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/3 rounded-full blur-3xl animate-float-reverse" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -382,7 +382,7 @@ export default function Hero() {
             className="relative animate-fade-in-right flex justify-center"
             style={{ animationDelay: "0.5s" }}
           >
-            <div className="relative w-full max-auto h-[500px] lg:h-[700px] rounded-2xl overflow-hidden">
+            <div className="relative w-full max-auto h-[300px] sm:h-[500px] lg:h-[700px] rounded-2xl overflow-hidden">
               <Image
                 src="/hero-banner.png"
                 alt="Professional Nurse"
@@ -397,14 +397,14 @@ export default function Hero() {
               {[...Array(6)].map((_, i) => (
                 <Image
                   key={i}
-                  src="/plus.png" // Replace with your transparent PNG/SVG
+                  src="/plus.png"
                   alt="Medical Sign"
-                  width={100 + Math.random() * 100} // random size 100-200px
-                  height={100 + Math.random() * 100}
-                  className={`absolute opacity-15 animate-float-slow`}
+                  width={40 + Math.random() * 40} // max 80px
+                  height={40 + Math.random() * 40} // max 80px
+                  className="absolute opacity-15 animate-float-slow"
                   style={{
-                    top: `${Math.random() * 80}%`,
-                    left: `${Math.random() * 80}%`,
+                    top: `${15 + Math.random() * 70}%`, // 15% - 85%
+                    left: `${15 + Math.random() * 70}%`, // 15% - 85%
                     transform: `translate(-50%, -50%) rotate(${
                       Math.random() * 360
                     }deg)`,
