@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useState, ChangeEvent, FormEvent } from "react";
+import { toast } from "sonner";
 
 export default function AuditSection() {
   const [formData, setFormData] = useState({
@@ -10,14 +11,39 @@ export default function AuditSection() {
     phone: "",
   });
 
+  const FORM_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID!; // 👈 Your Formspree ID
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Audit Request:", formData);
-    // TODO: connect API or Supabase here
+
+    const form = e.currentTarget;
+    const formDataObj = new FormData(form);
+    formDataObj.append("formType", "audit"); // 👈 optional: to identify which form was sent
+
+    try {
+      await fetch(`https://formspree.io/f/${FORM_ID}`, {
+        method: "POST",
+        body: formDataObj,
+        headers: { Accept: "application/json" },
+        mode: "no-cors",
+      });
+
+      toast.success("✅ Audit Request Sent!", {
+        description:
+          "We’ve received your request and will contact you shortly.",
+      });
+
+      form.reset();
+      setFormData({ name: "", email: "", phone: "" }); // reset fields
+    } catch (error) {
+      toast.error("⚠️ Network Error!", {
+        description: "Unable to send audit request. Please try again later.",
+      });
+    }
   };
 
   return (
