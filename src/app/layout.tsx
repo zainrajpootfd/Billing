@@ -5,6 +5,7 @@ import TopBar from "@/components/landing/TopBar";
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
 import WhatsAppButton from "@/components/landing/WhatsappButton";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,8 @@ export default function RootLayout({
 
         <Header />
         {children}
+        <Toaster richColors position="top-right" />
+
         <WhatsAppButton />
         <Footer />
       </body>
