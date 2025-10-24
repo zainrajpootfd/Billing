@@ -310,7 +310,7 @@ export default function Services() {
                     {service.description}
                   </p>
                   <a
-                    href="#"
+                    href="/services"
                     className="text-accent-green font-semibold text-sm hover:underline inline-flex items-center gap-1 transition-transform hover:translate-x-1"
                   >
                     Learn More →
