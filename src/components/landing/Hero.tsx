@@ -159,14 +159,14 @@
 // }
 
 "use client";
+
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useRef, Suspense } from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-// 👥 People You Can Trust (for Animated Tooltip)
 const trustedPeople = [
   {
     id: 1,
@@ -194,31 +194,24 @@ const trustedPeople = [
   },
   {
     id: 5,
-    name: "Sarah ",
+    name: "Sarah",
     designation: "UI/UX Designer",
     image: "https://randomuser.me/api/portraits/women/2.jpg",
   },
   {
     id: 6,
-    name: "Ahmed ",
+    name: "Ahmed",
     designation: "Backend Engineer",
     image: "https://randomuser.me/api/portraits/men/3.jpg",
   },
   {
     id: 7,
-    name: "Ayesha ",
+    name: "Ayesha",
     designation: "Project Manager",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
 ];
 
-const doctors = [
-  "/healthcare-professional-doctor.jpg",
-  "/healthcare-professional-doctor.2.jpg",
-  "/healthcare-professional-doctor.3.jpg",
-];
-
-// ✅ Lazy load AnimatedTooltip dynamically
 const AnimatedTooltipLazy = dynamic(
   () =>
     import("@/components/ui/animated-tooltip").then(
@@ -232,7 +225,7 @@ const AnimatedTooltipLazy = dynamic(
           <div
             key={i}
             className="w-8 h-8 bg-gray-200 rounded-full animate-pulse"
-          ></div>
+          />
         ))}
       </div>
     ),
@@ -240,22 +233,9 @@ const AnimatedTooltipLazy = dynamic(
 );
 
 export default function Hero() {
-  const [doctorIndex, setDoctorIndex] = useState(0);
   const [tooltipVisible, setTooltipVisible] = useState(false);
-  const tooltipRef = useRef(null);
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
 
-  const nextDoctor = () =>
-    setDoctorIndex((prev) => (prev + 1) % doctors.length);
-  const prevDoctor = () =>
-    setDoctorIndex((prev) => (prev - 1 + doctors.length) % doctors.length);
-
-  // Auto-slide doctor images every 3s
-  useEffect(() => {
-    const interval = setInterval(nextDoctor, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Lazy load tooltip when it enters viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -271,154 +251,157 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#f8f8f8] py-10 lg:py-20 border-b-1 border-gray-200">
-      {/* Background decorative blobs */}
+    <section className="relative overflow-hidden bg-[#f8f8f8] py-10 lg:py-20 border-b border-gray-200">
+      {/* Background Blobs */}
       <div className="absolute top-0 right-0 w-56 h-56 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/3 rounded-full blur-3xl animate-float-reverse" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="animate-fade-in-left ">
-            <div className="flex items-center mb-2 gap-2 border-2 border-accent-green px-2 py-1 rounded-full w-fit">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-green opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-green"></span>
-              </span>
-              <span className="font-light text-sm font-mono ">
-                Active Monitoring 24/7
-              </span>
-            </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* LEFT SIDE */}
+        <div className="animate-fade-in-left">
+          <div className="flex items-center mb-2 gap-2 border-2 border-accent-green px-2 py-1 rounded-full w-fit">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-green opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-green"></span>
+            </span>
+            <span className="font-light text-sm font-mono">
+              Active Monitoring 24/7
+            </span>
+          </div>
 
-            <h1 className="text-4xl lg:text-5xl font-bold text-primary-blue mb-6 leading-tight animate-fade-in-up">
-              HIPAA Compliance Medical Billing Company
-            </h1>
-            <p
-              className="text-lg text-muted-foreground mb-8 leading-relaxed animate-fade-in-up"
-              style={{ animationDelay: "0.1s" }}
-            >
-              Streamline your revenue cycle with our comprehensive medical
-              billing solutions. We help healthcare providers maximize
-              collections and minimize administrative burden.
+          <h1 className="text-4xl lg:text-5xl font-bold text-primary-blue mb-6 leading-tight">
+            HIPAA Compliance Medical Billing Company
+          </h1>
+
+          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            Streamline your revenue cycle with our comprehensive medical billing
+            solutions. We help healthcare providers maximize collections and
+            minimize administrative burden.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <Link href="/contact">
+              <Button className="px-8 py-3 bg-accent-green text-white rounded-lg font-semibold hover:bg-accent-foreground transition-all hover:scale-105 active:scale-95">
+                Request Demo
+              </Button>
+            </Link>
+          </div>
+
+          {/* Trusted by Professionals */}
+          <div className="space-y-4">
+            <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
+              Trusted by Professionals
             </p>
 
-            <div
-              className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <Link href="/contact">
-                <Button className="px-8 py-3 bg-accent-green text-white rounded-lg font-semibold hover-bg-accent-foreground transition-colors hover:scale-105 active:scale-95">
-                  Request Demo
-                </Button>
-              </Link>
-            </div>
-
-            {/* Trusted by Professionals (AnimatedTooltip) */}
-            <div
-              className="space-y-4 animate-fade-in-up"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-                Trusted by Professionals
-              </p>
-
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-start gap-3">
-                {/* 👥 Tooltip avatars */}
-                <div
-                  className="flex flex-row items-center justify-start"
-                  ref={tooltipRef}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-start gap-3">
+              <div
+                className="flex flex-row items-center justify-start"
+                ref={tooltipRef}
+              >
+                <Suspense
+                  fallback={
+                    <div className="w-32 h-8 bg-gray-200 rounded animate-pulse" />
+                  }
                 >
-                  <Suspense
-                    fallback={
-                      <div className="w-32 h-8 bg-gray-200 rounded animate-pulse" />
-                    }
-                  >
-                    {tooltipVisible && (
-                      <AnimatedTooltipLazy items={trustedPeople} />
-                    )}
-                  </Suspense>
-                </div>
+                  {tooltipVisible && (
+                    <AnimatedTooltipLazy items={trustedPeople} />
+                  )}
+                </Suspense>
+              </div>
 
-                {/* ⭐ Stars + Rating text */}
-                <div className="flex flex-col items-center sm:items-start sm:ml-5">
-                  <div className="flex items-center gap-0.5 pb-1">
-                    {[...Array(4)].map((_, i) => (
-                      <svg
-                        key={i}
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        className="w-4 h-4 text-yellow-500"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.956c.3.922-.755 1.688-1.54 1.118l-3.371-2.449a1 1 0 00-1.176 0l-3.371 2.45c-.784.569-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.075 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.274-3.957z" />
-                      </svg>
-                    ))}
-                    {/* gray star */}
+              <div className="flex flex-col items-center sm:items-start sm:ml-5">
+                <div className="flex items-center gap-0.5 pb-1">
+                  {[...Array(4)].map((_, i) => (
                     <svg
+                      key={i}
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                      className="w-4 h-4 text-gray-300"
+                      className="w-4 h-4 text-yellow-500"
                     >
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.956c.3.922-.755 1.688-1.54 1.118l-3.371-2.449a1 1 0 00-1.176 0l-3.371 2.45c-.784.569-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.075 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.274-3.957z" />
                     </svg>
-                  </div>
-
-                  {/* 🏷️ Rating text below stars */}
-                  <span className="text-xs text-gray-700 mt-1">
-                    Rated{" "}
-                    <span className="font-medium text-primary-blue">4.8/5</span>{" "}
-                    by 7+ clients
-                  </span>
+                  ))}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="w-4 h-4 text-gray-300"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.956c.3.922-.755 1.688-1.54 1.118l-3.371-2.449a1 1 0 00-1.176 0l-3.371 2.45c-.784.569-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.075 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.274-3.957z" />
+                  </svg>
                 </div>
+
+                <span className="text-xs text-gray-700 mt-1">
+                  Rated{" "}
+                  <span className="font-medium text-primary-blue">4.8/5</span>{" "}
+                  by 7+ clients
+                </span>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Right Doctor Image Carousel */}
-          {/* Right Side — Single Nurse Image */}
-          {/* Right Doctor Image Carousel */}
-          <div
-            className="relative animate-fade-in-right flex justify-center"
-            style={{ animationDelay: "0.5s" }}
+        {/* RIGHT SIDE — Animated Section */}
+        <motion.div
+          className="relative flex justify-center"
+          initial={{ opacity: 0, x: 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          {/* Main doctor image with subtle hover scale */}
+          <motion.div
+            className="relative w-full h-[300px] sm:h-[500px] lg:h-[700px] rounded-2xl overflow-hidden"
+            whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="relative w-full max-auto h-[300px] sm:h-[500px] lg:h-[700px] rounded-2xl overflow-hidden">
-              <Image
-                src="/hero-banner.png"
-                alt="Professional Nurse"
-                fill
-                loading="lazy"
-                className="object-cover rounded-2xl transition-transform duration-700 hover:scale-105"
-              />
-            </div>
+            <Image
+              src="/hero-banner.png"
+              alt="Professional Nurse"
+              fill
+              loading="lazy"
+              className="object-cover rounded-2xl"
+            />
+          </motion.div>
 
-            {/* Multiple floating medical signs behind image */}
-            <div className="absolute -z-20 inset-0 flex justify-center items-center pointer-events-none">
-              {[...Array(6)].map((_, i) => (
+          {/* Floating medical icons */}
+          <div className="absolute inset-0 -z-10 flex justify-center items-center pointer-events-none">
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute opacity-15"
+                initial={{ y: 0 }}
+                animate={{ y: [0, -10, 0] }}
+                transition={{
+                  duration: 3 + Math.random() * 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                style={{
+                  top: `${15 + Math.random() * 70}%`,
+                  left: `${15 + Math.random() * 70}%`,
+                }}
+              >
                 <Image
-                  key={i}
                   src="/plus.png"
                   alt="Medical Sign"
-                  width={40 + Math.random() * 40} // max 80px
-                  height={40 + Math.random() * 40} // max 80px
-                  className="absolute opacity-15 animate-float-slow"
-                  style={{
-                    top: `${15 + Math.random() * 70}%`, // 15% - 85%
-                    left: `${15 + Math.random() * 70}%`, // 15% - 85%
-                    transform: `translate(-50%, -50%) rotate(${
-                      Math.random() * 360
-                    }deg)`,
-                  }}
+                  width={40 + Math.random() * 40}
+                  height={40 + Math.random() * 40}
                 />
-              ))}
-            </div>
-
-            {/* Soft gradient glow behind image */}
-            <div className="absolute -z-10 inset-0 flex justify-center">
-              <div className="w-[80%] h-[80%] bg-blue-100/60 blur-3xl rounded-full"></div>
-            </div>
+              </motion.div>
+            ))}
           </div>
-        </div>
+
+          {/* Soft gradient glow */}
+          <motion.div
+            className="absolute -z-20 inset-0 flex justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+          >
+            <div className="w-[80%] h-[80%] bg-blue-100/60 blur-3xl rounded-full"></div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

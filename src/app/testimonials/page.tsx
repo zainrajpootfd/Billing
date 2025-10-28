@@ -125,7 +125,7 @@ export default function TestimonialsPage() {
       <section className="relative overflow-hidden py-20 bg-gradient-to-r from-primary/10 via-primary/20 to-primary/10 dark:from-primary/20 dark:via-primary/30 dark:to-primary/10">
         <div className="absolute inset-0 bg-[url('/banner-bg.jpg')] bg-cover bg-center opacity-10" />
         <div className="relative z-10 mx-auto max-w-5xl text-center px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#004b87] dark:text-white">
             Ready to Experience Excellence in Medical Billing?
           </h2>
           <p className="mt-4 text-lg text-gray-700 dark:text-neutral-300 max-w-3xl mx-auto">
@@ -135,7 +135,7 @@ export default function TestimonialsPage() {
           <div className="mt-8 flex justify-center gap-4">
             <a
               href="/contact"
-              className="px-6 py-3 bg-primary text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all"
+              className="px-6 py-3 bg-accent-green text-white font-semibold rounded-full shadow-md hover:shadow-lg hover:bg-[#004b87] transition-all"
             >
               Contact Us
             </a>

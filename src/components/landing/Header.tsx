@@ -95,6 +95,14 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import TopBar from "./TopBar";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -124,7 +132,6 @@ export default function Header() {
     { name: "Webinars & SOP Updates", slug: "webinars-and-sop-updates" },
   ];
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -166,48 +173,80 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-4 lg:gap-6 relative">
-            {navItems.map((item) =>
-              item.label === "Services" ? (
-                <div key={item.label} className="group relative">
-                  <Link
-                    href={item.href}
-                    className="text-sm font-medium text-gray-700 hover:text-accent-green transition-colors flex items-center gap-1"
-                  >
-                    {item.label}
-                    <ChevronDown size={16} />
-                  </Link>
+          {/* ✅ Desktop Navigation (Shadcn-style) */}
+          <div className="hidden lg:flex items-center gap-4 lg:gap-6 relative">
+            <NavigationMenu>
+              <NavigationMenuList>
+                {navItems.map((item) =>
+                  item.label === "Services" ? (
+                    <NavigationMenuItem key={item.label}>
+                      <NavigationMenuTrigger className="text-sm font-medium text-gray-700 hover:text-accent-green transition-colors flex items-center gap-1">
+                        {item.label}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid gap-3 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr] p-4">
+                          {/* ✅ Left Featured Block */}
+                          <li className="row-span-3">
+                            <NavigationMenuLink asChild>
+                              <a
+                                href="/services"
+                                className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b p-4 no-underline outline-hidden transition-all duration-200 select-none focus:shadow-md md:p-6"
+                              >
+                                <div className="mb-2 text-lg font-semibold text-accent-green">
+                                  Our Services
+                                </div>
+                                <p className="text-muted-foreground text-sm leading-tight">
+                                  Explore our full range of medical billing,
+                                  RCM, and reporting solutions designed to help
+                                  your practice grow efficiently.
+                                </p>
+                              </a>
+                            </NavigationMenuLink>
+                          </li>
 
-                  {/* Dropdown Menu */}
-                  <div className="absolute left-0 top-full mt-1 group-hover:opacity-100 group-hover:visible opacity-0 invisible transition-all duration-200 bg-white shadow-lg rounded-lg w-56 border border-gray-100 z-50">
-                    {servicesList.map((service) => (
-                      <Link
-                        key={service.slug}
-                        href={`/services/${service.slug}`}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-accent-green"
-                      >
-                        {service.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-sm font-medium text-gray-700 hover:text-accent-green transition-colors"
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
-          </nav>
+                          {/* ✅ Services List */}
+                          {servicesList.map((service) => (
+                            <li key={service.slug}>
+                              <NavigationMenuLink asChild>
+                                <Link
+                                  href={`/services/${service.slug}`}
+                                  className="block rounded-md p-3 transition-colors hover:text-accent-green"
+                                >
+                                  <div className="text-sm font-medium text-gray-800">
+                                    {service.name}
+                                  </div>
+                                  <p className="text-sm text-muted-foreground leading-tight">
+                                    Learn more about{" "}
+                                    {service.name.toLowerCase()}.
+                                  </p>
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  ) : (
+                    <NavigationMenuItem key={item.label}>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href={item.href}
+                          className="text-sm font-medium text-gray-700 hover:text-accent-green transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  )
+                )}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
 
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Link href="/contact">
-              <Button className="md:px-4 lg:px-5 py-2 bg-accent-green text-white rounded-lg font-medium hover:bg-secondary transition-colors">
+              <Button className="md:px-4 lg:px-5 py-2 bg-accent-green text-white rounded-lg font-medium hover:bg-[#004b87] transition-colors">
                 Request Demo
               </Button>
             </Link>
@@ -225,7 +264,7 @@ export default function Header() {
           </Button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* ✅ Mobile Navigation */}
         {isOpen && (
           <nav className="lg:hidden pb-4 space-y-2">
             {navItems.map((item) =>
@@ -233,7 +272,7 @@ export default function Header() {
                 <div key={item.label} className="space-y-2">
                   <button
                     onClick={() => setIsServicesOpen(!isServicesOpen)}
-                    className="w-full text-left px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition-colors flex justify-between items-center"
+                    className="w-full text-left px-4 py-2 text-sm font-medium text-gray-700 hover:text-accent-green rounded-lg transition-colors flex justify-between items-center"
                   >
                     {item.label}
                     <ChevronDown
@@ -244,14 +283,13 @@ export default function Header() {
                     />
                   </button>
 
-                  {/* Mobile Dropdown List */}
                   {isServicesOpen && (
                     <div className="ml-4 space-y-1">
                       {servicesList.map((service) => (
                         <Link
                           key={service.slug}
                           href={`/services/${service.slug}`}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:text-accent-green rounded-lg transition-colors"
                           onClick={() => setIsOpen(false)}
                         >
                           {service.name}
@@ -264,7 +302,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:text-accent-green rounded-lg transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
@@ -275,7 +313,7 @@ export default function Header() {
             <Link href="/contact">
               <Button
                 variant="default"
-                className="w-full mt-4 bg-accent-green text-white hover-bg-accent-foreground"
+                className="w-full mt-4 bg-accent-green text-white hover:bg-[#004b87]"
               >
                 Request Demo
               </Button>

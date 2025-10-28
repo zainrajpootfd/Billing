@@ -24,7 +24,7 @@ export default function InsightsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#004b87] mb-6">
             Industry Insights
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -63,7 +63,7 @@ export default function InsightsPage() {
 
               <Link
                 href={`/insights/${featured.slug}`}
-                className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-full transition-all duration-300"
+                className="inline-flex items-center bg-accent-green hover:bg-[#004b87] text-white font-medium px-6 py-3 rounded-full transition-all duration-300"
               >
                 Read More
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -94,14 +94,14 @@ export default function InsightsPage() {
                 />
               </div>
               <div className="p-6 text-left">
-                <h2 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                <h2 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-[#004b87] transition-colors">
                   {insight.title}
                 </h2>
                 <p className="text-gray-600 mb-4">{insight.shortDescription}</p>
 
                 <Link
                   href={`/insights/${insight.slug}`}
-                  className="inline-flex items-center text-blue-600 font-medium hover:underline"
+                  className="inline-flex items-center text-accent-green font-medium hover:underline"
                 >
                   Read More <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>

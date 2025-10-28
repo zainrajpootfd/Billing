@@ -16,7 +16,7 @@ const icons = [User, Shield, Lightbulb, Users, Star];
 
 export default function AboutUs(): ReactElement {
   return (
-    <main className="bg-white text-gray-800">
+    <main className="bg-white text-[#004b87]">
       {/* Hero */}
       <section className="relative bg-blue-50 py-20 px-6 md:px-20 text-center md:text-left animate-fade-in">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
@@ -94,7 +94,7 @@ export default function AboutUs(): ReactElement {
             return (
               <div
                 key={index}
-                className="p-6 bg-white rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:bg-red-100 hover:text-white animate-fade-in"
+                className="p-6 bg-white rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:bg-green-200 hover:text-accent-green animate-fade-in"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="flex justify-center mb-4 text-blue-600 group-hover:text-white">
