@@ -90,7 +90,7 @@ export default function AuditSection() {
 
           <Button
             type="submit"
-            className="bg-accent-green hover:bg-[#004b87] text-white font-semibold rounded-lg py-3 px-6 transition-all hover:scale-105"
+            className="bg-accent-green hover:bg-[#004b87] text-white font-semibold rounded-lg py-6 px-4 transition-all hover:scale-105"
           >
             Audit My Practice
           </Button>

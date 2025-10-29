@@ -106,23 +106,23 @@ export default function ServiceDetailPage(): ReactElement {
               {service.fullDescription}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:888-508-6818">
+              <a href="tel:512-988-4965">
                 <Button
                   size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 text-lg px-8"
+                  className="bg-accent-green hover:bg-blue-700 text-lg px-8"
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Now
                 </Button>
               </a>
-              <Button
+              {/* <Button
                 size="lg"
                 variant="outline"
                 className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 text-lg px-8"
               >
                 <Mail className="mr-2 h-5 w-5" />
                 Get a Quote
-              </Button>
+              </Button> */}
             </div>
           </motion.div>
 
@@ -246,20 +246,21 @@ export default function ServiceDetailPage(): ReactElement {
               <a href="tel:888-508-6818">
                 <Button
                   size="lg"
-                  className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6"
+                  className="bg-accent-green text-white hover:bg-[#004b87] text-lg px-8 py-6"
                 >
                   <Phone className="mr-2 h-5 w-5" />
-                  Call 888-508-6818
+                  Call 512-988-4965
                 </Button>
               </a>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-6"
-              >
-                <Mail className="mr-2 h-5 w-5" />
-                Request Information
-              </Button>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  className="bg-accent-green text-white hover:bg-[#004b87] text-lg px-8 py-6"
+                >
+                  <Mail className="mr-2 h-5 w-5" />
+                  Request Information
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>

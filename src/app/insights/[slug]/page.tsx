@@ -91,7 +91,7 @@ export default function InsightDetail() {
         >
           <Link
             href="/insights"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-md"
+            className="inline-block bg-accent-green hover:bg-[#004b87] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-md"
           >
             Back to Insights
           </Link>

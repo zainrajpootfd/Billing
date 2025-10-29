@@ -150,41 +150,34 @@ export default function Header() {
   }, [isOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#ffffff]">
+    <header className="sticky top-0 z-50 bg-[#ffffff] border-b border-[#d5d5dd] shadow-sm">
       <TopBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={menuRef}>
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center justify-center bg-white">
+          <Link href="/" className="flex items-center justify-center ">
             <Image
-              src="/enlogo.png"
+              src="/logo.png" // make sure your uploaded image is saved as public/logo.png
               alt="Encore Billing Group Logo"
-              width={46}
-              height={46}
-              className="object-fit-fill bg-white rounded-md"
+              width={250}
+              height={160}
+              className="object-cover"
+              priority
             />
-            <div className="hidden sm:block leading-tight ml-2">
-              <h1 className="lg:text-lg xl:text-xl font-bold text-primary-blue">
-                Encore Billing Group
-              </h1>
-              <p className="text-xs text-[#005c0f] font-medium">
-                your growth, our promise
-              </p>
-            </div>
           </Link>
 
           {/* ✅ Desktop Navigation (Shadcn-style) */}
-          <div className="hidden lg:flex items-center gap-4 lg:gap-6 relative">
+          <div className="hidden lg:flex items-center gap-4 lg:gap-6 relative ">
             <NavigationMenu>
               <NavigationMenuList>
                 {navItems.map((item) =>
                   item.label === "Services" ? (
                     <NavigationMenuItem key={item.label}>
-                      <NavigationMenuTrigger className="text-sm font-medium text-gray-700 hover:text-accent-green transition-colors flex items-center gap-1">
+                      <NavigationMenuTrigger className=" text-sm font-medium hover:!bg-[#004b87] hover:!text-white transition-colors flex items-center gap-1">
                         {item.label}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid gap-3 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr] p-4">
+                        <ul className="grid gap-3 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr] p-  rounded-xl shadow-lg bg-gradient-to-br from-white to-blue-50">
                           {/* ✅ Left Featured Block */}
                           <li className="row-span-3">
                             <NavigationMenuLink asChild>
@@ -210,12 +203,12 @@ export default function Header() {
                               <NavigationMenuLink asChild>
                                 <Link
                                   href={`/services/${service.slug}`}
-                                  className="block rounded-md p-3 transition-colors hover:text-accent-green"
+                                  className="group block rounded-md p-3 transition-colors hover:!bg-[#004b87]"
                                 >
-                                  <div className="text-sm font-medium text-gray-800">
+                                  <div className="text-sm font-medium text-gray-800 group-hover:text-white">
                                     {service.name}
                                   </div>
-                                  <p className="text-sm text-muted-foreground leading-tight">
+                                  <p className="text-sm text-muted-foreground leading-tight group-hover:text-white">
                                     Learn more about{" "}
                                     {service.name.toLowerCase()}.
                                   </p>
@@ -231,7 +224,7 @@ export default function Header() {
                       <NavigationMenuLink asChild>
                         <Link
                           href={item.href}
-                          className="text-sm font-medium text-gray-700 hover:text-accent-green transition-colors"
+                          className="text-sm font-medium text-gray-700 hover:!bg-[#004b87] hover:text-white transition-colors"
                         >
                           {item.label}
                         </Link>

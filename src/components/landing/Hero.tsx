@@ -251,7 +251,35 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#f8f8f8] py-10 lg:py-20 border-b border-gray-200">
+    <section className="relative overflow-hidden  py-10 lg:py-20 border-b border-gray-200">
+      {/* Floating medical icons across whole section */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        {[...Array(10)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute opacity-40"
+            initial={{ y: 0 }}
+            animate={{ y: [0, -15, 0] }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+          >
+            <Image
+              src="/plus.png"
+              alt="Medical Sign"
+              width={30 + Math.random() * 30}
+              height={30 + Math.random() * 30}
+            />
+          </motion.div>
+        ))}
+      </div>
+
       {/* Background Blobs */}
       <div className="absolute top-0 right-0 w-56 h-56 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/3 rounded-full blur-3xl animate-float-reverse" />
@@ -269,11 +297,11 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-4xl lg:text-5xl font-bold text-primary-blue mb-6 leading-tight">
+          <h1 className="font-roboto text-4xl lg:text-5xl font-bold text-primary-blue mb-6 leading-tight">
             HIPAA Compliance Medical Billing Company
           </h1>
 
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+          <p className="font-lato text-lg text-muted-foreground mb-8 leading-relaxed">
             Streamline your revenue cycle with our comprehensive medical billing
             solutions. We help healthcare providers maximize collections and
             minimize administrative burden.
@@ -281,7 +309,7 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Link href="/contact">
-              <Button className="px-8 py-3 bg-accent-green text-white rounded-lg font-semibold hover:bg-accent-foreground transition-all hover:scale-105 active:scale-95">
+              <Button className="px-8 py-3 bg-accent-green text-white rounded-lg font-semibold hover:bg-[#004b87] transition-all hover:scale-105 active:scale-95">
                 Request Demo
               </Button>
             </Link>
@@ -349,7 +377,6 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          {/* Main doctor image with subtle hover scale */}
           <motion.div
             className="relative w-full h-[300px] sm:h-[500px] lg:h-[700px] rounded-2xl overflow-hidden"
             whileHover={{ scale: 1.03 }}
@@ -363,34 +390,6 @@ export default function Hero() {
               className="object-cover rounded-2xl"
             />
           </motion.div>
-
-          {/* Floating medical icons */}
-          <div className="absolute inset-0 -z-10 flex justify-center items-center pointer-events-none">
-            {[...Array(6)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute opacity-15"
-                initial={{ y: 0 }}
-                animate={{ y: [0, -10, 0] }}
-                transition={{
-                  duration: 3 + Math.random() * 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                style={{
-                  top: `${15 + Math.random() * 70}%`,
-                  left: `${15 + Math.random() * 70}%`,
-                }}
-              >
-                <Image
-                  src="/plus.png"
-                  alt="Medical Sign"
-                  width={40 + Math.random() * 40}
-                  height={40 + Math.random() * 40}
-                />
-              </motion.div>
-            ))}
-          </div>
 
           {/* Soft gradient glow */}
           <motion.div

@@ -4,6 +4,19 @@
 html {
   scroll-behavior: smooth;
 }
+
+:root {
+  --font-roboto: "Roboto", sans-serif;
+  --font-lato: "Lato", sans-serif;
+}
+
+.font-roboto {
+  font-family: var(--font-roboto);
+}
+
+.font-lato {
+  font-family: var(--font-lato);
+}
 @custom-variant dark (&:is(.dark *));
 /* @keyframes slide {
   0% {

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import TopBar from "@/components/landing/TopBar";
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
 import WhatsAppButton from "@/components/landing/WhatsappButton";
 import { Toaster } from "@/components/ui/sonner";
+import { roboto, lato } from "@/lib/fonts";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+        className={`${roboto.variable} ${lato.variable} ${lato.className} antialiased `}
       >
         {/* <TopBar /> */}
 
