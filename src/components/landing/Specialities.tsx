@@ -50,13 +50,16 @@ export default function Specialities() {
       </div>
 
       {/* Cards */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-y-8 items-stretch">
         {specialities.map((spec) => {
           const Icon = spec.icon;
           return (
-            <CardContainer key={spec.name} containerClassName="h-full">
+            <CardContainer
+              key={spec.name}
+              containerClassName="h-full w-full flex flex-col"
+            >
               <CardItem
-                className="p-8 bg-[#70B2B2]/20 border border-emerald-200/50 rounded-xl transition-all duration-300 cursor-pointer group hover:border-emerald-400 hover:shadow-lg hover:shadow-emerald-100/40 dark:bg-zinc-900/50 dark:hover:shadow-purple-900/30 flex flex-col justify-between h-full min-h-[260px]"
+                className="flex flex-col justify-between h-full p-8 bg-[#70B2B2]/20 border border-emerald-200/50 rounded-xl transition-all duration-300 cursor-pointer group hover:border-emerald-400 hover:shadow-lg hover:shadow-emerald-100/40 dark:bg-zinc-900/50 dark:hover:shadow-purple-900/30"
                 translateZ={20}
               >
                 <div className="flex flex-col flex-grow justify-between">
@@ -67,9 +70,7 @@ export default function Specialities() {
                     <h3 className="text-xl font-semibold text-primary-blue mb-2">
                       {spec.name}
                     </h3>
-                    <p className="text-gray-700 min-h-[28px]">
-                      {spec.description}
-                    </p>
+                    <p className="text-gray-700">{spec.description}</p>
                   </div>
                 </div>
               </CardItem>
