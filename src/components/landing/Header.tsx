@@ -86,7 +86,6 @@
 //     </header>
 //   );
 // }
-
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -150,35 +149,44 @@ export default function Header() {
   }, [isOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#ffffff] border-b border-[#d5d5dd] shadow-sm">
+    <header className="sticky top-0 z-50 bg-[#ffffff] border-b border-[#d5d5dd] shadow-sm overflow-visible">
       <TopBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={menuRef}>
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center justify-center ">
-            <Image
-              src="/logo.png" // make sure your uploaded image is saved as public/logo.png
-              alt="Encore Billing Group Logo"
-              width={250}
-              height={160}
-              className="object-cover"
-              priority
-            />
-          </Link>
+          {/* ✅ Logo (wrapped to keep white background hidden) */}
+          <div className="overflow-hidden rounded-md">
+            <Link href="/" className="flex items-center justify-center">
+              <Image
+                src="/lOGO Z.png"
+                alt="Encore Billing Group Logo"
+                width={180}
+                height={180}
+                className="object-contain "
+                priority
+              />
+            </Link>
+          </div>
 
-          {/* ✅ Desktop Navigation (Shadcn-style) */}
-          <div className="hidden lg:flex items-center gap-4 lg:gap-6 relative ">
+          {/* ✅ Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-4 lg:gap-6 relative">
             <NavigationMenu>
               <NavigationMenuList>
                 {navItems.map((item) =>
                   item.label === "Services" ? (
                     <NavigationMenuItem key={item.label}>
-                      <NavigationMenuTrigger className=" text-sm font-medium hover:!bg-[#004b87] hover:!text-white transition-colors flex items-center gap-1">
+                      <NavigationMenuTrigger className="text-sm font-medium hover:!bg-[#004b87] hover:!text-white transition-colors flex items-center gap-1">
                         {item.label}
                       </NavigationMenuTrigger>
-                      <NavigationMenuContent>
-                        <ul className="grid gap-3 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr] p-  rounded-xl shadow-lg bg-gradient-to-br from-white to-blue-50">
-                          {/* ✅ Left Featured Block */}
+
+                      <NavigationMenuContent
+                        className="!bg-transparent !shadow-none !border-none p-0"
+                        style={{
+                          background: "transparent",
+                          boxShadow: "none",
+                          border: "none",
+                        }}
+                      >
+                        <ul className="grid gap-3 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr] p-4 rounded-xl shadow-lg bg-gradient-to-br from-white to-blue-50">
                           <li className="row-span-3">
                             <NavigationMenuLink asChild>
                               <a
@@ -197,7 +205,6 @@ export default function Header() {
                             </NavigationMenuLink>
                           </li>
 
-                          {/* ✅ Services List */}
                           {servicesList.map((service) => (
                             <li key={service.slug}>
                               <NavigationMenuLink asChild>
@@ -205,7 +212,7 @@ export default function Header() {
                                   href={`/services/${service.slug}`}
                                   className="group block rounded-md p-3 transition-colors hover:!bg-[#004b87]"
                                 >
-                                  <div className="text-sm font-medium text-gray-800 group-hover:text-white">
+                                  <div className="text-sm font-bold uppercase text-gray-800 group-hover:text-white">
                                     {service.name}
                                   </div>
                                   <p className="text-sm text-muted-foreground leading-tight group-hover:text-white">

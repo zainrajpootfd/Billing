@@ -316,3 +316,32 @@ html {
     color: #374151;
   }
 }
+
+/* ===== NavigationMenu transparent override ===== */
+
+/* Generic Radix / Shadcn selectors (cover multiple name variants) */
+.navigation-menu-content,
+.radix-navigation-menu-content,
+[data-radix-navigation-menu-content],
+[data-radium="navigation-menu-content"],
+[role="menu"][data-radix-floating],
+[data-radix-floating="true"],
+[aria-hidden="false"] > .navigation-menu-content {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  --popover: 255 255 255 !important; /* neutralize popover var if used */
+}
+
+/* If Shadcn uses a "popover" utility class */
+.bg-popover {
+  background: transparent !important;
+}
+
+/* A more specific approach for Radix floating elements */
+[data-radix-portal] [data-radix-floating="true"],
+[data-radix-portal] .navigation-menu-content {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}

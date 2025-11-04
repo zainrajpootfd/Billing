@@ -19,9 +19,9 @@ export default function Footer() {
           <div>
             <Link
               href="/"
-              className="flex flex-col items-center justify-center "
+              className="flex flex-col items-start justify-center "
             >
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center ">
                 <Image
                   src="/enlogo.png"
                   alt="Encore Billing Group Logo"
@@ -29,17 +29,17 @@ export default function Footer() {
                   height={46}
                   className="object-contain bg-transparent rounded-md"
                 />
-                <div className="ml-2 leading-tight text-left">
-                  <h1 className="text-[#032746] font-bold text-base sm:text-lg ">
-                    Encore
+                <div className="ml-2  text-left">
+                  <h1 className="text-[#032746] font-bold text-xl sm:text-lg tracking-widest ">
+                    ENCORE
                   </h1>
-                  <h2 className="text-[#032746] font-semibold text-sm sm:text-base">
-                    Billing Group
+                  <h2 className="text-[#032746] text-xs/7  tracking-tighter mt-[-2]">
+                    BILLING GROUP
                   </h2>
                 </div>
               </div>
 
-              <p className="text-[#008736] text-[10px] sm:text-xs font-medium mt-1 tracking-wider uppercase">
+              <p className="text-[#008736] text-[10px] sm:text-xs font-medium mt-1 tracking-wider uppercase mb-2">
                 Excellence in Billing
               </p>
             </Link>

@@ -192,24 +192,6 @@ const trustedPeople = [
     designation: "Project Manager",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
-  {
-    id: 5,
-    name: "Sarah",
-    designation: "UI/UX Designer",
-    image: "https://randomuser.me/api/portraits/women/2.jpg",
-  },
-  {
-    id: 6,
-    name: "Ahmed",
-    designation: "Backend Engineer",
-    image: "https://randomuser.me/api/portraits/men/3.jpg",
-  },
-  {
-    id: 7,
-    name: "Ayesha",
-    designation: "Project Manager",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
 ];
 
 const AnimatedTooltipLazy = dynamic(
@@ -251,13 +233,13 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden  py-10 lg:py-20 border-b border-gray-200">
+    <section className="relative overflow-hidden  py-10 lg:py-20 border-b border-gray-200 bg-[#B3C8CF]/20">
       {/* Floating medical icons across whole section */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute opacity-40"
+            className="absolute "
             initial={{ y: 0 }}
             animate={{ y: [0, -15, 0] }}
             transition={{
@@ -271,10 +253,10 @@ export default function Hero() {
             }}
           >
             <Image
-              src="/plus.png"
+              src="/asrm.png"
               alt="Medical Sign"
-              width={30 + Math.random() * 30}
-              height={30 + Math.random() * 30}
+              width={70 + Math.random() * 30}
+              height={70 + Math.random() * 30}
             />
           </motion.div>
         ))}

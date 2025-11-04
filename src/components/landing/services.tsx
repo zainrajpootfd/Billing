@@ -263,7 +263,6 @@ const cardVariants: Variants = {
 export default function Services() {
   return (
     <section className="py-20 px-6 md:px-20 bg-[#f3f3f3]">
-      {" "}
       {/* Section Header */}
       <div className="text-center mb-12">
         <h2 className="text-3xl lg:text-4xl font-bold text-primary-blue mb-4">
@@ -274,6 +273,7 @@ export default function Services() {
           practice's unique needs.
         </p>
       </div>
+
       {/* Cards */}
       <motion.div
         variants={containerVariants}
@@ -289,15 +289,16 @@ export default function Services() {
               key={service.title}
               variants={cardVariants}
               whileHover={{
-                rotate: [0, -2, 2, -2, 2, 0],
-                transition: { duration: 0.4, ease: "easeInOut" },
+                rotate: -3,
+                scale: 1.03,
+                transition: { type: "spring", stiffness: 200, damping: 10 },
               }}
             >
-              <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+              <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer bg-[#FF7D29]/20">
                 <CardHeader className="flex flex-col items-start">
                   <div className="mb-3 p-3 bg-accent-green/10 rounded-lg w-fit group transition-all">
                     <Icon
-                      className="text-accent-green group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300  "
+                      className="text-accent-green group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300"
                       size={28}
                     />
                   </div>
