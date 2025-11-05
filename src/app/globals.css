@@ -106,7 +106,7 @@ html {
   --popover-foreground: oklch(0.3211 0 0);
   --primary: oklch(0.3 0.15 240); /* #004B87 - Primary Blue */
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.4 0.15 150); /* #2BA24C - Accent Green */
+  --secondary: oklch(0.35 0.15 150); /* #008736 - Accent Green (Updated) */
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.8828 0.0285 98.1033);
   --muted-foreground: oklch(0.5382 0 0);
@@ -165,7 +165,7 @@ html {
   --popover-foreground: oklch(0.9219 0 0);
   --primary: oklch(0.3 0.15 240); /* #004B87 - Primary Blue */
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.4 0.15 150); /* #2BA24C - Accent Green */
+  --secondary: oklch(0.35 0.15 150); /* #008736 - Accent Green (Updated) */
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.3867 0 0);
   --muted-foreground: oklch(0.7155 0 0);
@@ -289,7 +289,7 @@ html {
   }
 
   .text-accent-green {
-    color: #2ba24c;
+    color: #008736;
   }
 
   .bg-primary-blue {
@@ -297,11 +297,11 @@ html {
   }
 
   .bg-accent-green {
-    background-color: #2ba24c;
+    background-color: #008736;
   }
 
   .bg-accent-green-hover:hover {
-    background-color: #248a41;
+    background-color: #006622;
   }
 
   .bg-primary-blue-hover:hover {
@@ -309,7 +309,7 @@ html {
   }
 
   .border-accent-green {
-    border-color: #2ba24c;
+    border-color: #008736;
   }
 
   .text-gray-700 {
