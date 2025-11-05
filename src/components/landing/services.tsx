@@ -85,12 +85,12 @@ export default function Services() {
               key={service.title}
               variants={cardVariants}
               whileHover={{
-                rotate: -3,
+                rotate: -2,
                 scale: 1.03,
                 transition: { type: "spring", stiffness: 200, damping: 10 },
               }}
             >
-              <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer bg-[#FF7D29]/20">
+              <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer bg-white border border-blue-100 hover:bg-blue-50">
                 <CardHeader className="flex flex-col items-start">
                   <div className="mb-3 p-3 bg-accent-green/10 rounded-lg w-fit group transition-all">
                     <Icon

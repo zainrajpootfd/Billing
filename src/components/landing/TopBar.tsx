@@ -19,7 +19,7 @@ export default function TopBar() {
             className="flex items-center gap-2 hover:underline hover:text-gray-200 transition-colors"
           >
             <Phone size={16} className="text-white" />
-            <span>(512) 988-4965</span>
+            <span>(512) 704-7074</span>
           </Link>
 
           <span className="text-white hidden sm:inline">|</span>
