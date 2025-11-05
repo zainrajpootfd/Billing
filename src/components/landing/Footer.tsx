@@ -213,7 +213,7 @@ export default function Footer() {
         <div className="border-t border-white pt-4 text-center text-gray-300 text-sm">
           <p>
             &copy; 2025 Encore Billing Group. All rights reserved. | HIPAA
-            Compliant | ISO Certified
+            Compliance | ISO Certified
           </p>
         </div>
       </div>
