@@ -143,7 +143,7 @@ function Counter({
         animating ? "scale-110" : "scale-100"
       }`}
       style={{
-        color: "#2ba24c", // brand red
+        color: "#008736", // brand green
         // textShadow: animating
         //   ? "0 0 12px rgba(200, 16, 16, 0.6)"
         //   : "0 0 0 rgba(0,0,0,0)",
