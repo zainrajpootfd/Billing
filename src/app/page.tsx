@@ -12,6 +12,12 @@ import Contact from "@/components/landing/Contact";
 import TopBar from "@/components/landing/TopBar";
 import Footer from "@/components/landing/Footer";
 import AuditSection from "@/components/landing/AuditSection";
+import ResultsMetrics from "@/components/landing/ResultsMetrics";
+import TrustBadges from "@/components/landing/TrustBadges";
+import KeyDifferentiators from "@/components/landing/KeyDifferentiators";
+import IntegrationPartners from "@/components/landing/IntegrationPartners";
+import CaseStudies from "@/components/landing/CaseStudies";
+import HowToGetStarted from "@/components/landing/HowToGetStarted";
 
 export default function Home() {
   return (
@@ -20,12 +26,18 @@ export default function Home() {
       <Header /> */}
       <Hero />
       <AuditSection />
+      <ResultsMetrics />
+      <TrustBadges />
       <KPI />
       <Services />
+      <KeyDifferentiators />
       <WhyChooseUs />
       <HowItWorks />
+      <IntegrationPartners />
       <Specialities />
+      <CaseStudies />
       <Testimonials />
+      <HowToGetStarted />
       <FAQ />
       <Associated />
       <Contact />
