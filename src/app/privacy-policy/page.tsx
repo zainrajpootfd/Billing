@@ -18,6 +18,9 @@ export default function PrivacyPolicy() {
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
             Privacy Policy
           </h1>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+            Hipaa Compliance
+          </h2>
           <p className="text-lg md:text-xl text-gray-700">
             Your privacy is important to us. Learn how we protect and handle your information.
           </p>

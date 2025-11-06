@@ -29,7 +29,7 @@ export default function TopBar() {
             onClick={() => setIsModalOpen(true)}
             className="relative text-white font-semibold animate-bounce"
           >
-            Medical Billing Starts @2.49$
+            Medical Billing Starts @2.49%
           </button>
 
           <span className="text-white hidden sm:inline">|</span>

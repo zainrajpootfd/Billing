@@ -47,11 +47,11 @@ export default function Footer() {
             <div className="space-y-2 text-sm text-gray-300 mb-6">
               <div className="flex items-center gap-2">
                 <Phone size={16} />
-                <span>512-704-7074</span>
+                <span>(512) 704-7074</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={16} />
-                <span>support@encorebillinggroup.com</span>
+                <span>Support@encorebillinggroup.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={16} />
@@ -174,7 +174,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-white">Legal</h4>
             <ul className="space-y-2 text-sm text-gray-300">
-              {/* <li>
+              <li>
                 <Link
                   href="/privacy-policy"
                   className="hover:text-green-500 transition-colors"
@@ -189,23 +189,9 @@ export default function Footer() {
                 >
                   Terms of Service
                 </Link>
-              </li> */}
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-green-500 transition-colors"
-                >
-                  HIPAA Compliance
-                </Link>
               </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-green-500 transition-colors"
-                >
-                  Security
-                </Link>
-              </li>
+              
+
             </ul>
           </div>
         </div>
