@@ -47,15 +47,15 @@ export default function Footer() {
             <div className="space-y-2 text-sm text-gray-300 mb-6">
               <div className="flex items-center gap-2">
                 <Phone size={16} />
-                <span>1-800-ENCORE</span>
+                <span>(512) 704-7074</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={16} />
-                <span>info@encorebillinggroup.com</span>
+                <span>Support@encorebillinggroup.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={16} />
-                <span>123 Healthcare Ave, Medical City, ST 12345</span>
+                <span>718 Kingston Pl, Cedar Park, TX 78613, USA</span>
               </div>
             </div>
 
