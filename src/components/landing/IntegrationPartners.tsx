@@ -126,17 +126,12 @@ export default function IntegrationPartners() {
                       </motion.h3>
                       
                       {/* Integrated badge with animation */}
-                      <motion.div
-                        className="flex items-center justify-center gap-1.5 mt-3"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileHover={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
+                      <div className="flex items-center justify-center gap-1.5 mt-3 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                         <CheckCircle2 className="h-4 w-4 text-accent-green group-hover:scale-125 transition-transform duration-300" />
                         <span className="text-xs text-accent-green font-semibold group-hover:tracking-wide transition-all duration-300">
                           Integrated
                         </span>
-                      </motion.div>
+                      </div>
                     </div>
                     
                     {/* Decorative corner accents */}
