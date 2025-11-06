@@ -55,7 +55,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={16} />
-                <span>718 Kingston Pl, Cedar Park, TX 78613, USA</span>
+                <span>718 Kingston Pl, Cedar Park, TX 78613</span>
               </div>
             </div>
 
