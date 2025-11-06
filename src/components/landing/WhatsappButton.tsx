@@ -9,7 +9,7 @@ export default function WhatsAppButton() {
   return (
     <div className="fixed bottom-5 right-10 md:right-5 flex items-center gap-3 z-50 ">
       {/* Text on the left */}
-      <div className="bg-white text-gray-800 md:px-4 md:py-2 p-1 rounded-full  shadow-md text-sm font-medium">
+      <div className="bg-card-blue text-foreground md:px-4 md:py-2 p-1 rounded-full shadow-md text-sm font-medium border border-border">
         Chat with us on WhatsApp!
       </div>
 

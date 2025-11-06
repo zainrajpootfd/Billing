@@ -146,7 +146,7 @@ export default function ContactSection({
   const contactForm = (
     <form
       onSubmit={handleSubmit}
-      className="space-y-6 animate-fade-in-right bg-white/90 backdrop-blur-md shadow-lg rounded-2xl p-8 border border-accent-green/10"
+      className="space-y-6 animate-fade-in-right bg-card-blue backdrop-blur-md shadow-lg rounded-2xl p-8 border border-border"
     >
       <div>
         <div>
@@ -167,7 +167,7 @@ export default function ContactSection({
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-accent-green transition-colors"
+          className="w-full px-4 py-3 border border-border bg-background rounded-md focus:outline-none focus:border-accent-green transition-colors"
           placeholder="Your name"
         />
       </div>
@@ -182,7 +182,7 @@ export default function ContactSection({
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-accent-green transition-colors"
+          className="w-full px-4 py-3 border border-border bg-background rounded-md focus:outline-none focus:border-accent-green transition-colors"
           placeholder="your@email.com"
         />
       </div>
@@ -196,7 +196,7 @@ export default function ContactSection({
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-accent-green transition-colors"
+          className="w-full px-4 py-3 border border-border bg-background rounded-md focus:outline-none focus:border-accent-green transition-colors"
           placeholder="(555) 000-0000"
         />
       </div>
@@ -211,7 +211,7 @@ export default function ContactSection({
           onChange={handleChange}
           required
           rows={5}
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-accent-green transition-colors resize-none"
+          className="w-full px-4 py-3 border border-border bg-background rounded-lg focus:outline-none focus:border-accent-green transition-colors resize-none"
           placeholder="Your message..."
         />
       </div>
@@ -222,8 +222,7 @@ export default function ContactSection({
 
       <button
         type="submit"
-        className="w-full px-6 py-3 bg-accent-green text-white rounded-lg font-semibold hover:bg-[#004b87]
- transition-transform hover:scale-105 active:scale-95"
+        className="w-full px-6 py-3 bg-accent-green text-white rounded-md font-semibold hover:bg-primary-blue transition-transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
       >
         Send Message
       </button>
@@ -247,14 +246,14 @@ export default function ContactSection({
     <section
       className={`relative py-20 lg:py-24 ${
         variant === "default"
-          ? "bg-gradient-to-br from-primary/5 to-white"
-          : "bg-white"
+          ? "bg-section-default"
+          : "bg-section-default"
       }`}
       id="contact"
     >
       {/* Background Image */}
       <div className="absolute inset-0 -z-10 bg-cover bg-center bg-[url('/medical.jpg')]">
-        <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-section-default/90 backdrop-blur-sm"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -262,7 +261,7 @@ export default function ContactSection({
         <div
           className={`text-center mb-10 ${
             variant === "landing"
-              ? "py-20 lg:py-32 bg-gradient-to-br from-primary/10 to-white rounded-2xl animate-fade-in-up"
+              ? "py-20 lg:py-32 bg-section-default rounded-2xl animate-fade-in-up"
               : ""
           }`}
         >

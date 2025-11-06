@@ -175,13 +175,13 @@ export default function KPI() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 lg:py-32 bg-gradient-to-r from-[#daf2fe] to-blue-100 overflow-hidden relative"
+      className="py-20 lg:py-32 bg-section-default overflow-hidden relative"
     >
       {/* Hexagon Background */}
       <div
-        className="absolute inset-0 bg-center opacity-40 pointer-events-none"
+        className="absolute inset-0 bg-center opacity-30 pointer-events-none"
         style={{
-          backgroundColor: "#daf2fe",
+          backgroundColor: "var(--section-default)",
           backgroundImage:
             "url('https://www.toptal.com/designers/subtlepatterns/uploads/hexellence.png')",
           backgroundSize: "300px 300px",
@@ -219,7 +219,7 @@ export default function KPI() {
               {kpis.map((kpi, idx) => (
                 <div
                   key={kpi.label}
-                  className="text-center p-6 bg-gray-100 backdrop-blur-xl rounded-xl shadow-sm hover:shadow-md transition-shadow animate-scale-in"
+                  className="text-center p-6 bg-card-default backdrop-blur-xl rounded-xl shadow-sm hover:shadow-md transition-shadow animate-scale-in border border-border/50"
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
                   <div className="text-4xl lg:text-5xl font-bold mb-2">

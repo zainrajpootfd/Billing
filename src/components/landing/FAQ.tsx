@@ -60,7 +60,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-20 lg:py-32 bg-white">
+    <section className="py-20 lg:py-32 bg-section-green-light">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -85,11 +85,11 @@ export default function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="border border-gray-200 rounded-lg overflow-hidden hover:border-accent-green/50 transition-colors"
+              className="border border-border rounded-lg overflow-hidden hover:border-accent-green/50 transition-colors bg-card-green"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-5 text-left flex items-center justify-between bg-white hover:bg-gray-50 transition-colors"
+                className="w-full px-6 py-5 text-left flex items-center justify-between bg-card-green hover:bg-muted/50 transition-colors"
               >
                 <span className="font-semibold text-primary-blue pr-4">
                   {faq.question}
@@ -110,7 +110,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 py-5 bg-gray-50 border-t border-gray-200">
+                    <div className="px-6 py-5 bg-muted/30 border-t border-border">
                       <p className="text-gray-700 leading-relaxed">
                         {faq.answer}
                       </p>
@@ -129,7 +129,7 @@ export default function FAQ() {
           </p>
           <a
             href="/contact"
-            className="inline-block px-8 py-3 bg-accent-green text-white rounded-lg font-semibold hover:bg-primary-blue transition-all hover:scale-105 active:scale-95"
+            className="inline-block px-8 py-3 bg-accent-green text-white rounded-md font-semibold hover:bg-primary-blue transition-all hover:scale-105 active:scale-95"
           >
             Contact Us
           </a>

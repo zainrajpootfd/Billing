@@ -87,7 +87,7 @@ export default function Specialities() {
   }, []);
 
   return (
-    <section className="py-20 lg:py-32 bg-[#ebedf0] dark:bg-gradient-to-br dark:from-emerald-950 dark:via-zinc-900 dark:to-purple-950">
+    <section className="py-20 lg:py-32 bg-section-default">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
         <h2 className="text-4xl lg:text-5xl font-bold text-primary-blue mb-6">
           Medical Specialities We Serve
@@ -120,7 +120,7 @@ export default function Specialities() {
                   cardRefs.current[idx] = el;
                 }}
               >
-                <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer bg-[#70B2B2]/20 border border-emerald-200/50">
+                <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer bg-card-default border border-border hover:border-secondary/30">
                   <CardHeader className="flex flex-col items-start">
                     <div className="mb-4 p-4 bg-accent-green/10 rounded-lg w-fit group-hover:bg-accent-green/20 transition-all">
                       <Icon

@@ -12,7 +12,7 @@ export default function TopBar() {
   return (
     <>
       {/* 🔹 Top Bar */}
-      <div className="w-full bg-[#004b87] text-white py-2 sticky top-0 z-50">
+      <div className="w-full bg-primary-blue text-white py-2 sticky top-0 z-50">
         <div className="flex items-center justify-center gap-2 lg:gap-6 text-sm flex-wrap">
           <Link
             href="tel:+15129884965"
@@ -54,7 +54,7 @@ export default function TopBar() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-white rounded-xl shadow-lg w-[90%] max-w-md p-6 relative"
+              className="bg-card-blue rounded-xl shadow-lg w-[90%] max-w-md p-6 relative border border-border"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}

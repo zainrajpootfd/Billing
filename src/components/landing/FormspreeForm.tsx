@@ -68,9 +68,9 @@ export default function FormspreeForm({
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white shadow-lg rounded-2xl p-6">
+    <div className="max-w-lg mx-auto bg-card-blue shadow-lg rounded-2xl p-6 border border-border">
       {title && (
-        <h2 className="text-2xl font-semibold mb-4 text-gray-900">{title}</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-primary-blue">{title}</h2>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -79,7 +79,7 @@ export default function FormspreeForm({
           name="name"
           placeholder="Your Name"
           required
-          className="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-green"
+          className="w-full border border-border bg-background p-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent-green"
         />
 
         <input
@@ -87,7 +87,7 @@ export default function FormspreeForm({
           name="email"
           placeholder="Your Email"
           required
-          className="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-green"
+          className="w-full border border-border bg-background p-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent-green"
         />
 
         <textarea
@@ -95,14 +95,14 @@ export default function FormspreeForm({
           placeholder={getPlaceholder()}
           required
           rows={5}
-          className="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-green"
+          className="w-full border border-border bg-background p-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent-green"
         />
 
         <input type="hidden" name="formType" value={formType} />
 
         <button
           type="submit"
-          className="w-full py-2 px-4 rounded-md text-white bg-accent-green hover:bg-green-700 transition"
+          className="w-full py-2 px-4 rounded-md text-white bg-accent-green hover:bg-primary-blue transition shadow-md hover:shadow-lg"
         >
           {getButtonText()}
         </button>

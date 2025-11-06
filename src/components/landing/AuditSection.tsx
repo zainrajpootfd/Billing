@@ -47,10 +47,10 @@ export default function AuditSection() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-[#daf2fe] via-white to-[#e6f4ff] py-16 px-4 sm:px-8 rounded-3xl shadow-inner">
+    <section className="relative bg-section-green-light py-16 px-4 sm:px-8 rounded-3xl shadow-inner">
       <div className="max-w-5xl mx-auto text-center">
         {/* Heading */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#004b87] mb-8">
+        <h2 className="text-3xl sm:text-4xl font-bold text-primary-blue mb-8">
           Offering <span className="text-accent-green">FREE</span> Practice
           Audit
         </h2>
@@ -58,7 +58,7 @@ export default function AuditSection() {
         {/* Form */}
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center bg-card-green p-6 rounded-2xl shadow-lg border border-border"
         >
           <input
             type="text"
@@ -67,7 +67,7 @@ export default function AuditSection() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#004b87]/50 transition"
+            className="border border-border rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition bg-background"
           />
           <input
             type="email"
@@ -76,7 +76,7 @@ export default function AuditSection() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#004b87]/50 transition"
+            className="border border-border rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition bg-background"
           />
           <input
             type="tel"
@@ -85,19 +85,19 @@ export default function AuditSection() {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#004b87]/50 transition"
+            className="border border-border rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition bg-background"
           />
 
           <Button
             type="submit"
-            className="bg-accent-green hover:bg-[#004b87] text-white font-semibold rounded-lg py-6 px-4 transition-all hover:scale-105"
+            className="bg-accent-green hover:bg-primary-blue text-white font-semibold rounded-md py-6 px-4 transition-all hover:scale-105"
           >
             Audit My Practice
           </Button>
         </form>
 
         {/* Decorative Glow */}
-        <div className="absolute -z-10 bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[200px] bg-blue-100/40 blur-3xl rounded-full"></div>
+        <div className="absolute -z-10 bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[200px] bg-primary-light/40 blur-3xl rounded-full"></div>
       </div>
     </section>
   );

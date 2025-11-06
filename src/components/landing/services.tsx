@@ -58,7 +58,7 @@ const cardVariants: Variants = {
 
 export default function Services() {
   return (
-    <section className="py-20 px-6 md:px-20 bg-[#f3f3f3]">
+    <section className="py-20 px-6 md:px-20 bg-section-green-medium">
       {/* Section Header */}
       <div className="text-center mb-12">
         <h2 className="text-3xl lg:text-4xl font-bold text-primary-blue mb-4">
@@ -90,7 +90,7 @@ export default function Services() {
                 transition: { type: "spring", stiffness: 200, damping: 10 },
               }}
             >
-              <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer bg-white border border-blue-100 hover:bg-blue-50">
+              <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer bg-card-green border-border hover:bg-card-accent">
                 <CardHeader className="flex flex-col items-start">
                   <div className="mb-3 p-3 bg-accent-green/10 rounded-lg w-fit group transition-all">
                     <Icon

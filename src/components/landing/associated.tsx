@@ -81,7 +81,7 @@ export default function Associated() {
   ];
 
   return (
-    <section className="pt-20">
+    <section className="pt-20 bg-section-default">
       <div className="text-xl md:text-5xl text-primary-blue font-bold text-center p-4 mb-6">
         <h2>In Associated with</h2>
       </div>

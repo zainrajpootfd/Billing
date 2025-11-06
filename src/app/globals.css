@@ -98,42 +98,101 @@ html {
 }
 
 :root {
-  --background: oklch(0.9824 0.0013 286.3757);
-  --foreground: oklch(0.3211 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.3211 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.3211 0 0);
+  /* Base Colors - Professional Medical Theme */
+  --background: oklch(0.99 0.001 286); /* Pure white with slight blue tint */
+  --foreground: oklch(0.15 0.01 240); /* Deep blue-gray for text */
+  --card: oklch(0.998 0.001 286); /* Slightly off-white for cards - blends with backgrounds */
+  --card-foreground: oklch(0.15 0.01 240);
+  --popover: oklch(0.998 0.001 286);
+  --popover-foreground: oklch(0.15 0.01 240);
+  
+  /* Brand Colors */
   --primary: oklch(0.3 0.15 240); /* #004B87 - Primary Blue */
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.35 0.15 150); /* #008736 - Accent Green (Updated) */
+  --primary-light: oklch(0.95 0.02 240); /* Light blue tint for backgrounds */
+  --primary-lighter: oklch(0.97 0.01 240); /* Very light blue for subtle backgrounds */
+  
+  --secondary: oklch(0.4 0.15 150); /* #2BA24C - Accent Green */
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.8828 0.0285 98.1033);
-  --muted-foreground: oklch(0.5382 0 0);
-  --accent: oklch(0.8269 0.108 211.9627);
-  --accent-foreground: oklch(0.3211 0 0);
+  --secondary-light: oklch(0.96 0.015 150); /* Light green tint */
+  --secondary-lighter: oklch(0.98 0.008 150); /* Very light green */
+  
+  /* Section Backgrounds - Mix of White and Subtle Colored Accents */
+  --section-default: oklch(1 0 0); /* Pure white - default section */
+  --section-muted: oklch(0.99 0.002 240); /* Almost white with subtle blue tint */
+  --section-accent: oklch(0.98 0.005 240); /* Very subtle blue for accent sections */
+  --section-primary: oklch(0.97 0.008 240); /* Subtle blue for primary sections */
+  --section-secondary: oklch(0.98 0.004 150); /* Very subtle green for secondary sections */
+  --section-green-light: oklch(0.99 0.003 150); /* Almost white with subtle green */
+  --section-green-medium: oklch(0.97 0.006 150); /* Subtle green accent */
+  --section-blue-light: oklch(0.99 0.002 240); /* Almost white with subtle blue */
+  --section-blue-medium: oklch(0.97 0.007 240); /* Subtle blue accent */
+  
+  /* Card Variants - Work on both white and colored backgrounds */
+  --card-default: oklch(1 0 0); /* Pure white card - works on any background */
+  --card-muted: oklch(0.99 0.001 240); /* Almost white card */
+  --card-accent: oklch(0.99 0.002 240); /* Very subtle blue card */
+  --card-primary: oklch(0.98 0.004 240); /* Subtle blue card */
+  --card-secondary: oklch(0.99 0.002 150); /* Very subtle green card */
+  --card-green: oklch(1 0 0); /* White card for green sections */
+  --card-blue: oklch(1 0 0); /* White card for blue sections */
+  
+  /* Muted Colors */
+  --muted: oklch(0.94 0.005 240); /* Muted background */
+  --muted-foreground: oklch(0.45 0.01 240); /* Muted text */
+  
+  /* Accent Colors */
+  --accent: oklch(0.92 0.02 240); /* Accent background */
+  --accent-foreground: oklch(0.15 0.01 240);
+  
+  /* Status Colors */
   --destructive: oklch(0.6368 0.2078 25.3313);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.8699 0 0);
-  --input: oklch(0.8699 0 0);
-  --ring: oklch(0.6487 0.1538 150.3071);
-  --chart-1: oklch(0.6487 0.1538 150.3071);
-  --chart-2: oklch(0.6746 0.1414 261.338);
-  --chart-3: oklch(0.8269 0.108 211.9627);
-  --chart-4: oklch(0.588 0.0993 245.7394);
-  --chart-5: oklch(0.5905 0.1608 148.2409);
-  --sidebar: oklch(0.9824 0.0013 286.3757);
-  --sidebar-foreground: oklch(0.3211 0 0);
-  --sidebar-primary: oklch(0.6487 0.1538 150.3071);
+  
+  /* UI Elements */
+  --border: oklch(0.90 0.005 240); /* Subtle blue-tinted borders */
+  --input: oklch(0.99 0.001 286);
+  --ring: oklch(0.3 0.15 240); /* Primary color for focus rings */
+  
+  /* Chart Colors */
+  --chart-1: oklch(0.3 0.15 240);
+  --chart-2: oklch(0.4 0.15 150);
+  --chart-3: oklch(0.5 0.12 200);
+  --chart-4: oklch(0.45 0.13 280);
+  --chart-5: oklch(0.55 0.14 160);
+  
+  /* Sidebar */
+  --sidebar: oklch(0.99 0.001 286);
+  --sidebar-foreground: oklch(0.15 0.01 240);
+  --sidebar-primary: oklch(0.3 0.15 240);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.8269 0.108 211.9627);
-  --sidebar-accent-foreground: oklch(0.3211 0 0);
-  --sidebar-border: oklch(0.8699 0 0);
-  --sidebar-ring: oklch(0.6487 0.1538 150.3071);
+  --sidebar-accent: oklch(0.92 0.02 240);
+  --sidebar-accent-foreground: oklch(0.15 0.01 240);
+  --sidebar-border: oklch(0.90 0.005 240);
+  --sidebar-ring: oklch(0.3 0.15 240);
+  
+  /* Typography */
   --font-sans: Plus Jakarta Sans, sans-serif;
   --font-serif: Source Serif 4, serif;
   --font-mono: JetBrains Mono, monospace;
-  --radius: 0.5rem;
+  
+  /* Spacing & Layout */
+  --radius: 0.75rem; /* Slightly larger radius for modern feel */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  
+  /* Shadows - Subtle and professional */
+  --shadow-xs: 0 1px 2px 0 oklch(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 oklch(0 0 0 / 0.08), 0 1px 2px -1px oklch(0 0 0 / 0.08);
+  --shadow: 0 2px 4px -1px oklch(0 0 0 / 0.1), 0 4px 6px -2px oklch(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px oklch(0 0 0 / 0.1), 0 8px 10px -6px oklch(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px oklch(0 0 0 / 0.25);
+  
+  /* Legacy support */
   --shadow-x: 0;
   --shadow-y: 1px;
   --shadow-blur: 3px;
@@ -141,76 +200,83 @@ html {
   --shadow-opacity: 0.1;
   --shadow-color: oklch(0 0 0);
   --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-    0 1px 2px -1px hsl(0 0% 0% / 0.1);
-  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-    0 2px 4px -1px hsl(0 0% 0% / 0.1);
-  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-    0 4px 6px -1px hsl(0 0% 0% / 0.1);
-  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-    0 8px 10px -1px hsl(0 0% 0% / 0.1);
-  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 }
 
 .dark {
-  --background: oklch(0.2303 0.0125 264.2926);
-  --foreground: oklch(0.9219 0 0);
-  --card: oklch(0.321 0.0078 223.6661);
-  --card-foreground: oklch(0.9219 0 0);
-  --popover: oklch(0.321 0.0078 223.6661);
-  --popover-foreground: oklch(0.9219 0 0);
-  --primary: oklch(0.3 0.15 240); /* #004B87 - Primary Blue */
+  --background: oklch(0.15 0.01 240);
+  --foreground: oklch(0.95 0.005 240);
+  --card: oklch(0.18 0.01 240);
+  --card-foreground: oklch(0.95 0.005 240);
+  --popover: oklch(0.18 0.01 240);
+  --popover-foreground: oklch(0.95 0.005 240);
+  --primary: oklch(0.5 0.15 240);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.35 0.15 150); /* #008736 - Accent Green (Updated) */
+  --primary-light: oklch(0.20 0.02 240);
+  --primary-lighter: oklch(0.17 0.01 240);
+  --secondary: oklch(0.5 0.15 150);
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.3867 0 0);
-  --muted-foreground: oklch(0.7155 0 0);
-  --accent: oklch(0.6746 0.1414 261.338);
-  --accent-foreground: oklch(0.9219 0 0);
+  --secondary-light: oklch(0.20 0.015 150);
+  --secondary-lighter: oklch(0.17 0.008 150);
+  --section-default: oklch(0.15 0.01 240);
+  --section-muted: oklch(0.16 0.012 240);
+  --section-accent: oklch(0.17 0.015 240);
+  --section-primary: oklch(0.18 0.018 240);
+  --section-secondary: oklch(0.17 0.014 150);
+  --section-green-light: oklch(0.16 0.013 150);
+  --section-green-medium: oklch(0.18 0.016 150);
+  --section-blue-light: oklch(0.16 0.012 240);
+  --section-blue-medium: oklch(0.18 0.017 240);
+  --card-default: oklch(0.18 0.01 240);
+  --card-muted: oklch(0.17 0.011 240);
+  --card-accent: oklch(0.19 0.012 240);
+  --card-primary: oklch(0.20 0.014 240);
+  --card-secondary: oklch(0.19 0.012 150);
+  --card-green: oklch(0.18 0.01 150);
+  --card-blue: oklch(0.18 0.01 240);
+  --muted: oklch(0.22 0.005 240);
+  --muted-foreground: oklch(0.65 0.01 240);
+  --accent: oklch(0.25 0.02 240);
+  --accent-foreground: oklch(0.95 0.005 240);
   --destructive: oklch(0.6368 0.2078 25.3313);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.3867 0 0);
-  --input: oklch(0.3867 0 0);
-  --ring: oklch(0.6487 0.1538 150.3071);
-  --chart-1: oklch(0.6487 0.1538 150.3071);
-  --chart-2: oklch(0.588 0.0993 245.7394);
-  --chart-3: oklch(0.6746 0.1414 261.338);
-  --chart-4: oklch(0.8269 0.108 211.9627);
-  --chart-5: oklch(0.5905 0.1608 148.2409);
-  --sidebar: oklch(0.2303 0.0125 264.2926);
-  --sidebar-foreground: oklch(0.9219 0 0);
-  --sidebar-primary: oklch(0.6487 0.1538 150.3071);
+  --border: oklch(0.25 0.005 240);
+  --input: oklch(0.18 0.01 240);
+  --ring: oklch(0.5 0.15 240);
+  --chart-1: oklch(0.5 0.15 240);
+  --chart-2: oklch(0.5 0.15 150);
+  --chart-3: oklch(0.5 0.12 200);
+  --chart-4: oklch(0.45 0.13 280);
+  --chart-5: oklch(0.55 0.14 160);
+  --sidebar: oklch(0.15 0.01 240);
+  --sidebar-foreground: oklch(0.95 0.005 240);
+  --sidebar-primary: oklch(0.5 0.15 240);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.6746 0.1414 261.338);
-  --sidebar-accent-foreground: oklch(0.9219 0 0);
-  --sidebar-border: oklch(0.3867 0 0);
-  --sidebar-ring: oklch(0.6487 0.1538 150.3071);
+  --sidebar-accent: oklch(0.25 0.02 240);
+  --sidebar-accent-foreground: oklch(0.95 0.005 240);
+  --sidebar-border: oklch(0.25 0.005 240);
+  --sidebar-ring: oklch(0.5 0.15 240);
   --font-sans: Plus Jakarta Sans, sans-serif;
   --font-serif: Source Serif 4, serif;
   --font-mono: JetBrains Mono, monospace;
-  --radius: 0.5rem;
+  --radius: 0.75rem;
+  --shadow-xs: 0 1px 2px 0 oklch(0 0 0 / 0.3);
+  --shadow-sm: 0 1px 3px 0 oklch(0 0 0 / 0.4), 0 1px 2px -1px oklch(0 0 0 / 0.4);
+  --shadow: 0 2px 4px -1px oklch(0 0 0 / 0.4), 0 4px 6px -2px oklch(0 0 0 / 0.4);
+  --shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.4), 0 2px 4px -2px oklch(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.4), 0 4px 6px -4px oklch(0 0 0 / 0.4);
+  --shadow-xl: 0 20px 25px -5px oklch(0 0 0 / 0.4), 0 8px 10px -6px oklch(0 0 0 / 0.4);
+  --shadow-2xl: 0 25px 50px -12px oklch(0 0 0 / 0.5);
   --shadow-x: 0;
   --shadow-y: 1px;
   --shadow-blur: 3px;
   --shadow-spread: 0px;
   --shadow-opacity: 0.1;
   --shadow-color: oklch(0 0 0);
-  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-    0 1px 2px -1px hsl(0 0% 0% / 0.1);
-  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-    0 2px 4px -1px hsl(0 0% 0% / 0.1);
-  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-    0 4px 6px -1px hsl(0 0% 0% / 0.1);
-  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-    0 8px 10px -1px hsl(0 0% 0% / 0.1);
-  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.3);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
 }
 
 @theme inline {
@@ -222,8 +288,30 @@ html {
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-light: var(--primary-light);
+  --color-primary-lighter: var(--primary-lighter);
+  --color-primary-blue: var(--primary); /* Alias for primary-blue utility */
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-light: var(--secondary-light);
+  --color-secondary-lighter: var(--secondary-lighter);
+  --color-accent-green: var(--secondary); /* Alias for accent-green utility */
+  --color-section-default: var(--section-default);
+  --color-section-muted: var(--section-muted);
+  --color-section-accent: var(--section-accent);
+  --color-section-primary: var(--section-primary);
+  --color-section-secondary: var(--section-secondary);
+  --color-section-green-light: var(--section-green-light);
+  --color-section-green-medium: var(--section-green-medium);
+  --color-section-blue-light: var(--section-blue-light);
+  --color-section-blue-medium: var(--section-blue-medium);
+  --color-card-default: var(--card-default);
+  --color-card-muted: var(--card-muted);
+  --color-card-accent: var(--card-accent);
+  --color-card-primary: var(--card-primary);
+  --color-card-secondary: var(--card-secondary);
+  --color-card-green: var(--card-green);
+  --color-card-blue: var(--card-blue);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
@@ -251,12 +339,11 @@ html {
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
 
-  --shadow-2xs: var(--shadow-2xs);
   --shadow-xs: var(--shadow-xs);
   --shadow-sm: var(--shadow-sm);
   --shadow: var(--shadow);
@@ -282,38 +369,129 @@ html {
   }
 }
 
-/* Custom color classes for the new color scheme */
+/* Custom color utilities - Using theme variables for consistency */
 @layer utilities {
+  /* Brand Colors - These are now available via @theme inline above */
+  /* Keeping these for backward compatibility and hover states */
   .text-primary-blue {
-    color: #004b87;
+    color: var(--primary);
   }
 
   .text-accent-green {
-    color: #008736;
+    color: var(--secondary);
   }
 
   .bg-primary-blue {
-    background-color: #004b87;
+    background-color: var(--primary);
   }
 
   .bg-accent-green {
-    background-color: #008736;
+    background-color: var(--secondary);
   }
 
   .bg-accent-green-hover:hover {
-    background-color: #006622;
+    background-color: oklch(from var(--secondary) calc(l - 0.05) c h);
   }
 
   .bg-primary-blue-hover:hover {
-    background-color: #003b6a;
+    background-color: oklch(from var(--primary) calc(l - 0.05) c h);
   }
 
   .border-accent-green {
-    border-color: #008736;
+    border-color: var(--secondary);
   }
 
+  .border-primary-blue {
+    border-color: var(--primary);
+  }
+  
+  /* Hover states for theme colors */
+  .hover\:bg-primary-blue:hover {
+    background-color: var(--primary);
+  }
+  
+  .hover\:bg-accent-green:hover {
+    background-color: var(--secondary);
+  }
+
+  /* Section Backgrounds */
+  .bg-section-default {
+    background-color: var(--section-default);
+  }
+
+  .bg-section-muted {
+    background-color: var(--section-muted);
+  }
+
+  .bg-section-accent {
+    background-color: var(--section-accent);
+  }
+
+  .bg-section-primary {
+    background-color: var(--section-primary);
+  }
+
+  .bg-section-secondary {
+    background-color: var(--section-secondary);
+  }
+
+  .bg-section-green-light {
+    background-color: var(--section-green-light);
+  }
+
+  .bg-section-green-medium {
+    background-color: var(--section-green-medium);
+  }
+
+  .bg-section-blue-light {
+    background-color: var(--section-blue-light);
+  }
+
+  .bg-section-blue-medium {
+    background-color: var(--section-blue-medium);
+  }
+
+  /* Card Variants - Blend with backgrounds */
+  .bg-card-default {
+    background-color: var(--card-default);
+  }
+
+  .bg-card-muted {
+    background-color: var(--card-muted);
+  }
+
+  .bg-card-accent {
+    background-color: var(--card-accent);
+  }
+
+  .bg-card-primary {
+    background-color: var(--card-primary);
+  }
+
+  .bg-card-secondary {
+    background-color: var(--card-secondary);
+  }
+
+  .bg-card-green {
+    background-color: var(--card-green);
+  }
+
+  .bg-card-blue {
+    background-color: var(--card-blue);
+  }
+
+  /* Text Colors */
   .text-gray-700 {
-    color: #374151;
+    color: var(--muted-foreground);
+  }
+
+  /* Gradient Utilities */
+  .bg-gradient-primary {
+    background: linear-gradient(to bottom right, var(--primary-lighter), var(--section-default), var(--secondary-lighter));
+  }
+
+  .bg-gradient-section {
+    background: linear-gradient(to bottom, var(--section-muted), var(--section-default));
   }
 }
 

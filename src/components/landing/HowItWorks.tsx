@@ -11,7 +11,7 @@ const steps = [
     title: "Claim Preparation & Submission",
     description:
       "Accurate coding and timely submission for faster reimbursements.",
-    color: "bg-blue-100",
+    color: "bg-primary-light",
     iconColor: "text-primary-blue",
   },
   {
@@ -19,7 +19,7 @@ const steps = [
     title: "Payment Posting & Reconciliation",
     description:
       "Track, post, and reconcile payments for financial clarity.",
-    color: "bg-accent-green/10",
+    color: "bg-secondary-light",
     iconColor: "text-accent-green",
   },
   {
@@ -27,8 +27,8 @@ const steps = [
     title: "Denial Management & Follow-Up",
     description:
       "Resolve denials, recover revenue, and ensure steady cash flow.",
-    color: "bg-purple-100",
-    iconColor: "text-purple-600",
+    color: "bg-primary-lighter",
+    iconColor: "text-primary-blue",
   },
 ];
 
@@ -53,7 +53,7 @@ const stepVariants: Variants = {
 
 export default function HowItWorks() {
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-[#f8f9fa] via-white to-[#e6f4ff]">
+    <section className="py-20 lg:py-32 bg-section-default">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -75,8 +75,8 @@ export default function HowItWorks() {
           className="relative"
         >
           {/* Connection Line (Desktop) */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-blue via-accent-green to-purple-600 transform -translate-y-1/2 z-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30"></div>
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-blue via-accent-green to-primary-blue transform -translate-y-1/2 z-0">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-section-green-light to-transparent opacity-30"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative z-10">
@@ -93,7 +93,7 @@ export default function HowItWorks() {
                     {index + 1}
                   </div>
 
-                  <Card className="h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-white border-2 border-gray-100 hover:border-accent-green/50">
+                  <Card className="h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-card-default border-2 border-border hover:border-accent-green/50">
                     <CardHeader className="flex flex-col items-center text-center pb-4">
                       <div
                         className={`mb-6 p-6 ${step.color} rounded-full w-fit group transition-all`}
@@ -117,7 +117,7 @@ export default function HowItWorks() {
                   {/* Arrow (Desktop, between steps) */}
                   {index < steps.length - 1 && (
                     <div className="hidden lg:block absolute top-1/2 -right-6 z-20">
-                      <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-accent-green/30">
+                      <div className="w-12 h-12 bg-card-default rounded-full flex items-center justify-center shadow-lg border-2 border-accent-green/30">
                         <ArrowRight
                           className="text-accent-green"
                           size={24}
@@ -138,7 +138,7 @@ export default function HowItWorks() {
           </p>
           <a
             href="/contact"
-            className="inline-block px-8 py-3 bg-accent-green text-white rounded-lg font-semibold hover:bg-primary-blue transition-all hover:scale-105 active:scale-95"
+            className="inline-block px-8 py-3 bg-accent-green text-white rounded-md font-semibold hover:bg-primary-blue transition-all hover:scale-105 active:scale-95"
           >
             Get Started Today
           </a>

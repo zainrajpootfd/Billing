@@ -72,7 +72,7 @@ const cardVariants: Variants = {
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 lg:py-32 bg-[#B3C8CF]/40">
+    <section className="py-20 lg:py-32 bg-section-blue-medium">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -98,7 +98,7 @@ export default function WhyChooseUs() {
             const Icon = feature.icon;
             return (
               <motion.div key={feature.title} variants={cardVariants}>
-                <Card className="h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer bg-white border border-gray-100 hover:border-accent-green/30">
+                <Card className="h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer bg-card-blue border-border hover:border-accent-green/30">
                   <CardHeader className="flex flex-col items-start">
                     <div className="mb-4 p-3 bg-accent-green/10 rounded-lg w-fit group transition-all">
                       <Icon
@@ -128,7 +128,7 @@ export default function WhyChooseUs() {
           </p>
           <a
             href="/contact"
-            className="inline-block px-8 py-3 bg-accent-green text-white rounded-lg font-semibold hover:bg-primary-blue transition-all hover:scale-105 active:scale-95"
+            className="inline-block px-8 py-3 bg-accent-green text-white rounded-md font-semibold hover:bg-primary-blue transition-all hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
           >
             Let's Talk
           </a>

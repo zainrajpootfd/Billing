@@ -12,7 +12,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#004b87] text-gray-200 py-6">
+    <footer className="bg-primary-blue text-white py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 m-8">
           {/* Company Info */}
@@ -30,10 +30,10 @@ export default function Footer() {
                   className="object-contain bg-transparent rounded-md"
                 />
                 <div className="ml-2  text-left">
-                  <h1 className="text-[#032746] font-bold text-xl sm:text-lg tracking-widest ">
+                  <h1 className="text-white/90 font-bold text-xl sm:text-lg tracking-widest ">
                     ENCORE
                   </h1>
-                  <h2 className="text-[#032746] text-xs/7  tracking-tighter mt-[-2]">
+                  <h2 className="text-white/90 text-xs/7  tracking-tighter mt-[-2]">
                     BILLING GROUP
                   </h2>
                 </div>
@@ -44,7 +44,7 @@ export default function Footer() {
               </p>
             </Link>
 
-            <div className="space-y-2 text-sm text-gray-300 mb-6">
+            <div className="space-y-2 text-sm text-white/80 mb-6">
               <div className="flex items-center gap-2">
                 <Phone size={16} />
                 <span>(512) 704-7074</span>
@@ -64,28 +64,28 @@ export default function Footer() {
               <Link
                 href="https://facebook.com"
                 target="_blank"
-                className="p-2 rounded-full bg-gray-700 hover:bg-green-500 text-white transition-colors"
+                className="p-2 rounded-full bg-white/10 hover:bg-accent-green text-white transition-colors"
               >
                 <Facebook size={18} />
               </Link>
               <Link
                 href="https://linkedin.com"
                 target="_blank"
-                className="p-2 rounded-full bg-gray-700 hover:bg-green-500 text-white transition-colors"
+                className="p-2 rounded-full bg-white/10 hover:bg-accent-green text-white transition-colors"
               >
                 <Linkedin size={18} />
               </Link>
               <Link
                 href="https://twitter.com"
                 target="_blank"
-                className="p-2 rounded-full bg-gray-700 hover:bg-green-500 text-white transition-colors"
+                className="p-2 rounded-full bg-white/10 hover:bg-accent-green text-white transition-colors"
               >
                 <Twitter size={18} />
               </Link>
               <Link
                 href="https://instagram.com"
                 target="_blank"
-                className="p-2 rounded-full bg-gray-700 hover:bg-green-500 text-white transition-colors"
+                className="p-2 rounded-full bg-white/10 hover:bg-accent-green text-white transition-colors"
               >
                 <Instagram size={18} />
               </Link>
@@ -95,11 +95,11 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="font-semibold mb-4 text-white">Services</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
+            <ul className="space-y-2 text-sm text-white/80">
               <li>
                 <Link
                   href="/services"
-                  className="hover:text-green-500 transition-colors"
+                  className="hover:text-accent-green transition-colors"
                 >
                   Revenue Cycle Management
                 </Link>
@@ -107,7 +107,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="hover:text-green-500 transition-colors"
+                  className="hover:text-accent-green transition-colors"
                 >
                   Medical Billing
                 </Link>
@@ -115,7 +115,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="hover:text-green-500 transition-colors"
+                  className="hover:text-accent-green transition-colors"
                 >
                   A/R Recovery
                 </Link>
@@ -123,7 +123,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="hover:text-green-500 transition-colors"
+                  className="hover:text-accent-green transition-colors"
                 >
                   Practice Management
                 </Link>
@@ -134,11 +134,11 @@ export default function Footer() {
           {/* Company */}
           <div>
             <h4 className="font-semibold mb-4 text-white">Company</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
+            <ul className="space-y-2 text-sm text-white/80">
               <li>
                 <Link
                   href="/about"
-                  className="hover:text-green-500 transition-colors"
+                  className="hover:text-accent-green transition-colors"
                 >
                   About Us
                 </Link>
@@ -146,7 +146,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/insights"
-                  className="hover:text-green-500 transition-colors"
+                  className="hover:text-accent-green transition-colors"
                 >
                   Insights
                 </Link>
@@ -154,7 +154,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="hover:text-green-500 transition-colors"
+                  className="hover:text-accent-green transition-colors"
                 >
                   Contact
                 </Link>
@@ -162,7 +162,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="hover:text-green-500 transition-colors"
+                  className="hover:text-accent-green transition-colors"
                 >
                   Careers
                 </Link>
@@ -173,11 +173,11 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h4 className="font-semibold mb-4 text-white">Legal</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
+            <ul className="space-y-2 text-sm text-white/80">
               <li>
                 <Link
                   href="/privacy-policy"
-                  className="hover:text-green-500 transition-colors"
+                  className="hover:text-accent-green transition-colors"
                 >
                   Privacy Policy
                 </Link>
@@ -185,7 +185,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/terms-of-service"
-                  className="hover:text-green-500 transition-colors"
+                  className="hover:text-accent-green transition-colors"
                 >
                   Terms of Service
                 </Link>
@@ -196,7 +196,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white pt-4 text-center text-gray-300 text-sm">
+        <div className="border-t border-white/20 pt-4 text-center text-white/70 text-sm">
           <p>
             &copy; 2025 Encore Billing Group. All rights reserved. | HIPAA
             Compliance | ISO Certified

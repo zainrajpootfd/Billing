@@ -233,7 +233,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden  py-10 lg:py-20 border-b border-gray-200 bg-[#B3C8CF]/20">
+    <section className="relative overflow-hidden py-10 lg:py-20 border-b border-border bg-section-blue-medium">
       {/* Floating medical icons across whole section */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         {[...Array(10)].map((_, i) => (
@@ -291,7 +291,7 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Link href="/contact">
-              <Button className="px-8 py-3 bg-accent-green text-white rounded-lg font-semibold hover:bg-[#004b87] transition-all hover:scale-105 active:scale-95">
+              <Button className="px-8 py-6 bg-accent-green text-white rounded-md font-semibold hover:bg-primary-blue transition-all hover:scale-105 active:scale-95">
                 Request Demo
               </Button>
             </Link>

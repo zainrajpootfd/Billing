@@ -149,7 +149,7 @@ export default function Header() {
   }, [isOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#ffffff] border-b border-[#d5d5dd] shadow-sm overflow-visible">
+    <header className="sticky top-0 z-50 bg-background border-b border-border shadow-sm overflow-visible">
       <TopBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={menuRef}>
         <div className="flex justify-between items-center h-20">
@@ -174,7 +174,7 @@ export default function Header() {
                 {navItems.map((item) =>
                   item.label === "Services" ? (
                     <NavigationMenuItem key={item.label}>
-                      <NavigationMenuTrigger className="text-sm font-medium hover:!bg-[#004b87] hover:!text-white transition-colors flex items-center gap-1">
+                      <NavigationMenuTrigger className="text-sm font-medium hover:!bg-primary-blue hover:!text-white transition-colors flex items-center gap-1">
                         {item.label}
                       </NavigationMenuTrigger>
 
@@ -186,7 +186,7 @@ export default function Header() {
                           border: "none",
                         }}
                       >
-                        <ul className="grid gap-3 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr] p-4 rounded-xl shadow-lg bg-gradient-to-br from-white to-blue-50">
+                        <ul className="grid gap-3 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr] p-4 rounded-xl shadow-lg bg-card-default border border-border">
                           <li className="row-span-3">
                             <NavigationMenuLink asChild>
                               <a
@@ -210,7 +210,7 @@ export default function Header() {
                               <NavigationMenuLink asChild>
                                 <Link
                                   href={`/services/${service.slug}`}
-                                  className="group block rounded-md p-3 transition-colors hover:!bg-[#004b87]"
+                                  className="group block rounded-md p-3 transition-colors hover:!bg-primary-blue"
                                 >
                                   <div className="text-sm font-bold uppercase text-gray-800 group-hover:text-white">
                                     {service.name}
@@ -231,7 +231,7 @@ export default function Header() {
                       <NavigationMenuLink asChild>
                         <Link
                           href={item.href}
-                          className="text-sm font-medium text-gray-700 hover:!bg-[#004b87] hover:text-white transition-colors"
+                          className="text-sm font-medium text-foreground hover:!bg-primary-blue hover:text-white transition-colors"
                         >
                           {item.label}
                         </Link>
@@ -246,7 +246,7 @@ export default function Header() {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Link href="/contact">
-              <Button className="md:px-4 lg:px-5 py-2 bg-accent-green text-white rounded-lg font-medium hover:bg-[#004b87] transition-colors">
+              <Button className="md:px-4 lg:px-5 py-5 bg-accent-green text-white rounded-md font-medium hover:bg-primary-blue transition-colors shadow-md hover:shadow-lg">
                 Request Demo
               </Button>
             </Link>
@@ -272,7 +272,7 @@ export default function Header() {
                 <div key={item.label} className="space-y-2">
                   <button
                     onClick={() => setIsServicesOpen(!isServicesOpen)}
-                    className="w-full text-left px-4 py-2 text-sm font-medium text-gray-700 hover:text-accent-green rounded-lg transition-colors flex justify-between items-center"
+                    className="w-full text-left px-4 py-2 text-sm font-medium text-foreground hover:text-accent-green rounded-lg transition-colors flex justify-between items-center"
                   >
                     {item.label}
                     <ChevronDown
@@ -289,7 +289,7 @@ export default function Header() {
                         <Link
                           key={service.slug}
                           href={`/services/${service.slug}`}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:text-accent-green rounded-lg transition-colors"
+                          className="block px-4 py-2 text-sm text-foreground hover:text-accent-green rounded-lg transition-colors"
                           onClick={() => setIsOpen(false)}
                         >
                           {service.name}
@@ -302,7 +302,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:text-accent-green rounded-lg transition-colors"
+                  className="block px-4 py-2 text-sm font-medium text-foreground hover:text-accent-green rounded-lg transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
@@ -313,7 +313,7 @@ export default function Header() {
             <Link href="/contact">
               <Button
                 variant="default"
-                className="w-full mt-4 bg-accent-green text-white hover:bg-[#004b87]"
+                className="w-full mt-4 bg-accent-green text-white hover:bg-primary-blue shadow-md"
               >
                 Request Demo
               </Button>
