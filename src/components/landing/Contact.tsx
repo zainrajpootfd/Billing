@@ -60,7 +60,7 @@ export default function ContactSection({
     }
   };
 
-  const phoneNumber = "+1 (512) 988-4965";
+  const phoneNumber = "+1 (512) 704-7074";
   const emailAddress = "Support@encorebillinggroup.com";
   const mapAddress = "718 Kingston Pl, Cedar Park, TX 78613";
 
