@@ -7,7 +7,7 @@ import {
   Stethoscope, // Oncology
   Monitor, // Radiology
   Users, // OB/GYN
-  BoxIcon, // Ambulatory Surgery / DME
+  Box, // Ambulatory Surgery / DME
 } from "lucide-react";
 
 export interface Hero {
@@ -98,7 +98,7 @@ export const whyChooseUs: WhyChooseUs = {
 };
 
 export const specialtiesWithIcons: Specialty[] = [
-  { name: "Ambulatory Surgery", icon: BoxIcon },
+  { name: "Ambulatory Surgery", icon: Box },
   { name: "Neurosurgery", icon: Brain },
   { name: "Thoracic Surgery", icon: Heart },
   { name: "Pathology", icon: FileText },
@@ -107,7 +107,7 @@ export const specialtiesWithIcons: Specialty[] = [
   { name: "Gastroenterology", icon: Activity },
   { name: "Radiology", icon: Monitor },
   { name: "OB/GYN", icon: Users },
-  { name: "Durable Medical Equipment (DME)", icon: BoxIcon },
+  { name: "Durable Medical Equipment (DME)", icon: Box },
 ];
 
 export const testimonials: Testimonial[] = [

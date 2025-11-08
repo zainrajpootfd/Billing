@@ -188,13 +188,28 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <ContactSection
-        title="Get in Touch"
-        subtitle="Have questions? We'd love to hear from you."
-        showInfo={false} // hide contact info
-        variant="landing" // this triggers form + map layout
-      />
+    <main className="bg-white text-[#004b87] min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-blue-50 py-20 px-6 md:px-20 text-center animate-fade-in">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#004b87]">
+            Get in Touch
+          </h1>
+          <p className="text-lg md:text-xl text-gray-700">
+            Have questions? We'd love to hear from you. Contact us today.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Content */}
+      <section className="py-16 px-6 md:px-20 bg-white">
+        <ContactSection
+          title=""
+          subtitle=""
+          showInfo={false} // hide contact info
+          variant="landing" // this triggers form + map layout
+        />
+      </section>
     </main>
   );
 }

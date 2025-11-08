@@ -16,24 +16,24 @@ export default function InsightsPage() {
   const restInsights = insightsData.slice(1);
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto">
-        {/* 🔹 Page Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#004b87] mb-6">
+    <main className="bg-white text-[#004b87] min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-blue-50 py-20 px-6 md:px-20 text-center animate-fade-in">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#004b87]">
             Industry Insights
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-700">
             Stay updated with the latest trends, technologies, and strategies
             transforming the world of medical billing and healthcare management.
           </p>
-        </motion.div>
+        </div>
+      </section>
 
-        {/* 🔹 Featured Insight */}
+      {/* Content Section */}
+      <section className="py-16 px-6 md:px-20">
+        <div className="max-w-7xl mx-auto">
+          {/* 🔹 Featured Insight */}
         {featured && (
           <motion.div
             variants={fadeInUp}
@@ -94,10 +94,10 @@ export default function InsightsPage() {
                 />
               </div>
               <div className="p-6 text-left">
-                <h2 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-[#004b87] transition-colors">
+                <h2 className="text-xl font-semibold text-[#004b87] mb-2 group-hover:text-[#004b87] transition-colors">
                   {insight.title}
                 </h2>
-                <p className="text-gray-600 mb-4">{insight.shortDescription}</p>
+                <p className="text-gray-700 mb-4 leading-relaxed">{insight.shortDescription}</p>
 
                 <Link
                   href={`/insights/${insight.slug}`}
@@ -110,6 +110,7 @@ export default function InsightsPage() {
           ))}
         </motion.div>
       </div>
-    </section>
+      </section>
+    </main>
   );
 }

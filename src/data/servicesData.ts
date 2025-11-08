@@ -1,5 +1,18 @@
 // data/servicesData.ts
-import { ReactNode } from "react";
+import {
+  FileText,
+  RefreshCw,
+  DollarSign,
+  FileCheck,
+  Monitor,
+  Shield,
+  Users,
+  Smartphone,
+  TrendingUp,
+  BarChart3,
+  GraduationCap,
+} from "lucide-react";
+import { ComponentType } from "react";
 
 export interface Service {
   id: number;
@@ -7,7 +20,7 @@ export interface Service {
   title: string;
   shortDescription: string;
   fullDescription: string;
-  icon: ReactNode;
+  icon: ComponentType<{ className?: string; size?: number }>;
   features: string[];
   benefits: string[];
 }
@@ -181,7 +194,7 @@ export const servicesData: Service[] = [
       "End-to-end billing and coding services for accuracy and compliance.",
     fullDescription:
       "We handle billing and coding from claim creation to payment posting, ensuring every claim is clean and compliant with payer requirements.",
-    icon: "🧾",
+    icon: FileText,
     features: [
       "ICD & CPT coding",
       "Claim scrubbing and submission",
@@ -201,7 +214,7 @@ export const servicesData: Service[] = [
       "Complete RCM solutions from patient registration to payment.",
     fullDescription:
       "Our RCM services optimize every part of your revenue cycle—eligibility, coding, billing, and collections—to keep your revenue healthy.",
-    icon: "🔄",
+    icon: RefreshCw,
     features: [
       "Eligibility verification",
       "Claim submission",
@@ -221,7 +234,7 @@ export const servicesData: Service[] = [
       "Recover aged and unpaid claims efficiently to boost cash flow.",
     fullDescription:
       "We specialize in recovering old and denied claims by performing root cause analysis, resubmitting clean claims, and following up persistently.",
-    icon: "💸",
+    icon: DollarSign,
     features: ["Claim analysis", "Appeal handling", "Aged claim tracking"],
     benefits: [
       "Recovered lost revenue",
@@ -237,7 +250,7 @@ export const servicesData: Service[] = [
       "Simplify provider credentialing and payer enrollment processes.",
     fullDescription:
       "We manage all aspects of credentialing and payer enrollment to ensure providers can start seeing patients faster and stay compliant.",
-    icon: "🗂️",
+    icon: FileCheck,
     features: ["CAQH management", "Payer contracting", "Re-credentialing"],
     benefits: [
       "Faster onboarding",
@@ -253,7 +266,7 @@ export const servicesData: Service[] = [
       "Dedicated virtual back-office support for smooth operations.",
     fullDescription:
       "Our trained professionals handle your backend operations—from data entry and appointment scheduling to claims follow-up—so you can focus on patient care.",
-    icon: "🖥️",
+    icon: Monitor,
     features: ["Data entry", "Appointment scheduling", "Billing assistance"],
     benefits: [
       "Lower overhead costs",
@@ -269,7 +282,7 @@ export const servicesData: Service[] = [
       "Secure virtual assistance compliant with HIPAA standards.",
     fullDescription:
       "Our HIPAA-compliant virtual assistants ensure your operations run smoothly while maintaining full patient data confidentiality.",
-    icon: "🔒",
+    icon: Shield,
     features: [
       "Data-secure virtual tasks",
       "HIPAA-compliant communication",
@@ -289,7 +302,7 @@ export const servicesData: Service[] = [
       "Efficient handling of patient records, scheduling, and communications.",
     fullDescription:
       "We streamline your patient management system by handling scheduling, reminders, and follow-ups for improved satisfaction and retention.",
-    icon: "👩‍⚕️",
+    icon: Users,
     features: [
       "Patient scheduling",
       "Reminder systems",
@@ -309,7 +322,7 @@ export const servicesData: Service[] = [
       "Accurate billing for Chronic Care Management and Remote Patient Monitoring.",
     fullDescription:
       "We help providers maximize reimbursement from CCM and RPM programs by ensuring compliant documentation and timely billing.",
-    icon: "📱",
+    icon: Smartphone,
     features: [
       "CCM code management",
       "RPM device data billing",
@@ -329,7 +342,7 @@ export const servicesData: Service[] = [
       "Optimize performance and incentives under MIPS/MACRA programs.",
     fullDescription:
       "Our experts help you meet MIPS/MACRA requirements, track quality measures, and submit data accurately to avoid penalties and earn incentives.",
-    icon: "📈",
+    icon: TrendingUp,
     features: [
       "Quality measure tracking",
       "Performance optimization",
@@ -349,7 +362,7 @@ export const servicesData: Service[] = [
       "Comprehensive reports providing insight into your financial and operational performance.",
     fullDescription:
       "We deliver detailed analytics and reports that help you track performance, spot trends, and make data-driven business decisions.",
-    icon: "📊",
+    icon: BarChart3,
     features: [
       "Custom KPI dashboards",
       "Revenue and claim reports",
@@ -369,7 +382,7 @@ export const servicesData: Service[] = [
       "Stay ahead with regular webinars and compliance updates.",
     fullDescription:
       "We keep your staff informed and compliant through educational webinars, training sessions, and updates whenever new SOPs or payer guidelines are released.",
-    icon: "🎓",
+    icon: GraduationCap,
     features: [
       "Live and recorded webinars",
       "Guideline change alerts",

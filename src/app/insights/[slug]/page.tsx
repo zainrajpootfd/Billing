@@ -22,39 +22,40 @@ export default function InsightDetail() {
     );
 
   return (
-    <section className="py-16 px-6 bg-gray-50">
-      <div className="max-w-4xl mx-auto">
-        {/* Back Button */}
-        <Link
-          href="/insights"
-          className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8 font-medium"
-        >
-          <ArrowLeft className="h-4 w-4 mr-2" /> Back to Insights
-        </Link>
+    <main className="bg-white text-[#004b87] min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-blue-50 py-20 px-6 md:px-20 text-center animate-fade-in">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#004b87]">
+            {insight.title}
+          </h1>
+        </div>
+      </section>
 
-        {/* Title */}
-        <motion.h1
-          variants={fadeInUp}
-          initial="initial"
-          animate="animate"
-          className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-tight"
-        >
-          {insight.title}
-        </motion.h1>
+      {/* Content Section */}
+      <section className="py-16 px-6 md:px-20">
+        <div className="max-w-4xl mx-auto">
+          {/* Back Button */}
+          <Link
+            href="/insights"
+            className="inline-flex items-center text-[#004b87] hover:text-[#2ba24c] mb-8 font-medium"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" /> Back to Insights
+          </Link>
 
-        {/* Meta Info */}
-        <motion.div
-          variants={fadeInUp}
-          initial="initial"
-          animate="animate"
-          className="flex flex-wrap items-center gap-4 text-gray-500 text-sm mb-8"
-        >
-          <span>👤 {insight.author}</span>
-          <span>📅 {insight.date}</span>
-          <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">
-            {insight.category}
-          </span>
-        </motion.div>
+          {/* Meta Info */}
+          <motion.div
+            variants={fadeInUp}
+            initial="initial"
+            animate="animate"
+            className="flex flex-wrap items-center gap-4 text-gray-600 text-sm mb-8"
+          >
+            <span>👤 {insight.author}</span>
+            <span>📅 {insight.date}</span>
+            <span className="px-2 py-1 bg-blue-50 text-[#004b87] rounded-full text-xs font-semibold">
+              {insight.category}
+            </span>
+          </motion.div>
 
         {/* Image */}
         <motion.div
@@ -72,31 +73,32 @@ export default function InsightDetail() {
           />
         </motion.div>
 
-        {/* Content */}
-        <motion.div
-          variants={fadeInUp}
-          initial="initial"
-          animate="animate"
-          className="prose prose-lg max-w-none text-gray-700 mb-12"
-        >
-          <div dangerouslySetInnerHTML={{ __html: insight.content }} />
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div
-          variants={fadeInUp}
-          initial="initial"
-          animate="animate"
-          className="text-center"
-        >
-          <Link
-            href="/insights"
-            className="inline-block bg-accent-green hover:bg-[#004b87] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-md"
+          {/* Content */}
+          <motion.div
+            variants={fadeInUp}
+            initial="initial"
+            animate="animate"
+            className="prose prose-lg max-w-none text-gray-700 mb-12 leading-relaxed"
           >
-            Back to Insights
-          </Link>
-        </motion.div>
-      </div>
-    </section>
+            <div dangerouslySetInnerHTML={{ __html: insight.content }} />
+          </motion.div>
+
+          {/* Call to Action */}
+          <motion.div
+            variants={fadeInUp}
+            initial="initial"
+            animate="animate"
+            className="text-center bg-blue-50 p-6 rounded-lg"
+          >
+            <Link
+              href="/insights"
+              className="inline-block bg-accent-green hover:bg-[#004b87] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-md"
+            >
+              Back to Insights
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </main>
   );
 }

@@ -2,21 +2,31 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
+import {
+  CheckCircle2,
+  Target,
+  TrendingUp,
+  DollarSign,
+  Shield,
+  Clock,
+  LucideIcon,
+} from "lucide-react";
 
 interface Metric {
   value: string;
   label: string;
   suffix?: string;
-  icon?: string;
+  icon?: LucideIcon;
+  iconColor?: string;
 }
 
 const metrics: Metric[] = [
-  { value: "99", label: "First Pass Rate", suffix: "%", icon: "✓" },
-  { value: "98", label: "Accuracy Rate", suffix: "%", icon: "🎯" },
-  { value: "30", label: "Revenue Increase", suffix: "%", icon: "📈" },
-  { value: "25", label: "Cost Reduction", suffix: "%", icon: "💰" },
-  { value: "100", label: "HIPAA Compliant", suffix: "%", icon: "🔒" },
-  { value: "37", label: "Days in A/R", suffix: "<", icon: "⏱️" },
+  { value: "99", label: "First Pass Rate", suffix: "%", icon: CheckCircle2, iconColor: "text-blue-600" },
+  { value: "98", label: "Accuracy Rate", suffix: "%", icon: Target, iconColor: "text-purple-600" },
+  { value: "30", label: "Revenue Increase", suffix: "%", icon: TrendingUp, iconColor: "text-orange-600" },
+  { value: "25", label: "Cost Reduction", suffix: "%", icon: DollarSign, iconColor: "text-emerald-600" },
+  { value: "100", label: "HIPAA Compliant", suffix: "%", icon: Shield, iconColor: "text-indigo-600" },
+  { value: "37", label: "Days in A/R", suffix: "<", icon: Clock, iconColor: "text-cyan-600" },
 ];
 
 function Counter({
@@ -100,7 +110,7 @@ export default function ResultsMetrics() {
             transition={{ duration: 0.6 }}
             className="text-3xl lg:text-4xl font-bold text-primary-blue mb-4"
           >
-            Result-Oriented Medical Billing Services
+            Our Key Performance Indicators
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -126,7 +136,9 @@ export default function ResultsMetrics() {
             >
               <div className="text-center">
                 {metric.icon && (
-                  <div className="text-4xl mb-4">{metric.icon}</div>
+                  <div className="flex justify-center mb-4">
+                    <metric.icon className={`w-12 h-12 ${metric.iconColor || "text-gray-600"}`} />
+                  </div>
                 )}
                 <div className="text-5xl lg:text-6xl font-bold text-accent-green mb-3">
                   <Counter

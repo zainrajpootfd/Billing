@@ -280,7 +280,7 @@ export default function Hero() {
           </div>
 
           <h1 className="font-roboto text-4xl lg:text-5xl font-bold text-primary-blue mb-6 leading-tight">
-            HIPAA Compliance Medical Billing Company
+            HIPAA Compliance Medical Billing Group
           </h1>
 
           <p className="font-lato text-lg text-muted-foreground mb-8 leading-relaxed">

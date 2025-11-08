@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { motion, Variants } from "motion/react";
+import { useRef, useEffect, useState } from "react";
 
 const testimonials = [
   {
@@ -48,106 +50,222 @@ const testimonials = [
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+    scale: 0.95,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function TestimonialsPage() {
+  const [isInView, setIsInView] = useState(false);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (gridRef.current) {
+      observer.observe(gridRef.current);
+    }
+
+    return () => {
+      if (gridRef.current) {
+        observer.unobserve(gridRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-gray-100 dark:from-neutral-900 dark:via-neutral-950 dark:to-black">
-      {/* ================= HERO HEADING ================= */}
-      <section className="relative mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
-        {/* Subtle background glow */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
-
-        {/* Heading */}
-        <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">
-          <span className="bg-gradient-to-r from-primary via-blue-500 to-primary bg-clip-text text-transparent">
+    <main className="bg-white text-[#004b87] min-h-screen">
+      {/* Hero Section */}
+      <motion.section
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="relative bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20 px-6 md:px-20 text-center overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="max-w-4xl mx-auto relative z-10">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl md:text-5xl font-extrabold mb-4 text-[#004b87]"
+          >
             What Our Clients Say
-          </span>
-        </h2>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg md:text-xl text-gray-700"
+          >
+            Discover how{" "}
+            <span className="font-semibold text-[#004b87]">
+              Encore Billing Group
+            </span>{" "}
+            empowers healthcare providers to streamline billing, enhance revenue,
+            and deliver exceptional patient-focused operations.
+          </motion.p>
+        </div>
+      </motion.section>
 
-        {/* Decorative underline */}
-        <div className="mt-4 mx-auto w-24 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full" />
-
-        {/* Supporting text */}
-        <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          Discover how{" "}
-          <span className="font-semibold text-gray-900">
-            Encore Billing Group
-          </span>{" "}
-          empowers healthcare providers to streamline billing, enhance revenue,
-          and deliver exceptional patient-focused operations.
-        </p>
-      </section>
-
-      {/* ================= BENTO GRID ================= */}
-      <section className="mx-auto max-w-7xl px-6 pb-24">
-        <BentoGrid>
-          {testimonials.map((t, i) => (
-            <BentoGridItem
-              key={i}
-              title={t.name}
-              description={
-                <span className="italic text-neutral-600 dark:text-neutral-300">
-                  “{t.quote}”
-                </span>
-              }
-              // ✅ Image adjusts height dynamically if row-span-2
-              header={
-                <div
-                  className={`relative w-full rounded-lg overflow-hidden ${
-                    i === 2 ? "md:h-full min-h-[18rem]" : "h-36"
-                  }`}
+      {/* Content Section */}
+      <section className="py-16 px-6 md:px-20 bg-gradient-to-b from-white to-blue-50/30">
+        <div className="max-w-6xl mx-auto" ref={gridRef}>
+          {/* Bento Grid */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            <BentoGrid className="gap-6">
+              {testimonials.map((t, i) => (
+                <motion.div
+                  key={i}
+                  variants={itemVariants}
+                  whileHover={{
+                    y: -8,
+                    transition: { duration: 0.3, ease: "easeOut" },
+                  }}
+                  className={
+                    i === 0
+                      ? "md:col-span-2"
+                      : i === 2
+                      ? "md:row-span-2"
+                      : "md:col-span-1"
+                  }
                 >
-                  <Image
-                    src={t.src}
-                    alt={t.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover/bento:scale-105"
+                  <BentoGridItem
+                    title={
+                      <span className="text-lg font-bold text-[#004b87]">
+                        {t.name}
+                      </span>
+                    }
+                    description={
+                      <span className="italic text-gray-700 leading-relaxed text-sm md:text-base">
+                        "{t.quote}"
+                      </span>
+                    }
+                    header={
+                      <div
+                        className={`relative w-full rounded-xl overflow-hidden group/image ${
+                          i === 2 ? "md:h-full min-h-[18rem]" : "h-36 md:h-40"
+                        }`}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10"></div>
+                        <Image
+                          src={t.src}
+                          alt={t.name}
+                          fill
+                          className="object-cover transition-all duration-500 group-hover/image:scale-110"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover/image:translate-y-0 transition-transform duration-300 z-20">
+                          <p className="text-white text-sm font-medium">
+                            {t.role}
+                          </p>
+                        </div>
+                      </div>
+                    }
+                    icon={
+                      <p className="text-xs text-gray-500 font-medium uppercase tracking-wide">
+                        {t.role}
+                      </p>
+                    }
+                    className="h-full border-2 border-gray-100 hover:border-[#004b87]/30 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/95 backdrop-blur-sm overflow-hidden group/card"
                   />
-                </div>
-              }
-              icon={
-                <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                  {t.role}
-                </p>
-              }
-              className={
-                i === 0
-                  ? "md:col-span-2"
-                  : i === 2
-                  ? "md:row-span-2"
-                  : "md:col-span-1"
-              }
-            />
-          ))}
-        </BentoGrid>
-      </section>
-
-      {/* ================= CALL TO ACTION BANNER ================= */}
-      <section className="relative overflow-hidden py-20 bg-gradient-to-r from-primary/10 via-primary/20 to-primary/10 dark:from-primary/20 dark:via-primary/30 dark:to-primary/10">
-        <div className="absolute inset-0 bg-[url('/banner-bg.jpg')] bg-cover bg-center opacity-10" />
-        <div className="relative z-10 mx-auto max-w-5xl text-center px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#004b87] dark:text-white">
-            Ready to Experience Excellence in Medical Billing?
-          </h2>
-          <p className="mt-4 text-lg text-gray-700 dark:text-neutral-300 max-w-3xl mx-auto">
-            Join hundreds of satisfied clients who trust Encore Billing Group to
-            handle their revenue cycle management with precision and care.
-          </p>
-          <div className="mt-8 flex justify-center gap-4">
-            <a
-              href="/contact"
-              className="px-6 py-3 bg-accent-green text-white font-semibold rounded-full shadow-md hover:shadow-lg hover:bg-[#004b87] transition-all"
-            >
-              Contact Us
-            </a>
-            <a
-              href="/services"
-              className="px-6 py-3 border border-primary text-primary font-semibold rounded-full hover:bg-primary/10 transition-all"
-            >
-              Learn More
-            </a>
-          </div>
+                </motion.div>
+              ))}
+            </BentoGrid>
+          </motion.div>
         </div>
       </section>
-    </div>
+
+      {/* Call to Action Banner */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}
+        className="py-16 px-6 md:px-20 bg-gradient-to-br from-blue-50 via-white to-blue-50 relative overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-extrabold text-[#004b87] mb-4"
+          >
+            Ready to Experience Excellence in Medical Billing?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg text-gray-700 mb-8 leading-relaxed"
+          >
+            Join hundreds of satisfied clients who trust Encore Billing Group to
+            handle their revenue cycle management with precision and care.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col sm:flex-row justify-center gap-4"
+          >
+            <motion.a
+              href="/contact"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-8 py-3 bg-accent-green text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:bg-[#004b87] transition-all duration-300"
+            >
+              Contact Us
+            </motion.a>
+            <motion.a
+              href="/services"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-8 py-3 border-2 border-[#004b87] text-[#004b87] font-semibold rounded-full hover:bg-[#004b87] hover:text-white transition-all duration-300"
+            >
+              Learn More
+            </motion.a>
+          </motion.div>
+        </div>
+      </motion.section>
+    </main>
   );
 }
+

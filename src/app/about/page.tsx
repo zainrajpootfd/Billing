@@ -16,12 +16,12 @@ const icons = [User, Shield, Lightbulb, Users, Star];
 
 export default function AboutUs(): ReactElement {
   return (
-    <main className="bg-white text-[#004b87]">
+    <main className="bg-white text-[#004b87] min-h-screen">
       {/* Hero */}
       <section className="relative bg-blue-50 py-20 px-6 md:px-20 text-center md:text-left animate-fade-in">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
           <div className="md:w-1/2">
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#004b87]">
               {hero.title}
             </h1>
             <p className="text-lg md:text-xl text-gray-700">
@@ -55,20 +55,20 @@ export default function AboutUs(): ReactElement {
               />
             </div>
             <div className="md:w-1/2">
-              <h2 className="text-3xl font-bold mb-4">
+              <h2 className="text-3xl font-bold mb-4 text-[#004b87]">
                 {missionVision[1].title}
               </h2>
-              <p className="text-gray-700">{missionVision[1].description}</p>
+              <p className="text-gray-700 leading-relaxed">{missionVision[1].description}</p>
             </div>
           </div>
 
           {/* Mission */}
           <div className="flex-col-reverse flex sm:flex-col md:flex-row items-center gap-6 mt-10 md:mt-0 animate-fade-in">
             <div className="md:w-1/2">
-              <h2 className="text-3xl font-bold mb-4">
+              <h2 className="text-3xl font-bold mb-4 text-[#004b87]">
                 {missionVision[0].title}
               </h2>
-              <p className="text-gray-700">{missionVision[0].description}</p>
+              <p className="text-gray-700 leading-relaxed">{missionVision[0].description}</p>
             </div>
             <div className="md:w-1/2">
               <Image
@@ -85,7 +85,7 @@ export default function AboutUs(): ReactElement {
 
       {/* Core Values */}
       <section className="py-16 px-6 md:px-20 bg-blue-50">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 animate-fade-in">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 animate-fade-in text-[#004b87]">
           Our Core Values
         </h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
@@ -114,8 +114,8 @@ export default function AboutUs(): ReactElement {
       <section className="py-16 px-6 md:px-20 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div className="animate-fade-in">
-            <h2 className="text-3xl font-bold mb-4">Why Choose Us?</h2>
-            <ul className="list-disc list-inside space-y-2 text-gray-700">
+            <h2 className="text-3xl font-bold mb-4 text-[#004b87]">Why Choose Us?</h2>
+            <ul className="list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
               {whyChooseUs.points.map((point, index) => (
                 <li key={index}>{point}</li>
               ))}
@@ -156,7 +156,7 @@ export default function AboutUs(): ReactElement {
       </section> */}
       {/* Our Reach */}
       <section className="py-16 px-6 md:px-20 bg-blue-50">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 animate-fade-in">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 animate-fade-in text-[#004b87]">
           Our Reach
         </h2>
         <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">

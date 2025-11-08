@@ -107,55 +107,23 @@ export default function ServicesPage(): ReactElement {
   const [currentTestimonial, setCurrentTestimonial] = useState<number>(0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Header */}
-      {/* <motion.header
-        className="bg-blue-600 text-white py-4 sticky top-0 z-50 shadow-md"
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Medical Billing Solutions</h1>
-          <div className="flex items-center gap-4">
-            <Phone className="h-5 w-5" />
-            <a
-              href="tel:888-508-6818"
-              className="text-lg font-semibold hover:text-blue-200 transition-colors"
-            >
-              888-508-6818
-            </a>
-          </div>
-        </div>
-      </motion.header> */}
-
-      {/* Hero */}
-      <section
-        className="min-h-[500px] px-4 flex items-center justify-center bg-cover bg-center bg-no-repeatt"
-        style={{
-          backgroundImage: "url('/mission-banner.jpg')", // 👈 replace with your actual image path
-        }}
-      >
-        <div className="container mx-auto text-center bg-white/70 backdrop-blur-sm rounded-2xl p-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">
-              Our Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-              Comprehensive medical billing services tailored to boost revenue,
-              ensure compliance, and streamline practice operations.
-            </p>
-          </motion.div>
+    <main className="bg-white text-[#004b87] min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-blue-50 py-20 px-6 md:px-20 text-center animate-fade-in">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#004b87]">
+            Our Services
+          </h1>
+          <p className="text-lg md:text-xl text-gray-700">
+            Comprehensive medical billing services tailored to boost revenue,
+            ensure compliance, and streamline practice operations.
+          </p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-6 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="container mx-auto">
+      <section className="py-16 px-6 md:px-20 bg-white">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
             variants={staggerContainer}
@@ -163,17 +131,20 @@ export default function ServicesPage(): ReactElement {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            {servicesData.map((service: Service) => (
+            {servicesData.map((service: Service) => {
+              const Icon = service.icon;
+              return (
               <motion.div key={service.id} variants={fadeInUp}>
-                <Card className="group h-full rounded-3xl border border-transparent bg-white/80 backdrop-blur-sm shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] hover:-translate-y-2 transition-all duration-500 overflow-hidden">
+                <Card className="group h-full flex flex-col rounded-3xl border border-transparent bg-white/80 backdrop-blur-sm shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] hover:-translate-y-2 transition-all duration-500 overflow-hidden">
                   {/* Icon + Title */}
                   <CardHeader className="p-6 text-center">
                     <div className="flex items-center justify-center mb-6">
-                      <div className="relative flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-tr from-blue-500/10 to-blue-400/20 group-hover:from-blue-500/20 group-hover:to-blue-400/30 transition-all duration-500">
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-blue-400 opacity-0 group-hover:opacity-20 blur-lg transition-all duration-500"></div>
-                        <span className="text-5xl text-blue-600 group-hover:text-blue-700 transition-colors duration-300">
-                          {service.icon}
-                        </span>
+                      <div className="relative flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-50 via-blue-100/50 to-blue-50 group-hover:from-blue-100 group-hover:via-blue-200/50 group-hover:to-blue-100 transition-all duration-500 shadow-lg shadow-blue-500/10 group-hover:shadow-xl group-hover:shadow-blue-500/20 group-hover:scale-110">
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/0 via-blue-400/0 to-blue-500/0 group-hover:from-blue-500/10 group-hover:via-blue-400/10 group-hover:to-blue-500/10 blur-xl transition-all duration-500"></div>
+                        <div className="absolute inset-0 rounded-2xl border border-blue-200/50 group-hover:border-blue-300/70 transition-all duration-500"></div>
+                        <div className="relative z-10 text-blue-600 group-hover:text-blue-700 transition-all duration-300 group-hover:rotate-3">
+                          <Icon className="w-8 h-8" />
+                        </div>
                       </div>
                     </div>
 
@@ -189,7 +160,7 @@ export default function ServicesPage(): ReactElement {
                   </CardHeader>
 
                   {/* Button */}
-                  <CardContent className="p-8 pt-0">
+                  <CardContent className="p-6 pt-0 mt-auto">
                     <Link href={`/services/${service.slug}`}>
                       <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg">
                         Learn More
@@ -199,7 +170,8 @@ export default function ServicesPage(): ReactElement {
                   </CardContent>
                 </Card>
               </motion.div>
-            ))}
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -289,8 +261,8 @@ export default function ServicesPage(): ReactElement {
       <KPI />
 
       {/* FAQ */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-16 px-6 md:px-20 bg-blue-50">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -298,10 +270,10 @@ export default function ServicesPage(): ReactElement {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#004b87] mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-700">
               Explore answers to common questions about our medical billing
               services
             </p>
@@ -320,10 +292,10 @@ export default function ServicesPage(): ReactElement {
                   value={`item-${i}`}
                   className="bg-white mb-4 rounded-lg border px-6"
                 >
-                  <AccordionTrigger className="text-lg font-semibold hover:text-blue-600">
+                  <AccordionTrigger className="text-lg font-semibold hover:text-[#004b87] text-[#004b87]">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 text-base">
+                  <AccordionContent className="text-gray-700 text-base leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -334,8 +306,8 @@ export default function ServicesPage(): ReactElement {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto">
+      <section className="py-16 px-6 md:px-20 bg-white">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -343,10 +315,10 @@ export default function ServicesPage(): ReactElement {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#004b87] mb-4">
               What Our Clients Say
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-700">
               Hear from healthcare professionals who trust us with their billing
             </p>
           </motion.div>
@@ -368,14 +340,14 @@ export default function ServicesPage(): ReactElement {
                       className="w-24 h-24 rounded-full object-cover"
                     />
                     <div className="flex-1 text-center md:text-left">
-                      <p className="text-gray-700 text-lg mb-4 italic">
+                      <p className="text-gray-700 text-lg mb-4 italic leading-relaxed">
                         "{testimonials[currentTestimonial].text}"
                       </p>
                       <div>
-                        <p className="font-bold text-xl">
+                        <p className="font-bold text-xl text-[#004b87]">
                           {testimonials[currentTestimonial].name}
                         </p>
-                        <p className="text-gray-500">
+                        <p className="text-gray-600">
                           {testimonials[currentTestimonial].role}
                         </p>
                       </div>
@@ -403,36 +375,36 @@ export default function ServicesPage(): ReactElement {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="container mx-auto text-center">
+      <section className="py-16 px-6 md:px-20 bg-blue-50">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#004b87] mb-4">
               Ready to Optimize Your Billing?
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
               Contact us today and discover how we can transform your practice's
               financial health
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:888-508-6818">
+              <a href="tel:512-988-4965">
                 <Button
                   size="lg"
-                  className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6"
+                  className="bg-accent-green text-white hover:bg-[#004b87] text-lg px-8 py-6"
                 >
                   <Phone className="mr-2 h-5 w-5" />
-                  Call 512-988-4965
+                  Call 512-704-7074
                 </Button>
               </a>
               <Link href="/contact">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white text-accent-green hover:bg-white hover:text-blue-600 text-lg px-8 py-6"
+                  className="border-2 border-[#004b87] text-[#004b87] hover:bg-blue-50 text-lg px-8 py-6"
                 >
                   Contact Us
                 </Button>
@@ -441,6 +413,6 @@ export default function ServicesPage(): ReactElement {
           </motion.div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

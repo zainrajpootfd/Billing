@@ -58,93 +58,58 @@ export default function ServiceDetailPage(): ReactElement {
     serviceImages[service.slug] || serviceImages["medical-billing-services"];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Header
-      <motion.header
-        className="bg-blue-600 text-white py-4 sticky top-0 z-50 shadow-md"
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Medical Billing Solutions</h1>
-          <div className="flex items-center gap-4">
-            <Phone className="h-5 w-5" />
-            <a
-              href="tel:888-508-6818"
-              className="text-lg font-semibold hover:text-blue-200 transition-colors"
-            >
-              888-508-6818
-            </a>
-          </div>
-        </div>
-      </motion.header> */}
-
-      {/* Back */}
-      <div className="container mx-auto px-4 py-6">
-        <Link href="/services">
-          <Button variant="ghost" className="hover:bg-blue-100">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to All Services
-          </Button>
-        </Link>
-      </div>
-
-      {/* Hero */}
-      <section className="py-12 px-4">
-        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="text-6xl mb-6">{service.icon}</div>
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+    <main className="bg-white text-[#004b87] min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-blue-50 py-20 px-6 md:px-20 text-center md:text-left animate-fade-in">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+          <div className="md:w-1/2">
+            <div className="relative inline-flex items-center justify-center mb-6">
+              <div className="relative flex items-center justify-center w-28 h-28 rounded-2xl bg-gradient-to-br from-blue-50 via-blue-100/50 to-blue-50 shadow-lg shadow-blue-500/10">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/10 via-blue-400/10 to-blue-500/10 blur-xl"></div>
+                <div className="absolute inset-0 rounded-2xl border border-blue-200/50"></div>
+                <div className="relative z-10 text-blue-600">
+                  {(() => {
+                    const Icon = service.icon;
+                    return <Icon className="w-12 h-12" />;
+                  })()}
+                </div>
+              </div>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#004b87]">
               {service.title}
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               {service.fullDescription}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:512-988-4965">
-                <Button
-                  size="lg"
-                  className="bg-accent-green hover:bg-blue-700 text-lg px-8"
-                >
-                  <Phone className="mr-2 h-5 w-5" />
-                  Call Now
-                </Button>
-              </a>
-              {/* <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 text-lg px-8"
-              >
-                <Mail className="mr-2 h-5 w-5" />
-                Get a Quote
-              </Button> */}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
+          </div>
+          <div className="md:w-1/2">
+            <div className="rounded-xl overflow-hidden shadow-lg">
               <img
                 src={serviceImage}
                 alt={service.title}
-                className="w-full h-[500px] object-cover"
+                className="w-full h-[400px] object-cover"
               />
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-16 px-4 bg-white">
-        <div className="container mx-auto">
+      {/* Back Button */}
+      <section className="py-6 px-6 md:px-20 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <Link href="/services">
+            <Button variant="ghost" className="hover:bg-blue-50 text-[#004b87]">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to All Services
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="py-16 px-6 md:px-20 bg-white">
+        <div className="max-w-6xl mx-auto">
+          {/* Features */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -152,10 +117,10 @@ export default function ServiceDetailPage(): ReactElement {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#004b87] mb-4">
               Key Features
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-700">
               Comprehensive solutions tailored to your needs
             </p>
           </motion.div>
@@ -169,11 +134,11 @@ export default function ServiceDetailPage(): ReactElement {
           >
             {service.features.map((feature, i) => (
               <motion.div key={i} variants={fadeInUp}>
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="h-full hover:shadow-lg transition-shadow bg-white">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="h-6 w-6 text-green-600 mt-1" />
-                      <p className="text-lg text-gray-700">{feature}</p>
+                      <CheckCircle2 className="h-6 w-6 text-[#2ba24c] mt-1" />
+                      <p className="text-lg text-gray-700 leading-relaxed">{feature}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -184,8 +149,8 @@ export default function ServiceDetailPage(): ReactElement {
       </section>
 
       {/* Benefits */}
-      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-blue-100">
-        <div className="container mx-auto">
+      <section className="py-16 px-6 md:px-20 bg-blue-50">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -193,10 +158,10 @@ export default function ServiceDetailPage(): ReactElement {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#004b87] mb-4">
               Benefits You'll Experience
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-700">
               Transform your practice with our services
             </p>
           </motion.div>
@@ -212,13 +177,13 @@ export default function ServiceDetailPage(): ReactElement {
               <motion.div
                 key={idx}
                 variants={fadeInUp}
-                className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-l-blue-600"
+                className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-l-[#004b87]"
               >
                 <div className="flex items-center gap-3">
-                  <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
+                  <div className="bg-[#004b87] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
                     {idx + 1}
                   </div>
-                  <p className="text-lg font-semibold text-gray-800">
+                  <p className="text-lg font-semibold text-[#004b87]">
                     {benefit}
                   </p>
                 </div>
@@ -229,21 +194,21 @@ export default function ServiceDetailPage(): ReactElement {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="container mx-auto text-center">
+      <section className="py-16 px-6 md:px-20 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#004b87] mb-4">Ready to Get Started?</h2>
+            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
               Let's discuss how {service.title.toLowerCase()} can benefit your
               practice
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:888-508-6818">
+              <a href="tel:512-988-4965">
                 <Button
                   size="lg"
                   className="bg-accent-green text-white hover:bg-[#004b87] text-lg px-8 py-6"
@@ -255,7 +220,8 @@ export default function ServiceDetailPage(): ReactElement {
               <Link href="/contact">
                 <Button
                   size="lg"
-                  className="bg-accent-green text-white hover:bg-[#004b87] text-lg px-8 py-6"
+                  variant="outline"
+                  className="border-2 border-[#004b87] text-[#004b87] hover:bg-blue-50 text-lg px-8 py-6"
                 >
                   <Mail className="mr-2 h-5 w-5" />
                   Request Information
@@ -265,6 +231,6 @@ export default function ServiceDetailPage(): ReactElement {
           </motion.div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
