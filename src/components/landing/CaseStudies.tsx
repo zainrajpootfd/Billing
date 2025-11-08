@@ -109,7 +109,7 @@ export default function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-card-default rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50"
+              className="bg-card-default rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50 flex flex-col"
             >
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-primary-blue mb-2">
@@ -148,10 +148,10 @@ export default function CaseStudies() {
                 ))}
               </div>
 
-              <Link href="/contact">
+              <Link href="/insights" className="mt-auto">
                 <Button
                   variant="outline"
-                  className="w-full border-accent-green text-accent-green hover:bg-accent-green hover:text-white"
+                  className="w-full flex items-center justify-center border-accent-green text-accent-green hover:bg-accent-green hover:text-white"
                 >
                   Read Full Case Study
                   <ArrowRight className="ml-2 h-4 w-4" />
