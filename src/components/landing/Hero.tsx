@@ -161,76 +161,11 @@
 "use client";
 
 import Image from "next/image";
-import dynamic from "next/dynamic";
-import { useState, useEffect, useRef, Suspense } from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const trustedPeople = [
-  {
-    id: 1,
-    name: "Zain Ali",
-    designation: "Full Stack Developer",
-    image: "https://randomuser.me/api/portraits/men/1.jpg",
-  },
-  {
-    id: 2,
-    name: "Sarah Khan",
-    designation: "UI/UX Designer",
-    image: "https://randomuser.me/api/portraits/women/2.jpg",
-  },
-  {
-    id: 3,
-    name: "Ahmed Raza",
-    designation: "Backend Engineer",
-    image: "https://randomuser.me/api/portraits/men/3.jpg",
-  },
-  {
-    id: 4,
-    name: "Ayesha Malik",
-    designation: "Project Manager",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-];
-
-const AnimatedTooltipLazy = dynamic(
-  () =>
-    import("@/components/ui/animated-tooltip").then(
-      (mod) => mod.AnimatedTooltip
-    ),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="flex gap-2">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <div
-            key={i}
-            className="w-8 h-8 bg-gray-200 rounded-full animate-pulse"
-          />
-        ))}
-      </div>
-    ),
-  }
-);
-
 export default function Hero() {
-  const [tooltipVisible, setTooltipVisible] = useState(false);
-  const tooltipRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setTooltipVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-    if (tooltipRef.current) observer.observe(tooltipRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section className="relative overflow-hidden py-10 lg:py-20 border-b border-border bg-section-blue-medium">
@@ -297,59 +232,235 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Trusted by Professionals */}
-          <div className="space-y-4">
-            <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-              Trusted by Professionals
-            </p>
+          {/* Trusted by Professionals - Modern Rating Display */}
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3, type: "spring", stiffness: 100 }}
+            whileHover={{ scale: 1.02 }}
+            className="relative mt-8"
+          >
+            <motion.div
+              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/80 via-white/60 to-blue-50/40 backdrop-blur-xl border border-white/20 shadow-lg shadow-blue-500/10 dark:from-gray-900/80 dark:via-gray-800/60 dark:to-blue-900/20 dark:border-gray-700/30 dark:shadow-blue-500/20"
+              animate={{
+                boxShadow: [
+                  "0 10px 40px rgba(59, 130, 246, 0.1)",
+                  "0 15px 50px rgba(59, 130, 246, 0.15)",
+                  "0 10px 40px rgba(59, 130, 246, 0.1)",
+                ],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              {/* Animated Shimmer effect */}
+              <motion.div
+                className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent dark:via-white/15"
+                animate={{
+                  x: ["-100%", "200%"],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "linear",
+                  repeatDelay: 1,
+                }}
+              />
+              
+              {/* Pulsing background glow */}
+              <motion.div
+                className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/0 via-green-400/0 to-blue-400/0"
+                animate={{
+                  background: [
+                    "radial-gradient(circle at 0% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)",
+                    "radial-gradient(circle at 100% 50%, rgba(34, 197, 94, 0.1) 0%, transparent 50%)",
+                    "radial-gradient(circle at 0% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)",
+                  ],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              
+              <div className="relative p-6 sm:p-8">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                  {/* Star Rating Section */}
+                  <div className="flex flex-col items-center sm:items-start">
+                    <div className="flex items-center gap-1 mb-3">
+                      {[...Array(5)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                          transition={{
+                            duration: 0.5,
+                            delay: 0.4 + i * 0.15,
+                            type: "spring",
+                            stiffness: 200,
+                            damping: 10,
+                          }}
+                          whileHover={{ scale: 1.2, rotate: 15 }}
+                          className="relative"
+                        >
+                          {i < 4 ? (
+                            <motion.svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              className="w-6 h-6 sm:w-7 sm:h-7 text-yellow-400 dark:text-yellow-500"
+                              animate={{
+                                scale: [1, 1.15, 1],
+                                filter: [
+                                  "brightness(1) drop-shadow(0 0 2px rgba(251, 191, 36, 0.5))",
+                                  "brightness(1.4) drop-shadow(0 0 8px rgba(251, 191, 36, 0.8))",
+                                  "brightness(1) drop-shadow(0 0 2px rgba(251, 191, 36, 0.5))",
+                                ],
+                                rotate: [0, 5, -5, 0],
+                              }}
+                              transition={{
+                                duration: 2.5,
+                                repeat: Infinity,
+                                delay: i * 0.3,
+                                ease: "easeInOut",
+                              }}
+                            >
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.956c.3.922-.755 1.688-1.54 1.118l-3.371-2.449a1 1 0 00-1.176 0l-3.371 2.45c-.784.569-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.075 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.274-3.957z" />
+                              {/* Animated glow effect */}
+                              <defs>
+                                <filter id={`glow-${i}`}>
+                                  <feGaussianBlur
+                                    stdDeviation="3"
+                                    result="coloredBlur"
+                                  />
+                                  <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                  </feMerge>
+                                </filter>
+                              </defs>
+                            </motion.svg>
+                          ) : (
+                            <motion.svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              className="w-6 h-6 sm:w-7 sm:h-7 text-yellow-400/40 dark:text-yellow-500/30"
+                              animate={{
+                                opacity: [0.4, 0.7, 0.4],
+                                scale: [1, 1.1, 1],
+                              }}
+                              transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                              }}
+                            >
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.956c.3.922-.755 1.688-1.54 1.118l-3.371-2.449a1 1 0 00-1.176 0l-3.371 2.45c-.784.569-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.075 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.274-3.957z" />
+                            </motion.svg>
+                          )}
+                        </motion.div>
+                      ))}
+                    </div>
+                    
+                    {/* Rating Number with animated gradient */}
+                    <div className="flex items-baseline gap-2">
+                      <motion.span
+                        initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                        animate={{
+                          opacity: 1,
+                          scale: 1,
+                          y: 0,
+                        }}
+                        transition={{
+                          duration: 0.8,
+                          delay: 0.8,
+                          type: "spring",
+                          stiffness: 150,
+                        }}
+                        className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary-blue via-accent-green to-primary-blue bg-[length:200%_100%] bg-clip-text text-transparent dark:from-blue-400 dark:via-green-400 dark:to-blue-400"
+                        style={{
+                          animation: "gradient-shift 5s ease-in-out infinite",
+                        }}
+                      >
+                        4.8
+                      </motion.span>
+                      <motion.span
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 1 }}
+                        className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 font-medium"
+                      >
+                        /5
+                      </motion.span>
+                    </div>
+                  </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-start gap-3">
-              <div
-                className="flex flex-row items-center justify-start"
-                ref={tooltipRef}
-              >
-                <Suspense
-                  fallback={
-                    <div className="w-32 h-8 bg-gray-200 rounded animate-pulse" />
-                  }
-                >
-                  {tooltipVisible && (
-                    <AnimatedTooltipLazy items={trustedPeople} />
-                  )}
-                </Suspense>
-              </div>
-
-              <div className="flex flex-col items-center sm:items-start sm:ml-5">
-                <div className="flex items-center gap-0.5 pb-1">
-                  {[...Array(4)].map((_, i) => (
-                    <svg
-                      key={i}
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      className="w-4 h-4 text-yellow-500"
+                  {/* Text Content with staggered animations */}
+                  <div className="flex-1 text-center sm:text-left">
+                    <motion.p
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        duration: 0.6,
+                        delay: 0.9,
+                        type: "spring",
+                        stiffness: 100,
+                      }}
+                      className="text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium leading-relaxed"
                     >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.956c.3.922-.755 1.688-1.54 1.118l-3.371-2.449a1 1 0 00-1.176 0l-3.371 2.45c-.784.569-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.075 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.274-3.957z" />
-                    </svg>
-                  ))}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    className="w-4 h-4 text-gray-300"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.956c.3.922-.755 1.688-1.54 1.118l-3.371-2.449a1 1 0 00-1.176 0l-3.371 2.45c-.784.569-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.075 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.274-3.957z" />
-                  </svg>
+                      Rated{" "}
+                      <motion.span
+                        className="font-semibold text-primary-blue dark:text-blue-400"
+                        animate={{
+                          scale: [1, 1.1, 1],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: 1.2,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        4.8
+                      </motion.span>{" "}
+                      by{" "}
+                      <motion.span
+                        className="font-semibold text-accent-green dark:text-green-400"
+                        animate={{
+                          scale: [1, 1.1, 1],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: 1.5,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        7+ happy clients
+                      </motion.span>
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        duration: 0.6,
+                        delay: 1,
+                        type: "spring",
+                        stiffness: 100,
+                      }}
+                      className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2"
+                    >
+                      Trusted by healthcare professionals nationwide
+                    </motion.p>
+                  </div>
                 </div>
-
-                <span className="text-xs text-gray-700 mt-1">
-                  Rated{" "}
-                  <span className="font-medium text-primary-blue">4.8/5</span>{" "}
-                  by 7+ clients
-                </span>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* RIGHT SIDE — Animated Section */}
