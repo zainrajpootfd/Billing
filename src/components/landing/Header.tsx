@@ -106,13 +106,14 @@ import {
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
-    { label: "Services", href: "/services" },
-    { label: "Testimonials", href: "/testimonials" },
+    { label: "Services", href: "/services", isDropdown: true },
+    { label: "Resources", href: "/resources", isDropdown: true },
+    { label: "Specialities", href: "/specialities" },
     { label: "About Us", href: "/about" },
-    { label: "Insights", href: "/insights" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -131,11 +132,25 @@ export default function Header() {
     { name: "Webinars & SOP Updates", slug: "webinars-and-sop-updates" },
   ];
 
+  const resourcesList = [
+    { 
+      name: "Insights", 
+      href: "/resources/insights",
+      description: "Stay updated with industry trends, technologies, and strategies transforming medical billing."
+    },
+    { 
+      name: "Testimonials", 
+      href: "/resources/testimonials",
+      description: "Discover how our clients have transformed their billing operations and enhanced revenue."
+    },
+  ];
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsOpen(false);
         setIsServicesOpen(false);
+        setIsResourcesOpen(false);
       }
     };
 
@@ -147,6 +162,22 @@ export default function Header() {
 
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsResourcesOpen(false);
+      }
+    };
+
+    if (isResourcesOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isResourcesOpen]);
 
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-border shadow-sm overflow-visible">
@@ -226,6 +257,57 @@ export default function Header() {
                         </ul>
                       </NavigationMenuContent>
                     </NavigationMenuItem>
+                  ) : item.label === "Resources" ? (
+                    <NavigationMenuItem key={item.label}>
+                      <NavigationMenuTrigger className="text-sm font-medium hover:!bg-primary-blue hover:!text-white transition-colors flex items-center gap-1">
+                        {item.label}
+                      </NavigationMenuTrigger>
+
+                      <NavigationMenuContent
+                        className="!bg-transparent !shadow-none !border-none p-0"
+                        style={{
+                          background: "transparent",
+                          boxShadow: "none",
+                          border: "none",
+                        }}
+                      >
+                        <ul className="grid gap-3 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] p-4 rounded-xl shadow-lg bg-card-default border border-border">
+                          <li className="row-span-2">
+                            <NavigationMenuLink asChild>
+                              <a
+                                href="/resources/insights"
+                                className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b p-4 no-underline outline-hidden transition-all duration-200 select-none focus:shadow-md md:p-6"
+                              >
+                                <div className="mb-2 text-lg font-semibold text-accent-green">
+                                  Our Resources
+                                </div>
+                                <p className="text-muted-foreground text-sm leading-tight">
+                                  Explore our insights and client testimonials to learn how we help healthcare practices succeed.
+                                </p>
+                              </a>
+                            </NavigationMenuLink>
+                          </li>
+
+                          {resourcesList.map((resource) => (
+                            <li key={resource.href}>
+                              <NavigationMenuLink asChild>
+                                <Link
+                                  href={resource.href}
+                                  className="group block rounded-md p-3 transition-colors hover:!bg-primary-blue"
+                                >
+                                  <div className="text-sm font-bold uppercase text-gray-800 group-hover:text-white">
+                                    {resource.name}
+                                  </div>
+                                  <p className="text-sm text-muted-foreground leading-tight group-hover:text-white">
+                                    {resource.description}
+                                  </p>
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
                   ) : (
                     <NavigationMenuItem key={item.label}>
                       <NavigationMenuLink asChild>
@@ -257,6 +339,7 @@ export default function Header() {
             onClick={() => {
               setIsOpen(!isOpen);
               setIsServicesOpen(false);
+              setIsResourcesOpen(false);
             }}
             className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
           >
@@ -293,6 +376,36 @@ export default function Header() {
                           onClick={() => setIsOpen(false)}
                         >
                           {service.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : item.label === "Resources" ? (
+                <div key={item.label} className="space-y-2">
+                  <button
+                    onClick={() => setIsResourcesOpen(!isResourcesOpen)}
+                    className="w-full text-left px-4 py-2 text-sm font-medium text-foreground hover:text-accent-green rounded-lg transition-colors flex justify-between items-center"
+                  >
+                    {item.label}
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform ${
+                        isResourcesOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {isResourcesOpen && (
+                    <div className="ml-4 space-y-1">
+                      {resourcesList.map((resource) => (
+                        <Link
+                          key={resource.href}
+                          href={resource.href}
+                          className="block px-4 py-2 text-sm text-foreground hover:text-accent-green rounded-lg transition-colors"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {resource.name}
                         </Link>
                       ))}
                     </div>

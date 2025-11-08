@@ -94,14 +94,14 @@ export default function AboutUs(): ReactElement {
             return (
               <div
                 key={index}
-                className="p-6 bg-white rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:bg-green-200 hover:text-accent-green animate-fade-in"
+                className="group p-6 bg-white rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:bg-[#004b87] animate-fade-in"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="flex justify-center mb-4 text-blue-600 group-hover:text-white">
+                <div className="flex justify-center mb-4 text-blue-600 group-hover:text-white transition-colors">
                   <Icon size={36} />
                 </div>
-                <h3 className="font-semibold mb-2 text-lg">{value.title}</h3>
-                <p className="text-gray-600 group-hover:text-white">
+                <h3 className="font-semibold mb-2 text-lg text-[#004b87] group-hover:text-white transition-colors">{value.title}</h3>
+                <p className="text-gray-600 group-hover:text-white transition-colors">
                   {value.description}
                 </p>
               </div>

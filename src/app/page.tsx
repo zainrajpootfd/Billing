@@ -29,14 +29,14 @@ export default function Home() {
       <ResultsMetrics />
       <TrustBadges />
       <KPI />
+      <WhyChooseUs />
       <Services />
       <KeyDifferentiators />
-      <WhyChooseUs />
       <HowItWorks />
       <IntegrationPartners />
       <Specialities />
       <CaseStudies />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <HowToGetStarted />
       <FAQ />
       <Associated />

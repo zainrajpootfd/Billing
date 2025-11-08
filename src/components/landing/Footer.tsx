@@ -145,10 +145,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/insights"
+                  href="/specialities"
                   className="hover:text-accent-green transition-colors"
                 >
-                  Insights
+                  Specialities
                 </Link>
               </li>
               <li>
@@ -159,14 +159,7 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-accent-green transition-colors"
-                >
-                  Careers
-                </Link>
-              </li>
+              
             </ul>
           </div>
 

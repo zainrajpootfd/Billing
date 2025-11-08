@@ -62,7 +62,7 @@ export default function InsightsPage() {
               </p>
 
               <Link
-                href={`/insights/${featured.slug}`}
+                href={`/resources/insights/${featured.slug}`}
                 className="inline-flex items-center bg-accent-green hover:bg-[#004b87] text-white font-medium px-6 py-3 rounded-full transition-all duration-300"
               >
                 Read More
@@ -100,7 +100,7 @@ export default function InsightsPage() {
                 <p className="text-gray-700 mb-4 leading-relaxed">{insight.shortDescription}</p>
 
                 <Link
-                  href={`/insights/${insight.slug}`}
+                  href={`/resources/insights/${insight.slug}`}
                   className="inline-flex items-center text-accent-green font-medium hover:underline"
                 >
                   Read More <ArrowRight className="ml-2 h-4 w-4" />
@@ -114,3 +114,4 @@ export default function InsightsPage() {
     </main>
   );
 }
+

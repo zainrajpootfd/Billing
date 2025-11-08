@@ -148,7 +148,7 @@ export default function CaseStudies() {
                 ))}
               </div>
 
-              <Link href="/insights" className="mt-auto">
+              <Link href="/resources/insights" className="mt-auto">
                 <Button
                   variant="outline"
                   className="w-full flex items-center justify-center border-accent-green text-accent-green hover:bg-accent-green hover:text-white"

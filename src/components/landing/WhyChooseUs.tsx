@@ -75,7 +75,7 @@ export default function WhyChooseUs() {
     <section className="py-20 lg:py-32 bg-section-blue-medium">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        {/* <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-primary-blue mb-4">
             Why Choose Encore Billing Group?
           </h2>
@@ -84,8 +84,7 @@ export default function WhyChooseUs() {
             Billing Group handle your billing needs while you focus on what you do
             best—caring for your patients.
           </p>
-        </div>
-
+        </div> */}
         {/* Features Grid */}
         <motion.div
           variants={containerVariants}

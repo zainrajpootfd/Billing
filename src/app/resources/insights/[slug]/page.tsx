@@ -37,7 +37,7 @@ export default function InsightDetail() {
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
           <Link
-            href="/insights"
+            href="/resources/insights"
             className="inline-flex items-center text-[#004b87] hover:text-[#2ba24c] mb-8 font-medium"
           >
             <ArrowLeft className="h-4 w-4 mr-2" /> Back to Insights
@@ -91,7 +91,7 @@ export default function InsightDetail() {
             className="text-center bg-blue-50 p-6 rounded-lg"
           >
             <Link
-              href="/insights"
+              href="/resources/insights"
               className="inline-block bg-accent-green hover:bg-[#004b87] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-md"
             >
               Back to Insights
@@ -102,3 +102,4 @@ export default function InsightDetail() {
     </main>
   );
 }
+
