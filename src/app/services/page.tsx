@@ -148,7 +148,7 @@ export default function ServicesPage(): ReactElement {
                       </div>
                     </div>
 
-                    <CardTitle className="text-2xl font-semibold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors">
+                    <CardTitle className="text-2xl font-semibold mb-3 text-blue-600 transition-colors">
                       <Link href={`/services/${service.slug}`}>
                         {service.title}
                       </Link>
@@ -162,7 +162,7 @@ export default function ServicesPage(): ReactElement {
                   {/* Button */}
                   <CardContent className="p-6 pt-0 mt-auto">
                     <Link href={`/services/${service.slug}`}>
-                      <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg">
+                      <Button className="w-full bg-accent-green text-white font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg">
                         Learn More
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
