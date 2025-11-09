@@ -185,7 +185,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={menuRef}>
         <div className="flex justify-between items-center h-20">
           {/* ✅ Logo (wrapped to keep white background hidden) */}
-          <div className="overflow-hidden rounded-md">
+          <div className="overflow-hidden rounded-md ">
             <Link href="/" className="flex items-center justify-center">
               <Image
                 src="/lOGO Z.png"
@@ -341,9 +341,9 @@ export default function Header() {
               setIsServicesOpen(false);
               setIsResourcesOpen(false);
             }}
-            className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className="lg:hidden p-2 hover:bg-gray-100  transition-colors"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={30} /> : <Menu size={30} />}
           </Button>
         </div>
 
