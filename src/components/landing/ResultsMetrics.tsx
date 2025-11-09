@@ -140,7 +140,7 @@ export default function ResultsMetrics() {
                     <metric.icon className={`w-12 h-12 ${metric.iconColor || "text-gray-600"}`} />
                   </div>
                 )}
-                <div className="text-5xl lg:text-6xl font-bold text-accent-green mb-3">
+                <div className="text-5xl lg:text-6xl font-bold text-primary-blue mb-3">
                   <Counter
                     target={metric.value}
                     suffix={metric.suffix}
@@ -148,7 +148,7 @@ export default function ResultsMetrics() {
                     start={visible}
                   />
                 </div>
-                <p className="text-lg font-semibold text-gray-700">
+                <p className="text-lg font-semibold text-accent-green">
                   {metric.label}
                 </p>
               </div>
