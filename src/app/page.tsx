@@ -27,7 +27,8 @@ export default function Home() {
       <Hero />
       <AuditSection />
       <ResultsMetrics />
-      <TrustBadges />
+      {/* <TrustBadges /> */}
+      <Associated />
       <KPI />
       <WhyChooseUs />
       <Services />
@@ -39,7 +40,6 @@ export default function Home() {
       {/* <Testimonials /> */}
       <HowToGetStarted />
       <FAQ />
-      <Associated />
       <Contact />
       {/* <Footer /> */}
     </div>

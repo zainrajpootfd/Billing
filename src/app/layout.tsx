@@ -4,6 +4,7 @@ import TopBar from "@/components/landing/TopBar";
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
 import WhatsAppButton from "@/components/landing/WhatsappButton";
+import FloatingContactButton from "@/components/landing/FloatingContactButton";
 import { Toaster } from "@/components/ui/sonner";
 import { roboto, lato } from "@/lib/fonts";
 import "./globals.css";
@@ -39,6 +40,7 @@ export default function RootLayout({
         {children}
         <Toaster richColors position="top-right" />
 
+        <FloatingContactButton />
         <WhatsAppButton />
         <Footer />
       </body>
