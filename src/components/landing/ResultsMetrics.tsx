@@ -7,7 +7,7 @@ import {
   Target,
   TrendingUp,
   DollarSign,
-  Shield,
+  ShieldCheck,
   Clock,
   LucideIcon,
 } from "lucide-react";
@@ -25,7 +25,7 @@ const metrics: Metric[] = [
   { value: "98", label: "Accuracy Rate", suffix: "%", icon: Target, iconColor: "text-purple-600" },
   { value: "30", label: "Revenue Increase", suffix: "%", icon: TrendingUp, iconColor: "text-orange-600" },
   { value: "25", label: "Cost Reduction", suffix: "%", icon: DollarSign, iconColor: "text-emerald-600" },
-  { value: "100", label: "HIPAA Compliant", suffix: "%", icon: Shield, iconColor: "text-indigo-600" },
+  { value: "100", label: "HIPAA Compliant", suffix: "%", icon: ShieldCheck, iconColor: "text-indigo-600" },
   { value: "37", label: "Days in A/R", suffix: "<", icon: Clock, iconColor: "text-cyan-600" },
 ];
 
