@@ -111,8 +111,8 @@ export default function Header() {
 
   const navItems = [
     { label: "Services", href: "/services", isDropdown: true },
-    { label: "Resources", href: "/resources", isDropdown: true },
     { label: "Specialities", href: "/specialities" },
+    { label: "Resources", href: "/resources", isDropdown: true },
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
