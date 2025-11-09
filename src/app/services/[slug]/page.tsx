@@ -208,13 +208,13 @@ export default function ServiceDetailPage(): ReactElement {
               practice
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:512-988-4965">
+              <a href="tel:5127047074">
                 <Button
                   size="lg"
                   className="bg-accent-green text-white hover:bg-[#004b87] text-lg px-8 py-6"
                 >
                   <Phone className="mr-2 h-5 w-5" />
-                  Call 512-988-4965
+                  Call 512-704-7074
                 </Button>
               </a>
               <Link href="/contact">
