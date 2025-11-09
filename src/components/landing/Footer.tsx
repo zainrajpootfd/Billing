@@ -39,7 +39,7 @@ export default function Footer() {
                 </div>
               </div>
 
-              <p className="text-accent-green text-[10px] sm:text-xs font-medium mt-1 tracking-wider uppercase mb-2">
+              <p className="text-white/90 text-[10px] sm:text-xs font-medium mt-1 tracking-wider uppercase mb-2">
                 Excellence in Billing
               </p>
             </Link>
