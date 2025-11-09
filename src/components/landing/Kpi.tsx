@@ -65,7 +65,7 @@ function Counter({
         animating ? "scale-110" : "scale-100"
       }`}
       style={{
-        color: "#008736", // brand green
+        color: "#004B87", // brand blue
         // textShadow: animating
         //   ? "0 0 12px rgba(200, 16, 16, 0.6)"
         //   : "0 0 0 rgba(0,0,0,0)",
@@ -144,14 +144,14 @@ export default function KPI() {
                   className="text-center p-6 bg-card-default backdrop-blur-xl rounded-xl shadow-sm hover:shadow-md transition-shadow animate-scale-in border border-border/50"
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
-                  <div className="text-4xl lg:text-5xl font-bold mb-2">
+                  <div className="text-4xl lg:text-5xl font-bold mb-2 ">
                     <Counter
                       target={kpi.value}
                       suffix={kpi.suffix}
                       start={visible}
                     />
                   </div>
-                  <p className="text-gray-700 font-medium">{kpi.label}</p>
+                  <p className="text-accent-green font-bold">{kpi.label}</p>
                 </div>
               ))}
             </div>
@@ -161,3 +161,4 @@ export default function KPI() {
     </section>
   );
 }
+ 
