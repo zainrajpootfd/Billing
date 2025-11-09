@@ -83,26 +83,31 @@ export default function FloatingContactButton() {
                               e.preventDefault();
                               const form = e.currentTarget;
                               const formData = new FormData(form);
-                              const FORM_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID!;
 
                               try {
-                                await fetch(`https://formspree.io/f/${FORM_ID}`, {
+                                const response = await fetch("https://formspree.io/f/myznrvvj", {
                                   method: "POST",
                                   body: formData,
                                   headers: { Accept: "application/json" },
-                                  mode: "no-cors",
                                 });
 
-                                form.reset();
-                                const { toast } = await import("sonner");
-                                toast.success("✅ Message Sent!", {
-                                  description: "We've received your request and will get back to you soon.",
-                                });
-                                setIsModalOpen(false);
+                                if (response.ok) {
+                                  form.reset();
+                                  const { toast } = await import("sonner");
+                                  toast.success("✅ Message Sent!", {
+                                    description: "We've received your message and will get back with you soon.",
+                                  });
+                                  setIsModalOpen(false);
+                                } else {
+                                  const { toast } = await import("sonner");
+                                  toast.error("⚠️ Something went wrong!", {
+                                    description: "Please try again later.",
+                                  });
+                                }
                               } catch (error) {
                                 const { toast } = await import("sonner");
-                                toast.error("⚠️ Network Error!", {
-                                  description: "Unable to send message. Please check your connection.",
+                                toast.error("⚠️ Network error!", {
+                                  description: "Please check your internet connection.",
                                 });
                               }
                             }}
