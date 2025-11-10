@@ -14,7 +14,7 @@ const kpis: KPIItem[] = [
   { value: "30", label: "Revenue Increase", suffix: "%" },
   { value: "13", label: "Years With You" , suffix: "+"},
   { value: "50", label: "States Served" },
-  { value: "10", label: "HIPAA Compliant", },
+  { value: "100", label: "HIPAA Compliant", },
 ];
 
 function Counter({
