@@ -205,7 +205,7 @@ export default function Header() {
                 {navItems.map((item) =>
                   item.label === "Services" ? (
                     <NavigationMenuItem key={item.label}>
-                      <NavigationMenuTrigger className="text-sm font-medium hover:!bg-primary-blue hover:!text-white transition-colors flex items-center gap-1">
+                      <NavigationMenuTrigger className="text-sm font-bold hover:!bg-primary-blue hover:!text-white transition-colors flex items-center gap-1">
                         {item.label}
                       </NavigationMenuTrigger>
 
@@ -259,7 +259,7 @@ export default function Header() {
                     </NavigationMenuItem>
                   ) : item.label === "Resources" ? (
                     <NavigationMenuItem key={item.label}>
-                      <NavigationMenuTrigger className="text-sm font-medium hover:!bg-primary-blue hover:!text-white transition-colors flex items-center gap-1">
+                      <NavigationMenuTrigger className="text-sm font-bold hover:!bg-primary-blue hover:!text-white transition-colors flex items-center gap-1">
                         {item.label}
                       </NavigationMenuTrigger>
 
@@ -313,7 +313,7 @@ export default function Header() {
                       <NavigationMenuLink asChild>
                         <Link
                           href={item.href}
-                          className="text-sm font-medium text-foreground hover:!bg-primary-blue hover:text-white transition-colors"
+                          className="text-sm font-bold text-foreground hover:!bg-primary-blue hover:text-white transition-colors"
                         >
                           {item.label}
                         </Link>
@@ -355,7 +355,7 @@ export default function Header() {
                 <div key={item.label} className="space-y-2">
                   <button
                     onClick={() => setIsServicesOpen(!isServicesOpen)}
-                    className="w-full text-left px-4 py-2 text-sm font-medium text-foreground hover:text-accent-green rounded-lg transition-colors flex justify-between items-center"
+                    className="w-full text-left px-4 py-2 text-sm font-bold text-foreground hover:text-accent-green rounded-lg transition-colors flex justify-between items-center"
                   >
                     {item.label}
                     <ChevronDown
@@ -385,7 +385,7 @@ export default function Header() {
                 <div key={item.label} className="space-y-2">
                   <button
                     onClick={() => setIsResourcesOpen(!isResourcesOpen)}
-                    className="w-full text-left px-4 py-2 text-sm font-medium text-foreground hover:text-accent-green rounded-lg transition-colors flex justify-between items-center"
+                    className="w-full text-left px-4 py-2 text-sm font-bold text-foreground hover:text-accent-green rounded-lg transition-colors flex justify-between items-center"
                   >
                     {item.label}
                     <ChevronDown
@@ -415,7 +415,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="block px-4 py-2 text-sm font-medium text-foreground hover:text-accent-green rounded-lg transition-colors"
+                  className="block px-4 py-2 text-sm font-bold text-foreground hover:text-accent-green rounded-lg transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
