@@ -18,12 +18,10 @@ import KeyDifferentiators from "@/components/landing/KeyDifferentiators";
 import IntegrationPartners from "@/components/landing/IntegrationPartners";
 import CaseStudies from "@/components/landing/CaseStudies";
 import HowToGetStarted from "@/components/landing/HowToGetStarted";
-import MaintenanceWrapper from "@/components/landing/MaintenanceWrapper";
 
 export default function Home() {
   return (
     <div className="min-h-screen mx-auto">
-      <MaintenanceWrapper>
         {/* <TopBar />
       <Header /> */}
         <Hero />
@@ -44,7 +42,6 @@ export default function Home() {
         <FAQ />
         <Contact />
         {/* <Footer /> */}
-      </MaintenanceWrapper>
     </div>
   );
 }
