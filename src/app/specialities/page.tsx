@@ -1,43 +1,119 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Heart, Brain, Bone, Eye, Stethoscope, Zap, CheckCircle2, TrendingUp, Users, Award, Phone, Mail, ArrowRight } from "lucide-react";
+import {
+  Activity,
+  Ambulance,
+  Award,
+  Baby,
+  Bandage,
+  BarChart3,
+  BedDouble,
+  BedSingle,
+  Beaker,
+  Biohazard,
+  Bone,
+  BookOpen,
+  Brain,
+  Building2,
+  ChartLine,
+  CheckCircle2,
+  ClipboardCheck,
+  ClipboardList,
+  ClipboardPen,
+  DollarSign,
+  Eye,
+  FileCheck,
+  FileText,
+  Files,
+  FlaskConical,
+  Globe2,
+  GraduationCap,
+  Heart,
+  HeartPulse,
+  Home,
+  Hospital,
+  Mail,
+  Microscope,
+  Monitor,
+  Phone,
+  Pill,
+  RefreshCw,
+  Scale,
+  Smartphone,
+  Stethoscope,
+  Syringe,
+  TestTube,
+  Thermometer,
+  TrendingUp,
+  Users,
+  UserCircle2,
+  UserRound,
+  Zap,
+  Shield,
+  FolderOpen,
+  FolderKanban,
+  ArrowRight,
+  Dna,
+} from "lucide-react";
+import Image from "next/image";
 import { motion, Variants } from "framer-motion";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+// Expanded list of medical specialties based on your requirements
+// Names are displayed with unique icons only (no descriptions shown in the UI)
 const specialities = [
-  {
-    icon: Heart,
-    name: "Cardiology",
-    description: "Specialized billing for cardiac care",
-  },
-  {
-    icon: Brain,
-    name: "Neurology",
-    description: "Expert handling of neurological services",
-  },
-  {
-    icon: Bone,
-    name: "Orthopedics",
-    description: "Comprehensive orthopedic billing",
-  },
-  {
-    icon: Eye,
-    name: "Ophthalmology",
-    description: "Specialized eye care billing center",
-  },
-  {
-    icon: Stethoscope,
-    name: "Internal Medicine",
-    description: "General internal medicine billing services",
-  },
-  {
-    icon: Zap,
-    name: "Emergency Medicine",
-    description: "Urgent care and ER billing instant",
-  },
+  { icon: Ambulance, name: "Ambulatory Surgery", description: "" },
+  { icon: HeartPulse, name: "Cardiology", description: "" },
+  { icon: ClipboardList, name: "Census Entry", description: "" },
+  { icon: Microscope, name: "Clinical Lab", description: "" },
+  { icon: DollarSign, name: "Dental Billing", description: "" },
+  { icon: Bandage, name: "Dermatology", description: "" },
+  { icon: Award, name: "For Disabled", description: "" },
+  { icon: Bone, name: "DME", description: "" },
+  { icon: TestTube, name: "Endocrinology", description: "" },
+  { icon: Home, name: "Family Practice", description: "" },
+  { icon: Building2, name: "FQHC", description: "" },
+  { icon: Stethoscope, name: "Gastroenterology", description: "" },
+  { icon: Activity, name: "General Surgery", description: "" },
+  { icon: BedSingle, name: "Geriatrics", description: "" },
+  { icon: Beaker, name: "Hematology", description: "" },
+  { icon: FlaskConical, name: "Hepatology", description: "" },
+  { icon: Users, name: "Home Health", description: "" },
+  { icon: BedDouble, name: "Hospice", description: "" },
+  { icon: Shield, name: "Immunology", description: "" },
+  { icon: Biohazard, name: "Infectious Disease", description: "" },
+  { icon: Thermometer, name: "Internal Medicine", description: "" },
+  { icon: Hospital, name: "Medical Clinics", description: "" },
+  { icon: UserCircle2, name: "Mental Health", description: "" },
+  { icon: Globe2, name: "Molecular Labs", description: "" },
+  { icon: Scale, name: "Nephrology", description: "" },
+  { icon: Brain, name: "Neurosurgery", description: "" },
+  { icon: Files, name: "Nursing Home", description: "" },
+  { icon: Baby, name: "Ob Gyn", description: "" },
+  { icon: TrendingUp, name: "Oncology", description: "" },
+  { icon: Eye, name: "Ophthalmology", description: "" },
+  { icon: Pill, name: "Pain Management", description: "" },
+  { icon: ClipboardCheck, name: "Pathology", description: "" },
+  { icon: BookOpen, name: "Pediatric", description: "" },
+  { icon: RefreshCw, name: "Physical Therapy", description: "" },
+  { icon: FileText, name: "Podiatry", description: "" },
+  { icon: FileCheck, name: "Prostheses", description: "" },
+  { icon: UserRound, name: "Psychiatric", description: "" },
+  { icon: GraduationCap, name: "Psychology", description: "" },
+  { icon: BarChart3, name: "Pulmonology", description: "" },
+  { icon: Monitor, name: "Radiology", description: "" },
+  { icon: ClipboardPen, name: "Rheumatology", description: "" },
+  { icon: FolderOpen, name: "Rehab", description: "" },
+  { icon: Syringe, name: "Thoracic Surgery", description: "" },
+  { icon: ChartLine, name: "Toxicology", description: "" },
+  { icon: Zap, name: "Traumatology", description: "" },
+  { icon: Smartphone, name: "Urgent Care", description: "" },
+  { icon: FolderKanban, name: "Urology", description: "" },
+  { icon: Heart, name: "Wound Care", description: "" },
+  {icon: Dna,name: "Chiropractic"}
 ];
 
 const containerVariants: Variants = {
@@ -91,14 +167,48 @@ export default function SpecialitiesPage() {
   return (
     <main className="bg-white text-[#004b87] min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-blue-50 py-20 px-6 md:px-20 text-center animate-fade-in">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#004b87]">
+      <section className="relative overflow-hidden py-20 px-6 md:px-20 text-center animate-fade-in">
+        {/* Background medical image with soft gradient overlay */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="/medical.jpg"
+            alt="Healthcare professionals collaborating in a clinical setting"
+            fill
+            priority
+            className="object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-blue-50/90" />
+        </div>
+
+        <div className="relative max-w-4xl mx-auto space-y-6">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary-blue shadow-sm">
+            <span className="h-2 w-2 rounded-full bg-accent-green animate-pulse" />
+            50+ Medical Specialties
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#004b87] leading-tight">
             Medical Specialities We Serve
           </h1>
-          <p className="text-lg md:text-xl text-gray-700">
-            Expert billing solutions for every medical specialty
+
+          <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
+            Purpose-built billing support for every type of practice, from ambulatory
+            surgery centers to multi-specialty clinics.
           </p>
+
+          <div className="mt-4 flex flex-wrap justify-center gap-4 text-sm text-gray-700">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 shadow-sm">
+              <Activity className="h-4 w-4 text-accent-green" />
+              <span>Higher Clean-Claim Rate</span>
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 shadow-sm">
+              <BarChart3 className="h-4 w-4 text-primary-blue" />
+              <span>RCM-Driven Insights</span>
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 shadow-sm">
+              <Shield className="h-4 w-4 text-accent-green" />
+              <span>Compliant First</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -110,7 +220,7 @@ export default function SpecialitiesPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
           >
             {specialities.map((spec, idx) => {
               const Icon = spec.icon;
@@ -128,21 +238,19 @@ export default function SpecialitiesPage() {
                       cardRefs.current[idx] = el;
                     }}
                   >
-                    <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer bg-card-default border border-border hover:border-secondary/30">
-                      <CardHeader className="flex flex-col items-start">
-                        <div className="mb-4 p-4 bg-accent-green/10 rounded-lg w-fit group-hover:bg-accent-green/20 transition-all">
+                    <Card className="group relative h-full overflow-hidden rounded-xxl border border-border/70 bg-white/85 backdrop-blur-sm shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+                      <CardHeader className="flex flex-col items-center gap-3 pb-5 pt-6 text-center">
+                      <div className="inline-flex items-center justify-center rounded-xl text-cyan-700 p-3 transition-colors duration-300">
+
                           <Icon
-                            className="text-accent-green group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300"
-                            size={32}
+                            className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+                            size={40}
                           />
                         </div>
-                        <CardTitle className="text-xl font-semibold text-primary-blue mb-2">
+                        <CardTitle className="text-lg font-bold text-primary-blue leading-snug">
                           {spec.name}
                         </CardTitle>
                       </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-700">{spec.description}</p>
-                      </CardContent>
                     </Card>
                   </div>
                 </motion.div>
