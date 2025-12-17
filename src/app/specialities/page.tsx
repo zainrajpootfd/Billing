@@ -222,7 +222,10 @@ export default function SpecialitiesPage() {
             viewport={{ once: true }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
           >
-            {specialities.map((spec, idx) => {
+            {specialities
+              .slice()
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((spec, idx) => {
               const Icon = spec.icon;
               return (
                 <motion.div
@@ -240,11 +243,9 @@ export default function SpecialitiesPage() {
                   >
                     <Card className="group relative h-full overflow-hidden rounded-xxl border border-border/70 bg-white/85 backdrop-blur-sm shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
                       <CardHeader className="flex flex-col items-center gap-3 pb-5 pt-6 text-center">
-                      <div className="inline-flex items-center justify-center rounded-xl text-cyan-700 p-3 transition-colors duration-300">
-
+                        <div className="inline-flex items-center justify-center rounded-xl text-cyan-700 p-3 transition-colors duration-300">
                           <Icon
-                            className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
-                            size={40}
+                            className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14"
                           />
                         </div>
                         <CardTitle className="text-lg font-bold text-primary-blue leading-snug">
